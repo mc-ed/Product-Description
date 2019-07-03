@@ -1,17 +1,17 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 class ProductDesc extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
-        
+    this.state = {  
+        string: 'this is a string!'
      };
   }
 
   render() {
     return (
-      <p>Hello World!</p>
+      <p>{ this.state.string }</p>
     );
   }
 }
