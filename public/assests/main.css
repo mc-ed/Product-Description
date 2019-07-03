@@ -1,0 +1,22 @@
+@font-face {
+    font-family: LowesFont;
+    src: url(./lowes-font.woff);
+  }
+
+  @font-face {
+    font-family: LowesIcons;
+    src: url(./lowes-icons.woff);
+  }
+
+html body {
+    font-family: LowesFont;
+}
+
+body, h4, h5, h6, p {
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.iconFont {
+    font-family: LowesIcons;
+    color: white;
+}

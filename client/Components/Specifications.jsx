@@ -1,46 +1,80 @@
 import React from "react";
 
-function Specifications() {
+function Specifications(props) {
+  const { backgroundColor } = props.style.lowesMedBackground;
   return (
-    <div class="card">
-      <div class="card-header" id="headingOne">
-        <h5 class="mb-0">
-          <button
-            class="btn btn-link"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
-          >
-            Specifications
-          </button>
-        </h5>
+    <div className="card">
+      <div
+        style={{ backgroundColor, cursor: "pointer" }}
+        className="card-header"
+        id="headingTwo"
+        data-toggle="collapse"
+        data-target="#collapseTwo"
+        aria-expanded="true"
+        aria-controls="collapseTwo"
+      >
+        <span className="iconFont">M </span>
+        <span className="text-white font-weight-bold">Specifications</span>
+        <span className="float-right iconFont">Z</span>
       </div>
 
       <div
-        id="collapseOne"
-        class="collapse show"
-        aria-labelledby="headingOne"
+        id="collapseTwo"
+        className="collapse"
+        aria-labelledby="headingTwo"
         data-parent="#accordionExample"
       >
-        <div class="card-body">
-          <table class="table">
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="card-body">
+          <div className="row">
+            <div className="col">
+              <table className="table table-borderless">
+                <tbody>
+                  <tr>
+                    <th className="bg-light font-weight-bold" scope="row">
+                      Spec 1
+                    </th>
+                    <td>Spec 1 Value</td>
+                  </tr>
+                  <tr>
+                    <th className="bg-light font-weight-bold" scope="row">
+                      Spec 2
+                    </th>
+                    <td>Spec 2 Value</td>
+                  </tr>
+                  <tr>
+                    <th className="bg-light font-weight-bold" scope="row">
+                      Spec 3
+                    </th>
+                    <td>Spec 3 Value</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="col">
+              <table className="table table-borderless">
+                <tbody>
+                  <tr>
+                    <th className="bg-light font-weight-bold" scope="row">
+                      Spec 4
+                    </th>
+                    <td>Spec 4 Value</td>
+                  </tr>
+                  <tr>
+                    <th className="bg-light font-weight-bold" scope="row">
+                      Spec 5
+                    </th>
+                    <td>Spec 5 Value</td>
+                  </tr>
+                  <tr>
+                    <th className="bg-light font-weight-bold" scope="row">
+                      Spec 6
+                    </th>
+                    <td>Spec 6 Value</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>

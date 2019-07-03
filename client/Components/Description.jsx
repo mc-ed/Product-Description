@@ -1,35 +1,35 @@
 import React from "react";
 
-function Description() {
+function Description(props) {
+  const { backgroundColor } = props.style.lowesMedBackground;
   return (
     <div className="card">
-      <div className="card-header" id="headingOne">
-        <h5 className="mb-0">
-          <button
-            className="btn btn-link"
-            type="button"
-            data-toggle="collapse"
-            data-target="#collapseOne"
-            aria-expanded="true"
-            aria-controls="collapseOne"
-          >
-            Description
-          </button>
-        </h5>
+      <div
+        style={{ backgroundColor, cursor: "pointer" }}
+        className="card-header"
+        id="headingOne"
+        data-toggle="collapse"
+        data-target="#collapseOne"
+        aria-expanded="true"
+        aria-controls="collapseOne"
+      >
+        <span className="iconFont">K </span>
+        <span className="text-white font-weight-bold">Description</span>
+        <span className="float-right iconFont">Z</span>
       </div>
 
       <div
         id="collapseOne"
-        className="collapse show"
+        className="collapse"
         aria-labelledby="headingOne"
         data-parent="#accordionExample"
       >
         <div className="card-body">
           <ul>
-            <li>Spec 1</li>
-            <li>Spec 2</li>
-            <li>Spec 3</li>
-            <li>Spec 4</li>
+            <li>Description 1</li>
+            <li>Description 2</li>
+            <li>Description 3</li>
+            <li>Description 4</li>
           </ul>
         </div>
       </div>
