@@ -1,22 +1,73 @@
 @font-face {
-    font-family: LowesFont;
-    src: url(./lowes-font.woff);
-  }
-
-  @font-face {
-    font-family: LowesIcons;
-    src: url(./lowes-icons.woff);
-  }
-
-html body {
-    font-family: LowesFont;
+  font-family: LowesFont;
+  src: url(./lowes-font.woff);
 }
 
-body, h4, h5, h6, p {
-    font-family: Helvetica,Arial,sans-serif;
+@font-face {
+  font-family: LowesIcons;
+  src: url(./lowes-icons.woff);
+}
+
+html body {
+  font-family: LowesFont;
+}
+
+body,
+h4,
+h5,
+h6,
+p {
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .iconFont {
-    font-family: LowesIcons;
-    color: white;
+  font-family: LowesIcons;
+  color: white;
+}
+
+.stars5::after {
+  font-family: LowesIcons;
+  content: "\ECE2\ECE2\ECE2\ECE2\ECE2";
+}
+.stars4::after {
+  font-family: LowesIcons;
+  content: "\ECE2\ECE2\ECE2\ECE2\ECE0";
+}
+.stars3::after {
+  font-family: LowesIcons;
+  content: "\ECE2\ECE2\ECE2\ECE0\ECE0";
+}
+
+.stars2::after {
+  font-family: LowesIcons;
+  content: "\ECE2\ECE2\ECE0\ECE0\ECE0";
+}
+
+.stars1::after {
+  font-family: LowesIcons;
+  content: "\ECE2\ECE0\ECE0\ECE0\ECE0";
+}
+
+.checkMark::after {
+  font-family: LowesIcons;
+  color: green;
+  content: "\ED6F";
+}
+
+.crossMark::after {
+  font-family: LowesIcons;
+  color: red;
+  content: "\ED6A";
+}
+
+.plusSign::after {
+  font-family: LowesIcons;
+  color: white;
+  content: "\ED5A";
+}
+
+.minusSign::after {
+  font-family: LowesIcons;
+  color: white;
+  content: "\ED5B";
 }

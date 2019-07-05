@@ -1,9 +1,18 @@
 import React from "react";
+import uuidv4 from 'uuid/v4';
+import SpecItem from './SpecItem.jsx'
 
 function Specifications(props) {
   const { backgroundColor } = props.style.lowesMedBackground;
+  let { specs } = props;
+
+  specs = specs.map(spec => <SpecItem key={ uuidv4() } spec={ spec } />)
+  let [columnA, columnB] = [specs.slice(0, Math.floor(specs.length /2)), specs.slice(Math.floor(specs.length /2))];
+
+  const signToggle = document.querySelector('span[data="toggleSpecificationsSign"]');
+
   return (
-    <div className="card">
+    <div onClick={ ()=> { props.onClick(signToggle) } } className="card">
       <div
         style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
@@ -13,9 +22,9 @@ function Specifications(props) {
         aria-expanded="true"
         aria-controls="collapseTwo"
       >
-        <span className="iconFont">M </span>
+        <span className="iconFont">{ '\u004D ' }</span>
         <span className="text-white font-weight-bold">Specifications</span>
-        <span className="float-right iconFont">Z</span>
+        <span data='toggleSpecificationsSign' className="float-right plusSign"></span>
       </div>
 
       <div
@@ -29,48 +38,14 @@ function Specifications(props) {
             <div className="col">
               <table className="table table-borderless">
                 <tbody>
-                  <tr>
-                    <th className="bg-light font-weight-bold" scope="row">
-                      Spec 1
-                    </th>
-                    <td>Spec 1 Value</td>
-                  </tr>
-                  <tr>
-                    <th className="bg-light font-weight-bold" scope="row">
-                      Spec 2
-                    </th>
-                    <td>Spec 2 Value</td>
-                  </tr>
-                  <tr>
-                    <th className="bg-light font-weight-bold" scope="row">
-                      Spec 3
-                    </th>
-                    <td>Spec 3 Value</td>
-                  </tr>
+                 { columnA }
                 </tbody>
               </table>
             </div>
             <div className="col">
               <table className="table table-borderless">
                 <tbody>
-                  <tr>
-                    <th className="bg-light font-weight-bold" scope="row">
-                      Spec 4
-                    </th>
-                    <td>Spec 4 Value</td>
-                  </tr>
-                  <tr>
-                    <th className="bg-light font-weight-bold" scope="row">
-                      Spec 5
-                    </th>
-                    <td>Spec 5 Value</td>
-                  </tr>
-                  <tr>
-                    <th className="bg-light font-weight-bold" scope="row">
-                      Spec 6
-                    </th>
-                    <td>Spec 6 Value</td>
-                  </tr>
+                  { columnB }
                 </tbody>
               </table>
             </div>

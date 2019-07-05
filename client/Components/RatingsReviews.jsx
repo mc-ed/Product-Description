@@ -2,8 +2,9 @@ import React from "react";
 
 function RatingsReviews(props) {
   const { backgroundColor } = props.style.lowesMedBackground;
+  const signToggle = document.querySelector('span[data="toggleRatingsReviewsSign"]');
   return (
-    <div className="card">
+    <div onClick={ ()=> { props.onClick(signToggle) } } className="card">
       <div
         style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
@@ -13,9 +14,9 @@ function RatingsReviews(props) {
         aria-expanded="true"
         aria-controls="collapseThree"
       >
-        <span className="iconFont">Z </span>
+        <span className="iconFont">{ '\uECE0 ' }</span>
         <span className="text-white font-weight-bold">Reviews and Ratings</span>
-        <span className="float-right iconFont">Z</span>
+        <span data='toggleRatingsReviewsSign' className="float-right plusSign"></span>
       </div>
 
       <div
