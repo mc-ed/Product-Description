@@ -71,3 +71,77 @@ p {
   color: white;
   content: "\ED5B";
 }
+
+.lowesButton {
+  padding: 8px 16px;
+  border: solid lightgrey 1px;
+  cursor: pointer;
+  color: #0471af;
+}
+
+.lowesButton:hover {
+  background-color: #f2f2f2;
+}
+
+.bg-grey {
+  background-color: #f2f2f2;
+}
+
+.bg-lowes {
+  background-color: #0471af !important;
+}
+
+.text-lowes {
+  color: #0471af;
+}
+
+.wrapper {
+  height: 100px;
+  overflow: hidden;
+  /* this needs to change */
+}
+
+.wrapper:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.35em;
+}
+
+.content {
+  display: inline-block;
+}
+
+.select-box {
+  height: 36px;
+  width: 100%;
+  font-size: 14px;
+  font-size: 1rem;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0 0 0 10px;
+}
+
+.fadeout {
+  position : relative;
+}
+
+.fadeout:after {
+  content  : "";
+  position : absolute;
+  z-index  : 1;
+  bottom   : 0;
+  left     : 0;
+  pointer-events   : none;
+  background-image : linear-gradient(to bottom, 
+                    rgba(255,255,255, 0), 
+                    rgba(255,255,255, 1) 90%);
+  width    : 100%;
+  height   : 4em;
+}

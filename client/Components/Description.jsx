@@ -1,19 +1,25 @@
 import React from "react";
-import uuidv4 from 'uuid/v4';
+import uuidv4 from "uuid/v4";
 
 function Description(props) {
   const { backgroundColor } = props.style.lowesMedBackground;
-  const items = props.descriptions.length ? 
-  (
-    props.descriptions.map(item => <li key={ uuidv4() }>{item}</li>)
+  const items = props.descriptions.list && props.descriptions.list.length ? (
+    props.descriptions.list.map(item => <li key={uuidv4()}>{item}</li>)
   ) : (
     <div>Sorry, there is no descriptions for this product</div>
-  )
+  );
 
-  const signToggle = document.querySelector('span[data="toggleDescriptionSign"]');
-  
+  const signToggle = document.querySelector(
+    'span[data="toggleDescriptionSign"]'
+  );
+
   return (
-    <div onClick={ ()=> { props.onClick(signToggle) } } className="card">
+    <div
+      onClick={() => {
+        props.onClick(signToggle);
+      }}
+      className="card"
+    >
       <div
         style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
@@ -23,9 +29,9 @@ function Description(props) {
         aria-expanded="true"
         aria-controls="collapseOne"
       >
-        <span className="iconFont">{ '\u004B ' }</span>
+        <span className="iconFont">{"\u004B "}</span>
         <span className="text-white font-weight-bold">Description</span>
-        <span data='toggleDescriptionSign' className="float-right plusSign"></span>
+        <span data="toggleDescriptionSign" className="float-right plusSign" />
       </div>
 
       <div
@@ -35,9 +41,12 @@ function Description(props) {
         data-parent="#accordionExample"
       >
         <div className="card-body">
-          <ul>
-            { items }
-          </ul>
+          <div className="row">
+            <div className="col">{ props.descriptions.overview }</div>
+            <div className="col">
+              <ul>{items}</ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

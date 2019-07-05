@@ -1,10 +1,18 @@
 import React from "react";
+import ReviewItem from './ReviewItem.jsx'
 
 function RatingsReviews(props) {
   const { backgroundColor } = props.style.lowesMedBackground;
-  const signToggle = document.querySelector('span[data="toggleRatingsReviewsSign"]');
+  const signToggle = document.querySelector(
+    'span[data="toggleRatingsReviewsSign"]'
+  );
   return (
-    <div onClick={ ()=> { props.onClick(signToggle) } } className="card">
+    <div
+      onClick={() => {
+        props.onClick(signToggle);
+      }}
+      className="card"
+    >
       <div
         style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
@@ -14,9 +22,12 @@ function RatingsReviews(props) {
         aria-expanded="true"
         aria-controls="collapseThree"
       >
-        <span className="iconFont">{ '\uECE0 ' }</span>
+        <span className="iconFont">{"\uECE0 "}</span>
         <span className="text-white font-weight-bold">Reviews and Ratings</span>
-        <span data='toggleRatingsReviewsSign' className="float-right plusSign"></span>
+        <span
+          data="toggleRatingsReviewsSign"
+          className="float-right plusSign"
+        />
       </div>
 
       <div
@@ -27,107 +38,145 @@ function RatingsReviews(props) {
       >
         <div className="card-body">
           <div data="component container">
-            <div data="header container">
-              <h4>Ratings Summary</h4>
-              <div data="summary section container">
-                <div data="percent recommended container">
-                  <div>94%</div>
-                  <div>Recommended this product</div>
+            <div data="container-fluid">
+              <h6 className="font-weight-bold">Ratings Summary</h6>
+              <div className="row">
+                <div
+                  className="col-2 text-center bg-grey"
+                  style={{ padding: "16px" }}
+                >
+                  <h2 className="font-weight-bold">94%</h2>
+                  <div className="font-weight-bold">
+                    Recommended this product
+                  </div>
                   <div>of 104 reviews</div>
                 </div>
-                <div data="average rating container">
+                <div className="col-2 text-center" style={{ padding: "16px" }}>
                   <div>109 Ratings</div>
-                  <i data="star graphic">*****</i>
-                  <div>5.0 Average</div>
+                  <div className="stars5" />
+                  <small>5.0 Average</small>
                 </div>
-                <div data="star breakdown container">
-                  <div data="single star container">
-                    <div>5 Stars</div>
-                    <div>Progress Bar</div>
-                    <div>89</div>
+                <div className="col-6">
+                  <div className="row no-gutters">
+                    <div className="col-2">
+                      <div className="stars5" />
+                    </div>
+                    <div className="col-10">
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-lowes"
+                          role="progressbar"
+                          style={{ width: "89%" }}
+                          aria-valuenow="89"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                          89
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div data="single star container">
-                    <div>4 Stars</div>
-                    <div>Progress Bar</div>
-                    <div>89</div>
+                  <div className="row no-gutters">
+                    <div className="col-2">
+                      <div className="stars4" />
+                    </div>
+                    <div className="col-10">
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-lowes"
+                          role="progressbar"
+                          style={{ width: "89%" }}
+                          aria-valuenow="89"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                          89
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div data="single star container">
-                    <div>3 Stars</div>
-                    <div>Progress Bar</div>
-                    <div>89</div>
+                  <div className="row no-gutters">
+                    <div className="col-2">
+                      <div className="stars3" />
+                    </div>
+                    <div className="col-10">
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-lowes"
+                          role="progressbar"
+                          style={{ width: "89%" }}
+                          aria-valuenow="89"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                          89
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div data="single star container">
-                    <div>2 Stars</div>
-                    <div>Progress Bar</div>
-                    <div>89</div>
+                  <div className="row no-gutters">
+                    <div className="col-2">
+                      <div className="stars2" />
+                    </div>
+                    <div className="col-10">
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-lowes"
+                          role="progressbar"
+                          style={{ width: "89%" }}
+                          aria-valuenow="89"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                          89
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div data="single star container">
-                    <div>1 Stars</div>
-                    <div>Progress Bar</div>
-                    <div>89</div>
-                  </div>
-                </div>
-                <div>
-                  <button>Write a review</button>
-                </div>
-              </div>
-            </div>
-            <div data="review nav container">
-              <div>109 Reviews</div>
-              <select name="sortReviewBy" id="sortReviewBy">
-                <option defaultValue="Most Relevant">
-                  Most Relevant
-                </option>
-                <option value="Newest to Oldest">
-                  Newest to Oldest
-                </option>
-                <option value="Oldest to Newest">
-                  Oldest to Newest
-                </option>
-                <option value="Highest to Lowest Rating">
-                  Highest to Lowest Rating
-                </option>
-                <option value="Lowest to Highest Rating">
-                  Lowest to Highest Rating
-                </option>
-              </select>
-            </div>
-            <div data="all the reviews">
-              <div data="single review">
-                <h4>"Title for Review in Quotes"</h4>
-                <div data="review details" className="border-right">
-                  <div data="star data">
-                    <i data="star Rating">*****</i>
-                  </div>
-                  <div data="reviewed data">
-                    <small>Reviewed on 4/4/1019</small>
-                  </div>
-                  <div data="recommended data">
-                    <i data="check mark">check</i>
-                    <small>Rocemmended</small>
-                  </div>
-                  <div data="description">
-                    <p>
-                      The review description goes here. It's needs to be
-                      colisiple and expandable
-                    </p>
-                  </div>
-                  <a>Expand and Collapse the description</a>
-                </div>
-                <div>
-                  <p className="font-weight-bold">Reviewer's name</p>
-                  <p>Was this review helpful?</p>
-                  <div data="button container">
-                    <button>Yes</button>
-                    <button>No</button>
-                    <div>
-                      <i data="flag">flag</i>
-                      <a>Report</a>
+                  <div className="row no-gutters">
+                    <div className="col-2">
+                      <div className="stars1" />
+                    </div>
+                    <div className="col-10">
+                      <div class="progress">
+                        <div
+                          class="progress-bar bg-lowes"
+                          role="progressbar"
+                          style={{ width: "89%" }}
+                          aria-valuenow="89"
+                          aria-valuemin="0"
+                          aria-valuemax="100"
+                        >
+                          89
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <div className="col-2 wrapper">
+                  <span className="lowesButton content">WRITE A REVIEW</span>
+                </div>
               </div>
-              <hr />
+            </div>
+            <div className="row bg-grey" style={{paddingTop: '12px', marginTop: '16px'}}>
+              <h3 className='col-9'>109 Reviews</h3>
+              <div className='col-3'>
+                <select className='select-box' name="sortReviewBy" id="sortReviewBy">
+                  <option defaultValue="Most Relevant">Most Relevant</option>
+                  <option value="Newest to Oldest">Newest to Oldest</option>
+                  <option value="Oldest to Newest">Oldest to Newest</option>
+                  <option value="Highest to Lowest Rating">
+                    Highest to Lowest Rating
+                  </option>
+                  <option value="Lowest to Highest Rating">
+                    Lowest to Highest Rating
+                  </option>
+                </select>
+              </div>
+
+            </div>
+            <div data="all the reviews">
+              <ReviewItem  recommended={ true } />
             </div>
           </div>
         </div>

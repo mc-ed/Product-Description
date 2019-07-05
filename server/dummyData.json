@@ -1,934 +1,211 @@
 {
-    "descriptions": [
-        "Kobalt high quality hand tools are crafted for the professional, as well as the do-it-yourself and home owner",
-        "Chrome vanadium blades for extra strength",
-        "Precision ground tips reduce slippage"
-    ],
+    "descriptions": {
+        "overview": "The 16-oz CRAFTSMAN fiberglass hammer is built for durabilty against overstriking with an added protective portion where most fiberglass hammers break. This added feature will give the hammer a longer life and added durability for frequent use.",
+        "list": [
+            "Overstrike protection for added durability where fiberglass handles are most prone to break",
+            "Overmolded grip for improved grip during use",
+            "Includes (1) 16-oz fiberglass hammer"
+        ]
+    },
     "specs": [
-        {
-            "title": "Sub-Brand",
-            "spec": "N/A"
-        },
         {
             "title": "Series Name",
             "spec": "N/A"
         },
         {
-            "title": "Handle Material",
-            "spec": "Plastic"
-        },
-        {
-            "title": "Drive Size",
-            "spec": "Set"
-        },
-        {
-            "title": "Minimum Shaft Length",
-            "spec": "7-in"
-        },
-        {
-            "title": "Maximum Shaft Length",
-            "spec": "6-in"
-        },
-        {
-            "title": "Allen Drive Included",
-            "spec": 0
-        },
-        {
-            "title": "Phillips Drive Included",
-            "spec": 1
-        },
-        {
-            "title": "Pozidriv Drive Included",
-            "spec": 0
-        },
-        {
-            "title": "Hex Drive Included",
-            "spec": 0
-        },
-        {
-            "title": "Square Drive Included",
-            "spec": 0
-        },
-        {
-            "title": "Torx Drive Included",
-            "spec": 0
-        },
-        {
-            "title": "Flat Drive Included",
-            "spec": 1
-        },
-        {
-            "title": "Cushioned Grip",
-            "spec": 0
-        },
-        {
-            "title": "Insulated",
-            "spec": 0
-        },
-        {
-            "title": "Magnetic",
-            "spec": 1
-        },
-        {
-            "title": "Ratcheting",
-            "spec": 0
-        },
-        {
-            "title": "Number of Bits Included",
-            "spec": "20"
-        },
-        {
-            "title": "Number of Screwdrivers Included",
-            "spec": "8"
-        },
-        {
-            "title": "Set/Individual",
-            "spec": "Set"
-        },
-        {
-            "title": "Case Type",
+            "title": "Sub-Brand",
             "spec": "N/A"
         },
         {
-            "title": "Total Number of Pieces",
-            "spec": "29"
+            "title": "Type",
+            "spec": "Claw hammer"
+        },
+        {
+            "title": "Handle Material",
+            "spec": "Fiberglass"
+        },
+        {
+            "title": "Handle Length (Inches)",
+            "spec": "10.75"
+        },
+        {
+            "title": "Head Weight (oz.)",
+            "spec": "16"
+        },
+        {
+            "title": "Claw Style",
+            "spec": "Curved"
+        },
+        {
+            "title": "Face",
+            "spec": "Smooth"
+        },
+        {
+            "title": "Cushioned Grip",
+            "spec": 1
+        },
+        {
+            "title": "Handle Style",
+            "spec": "Straight"
+        },
+        {
+            "title": "Head Material",
+            "spec": "Steel"
         },
         {
             "title": "Warranty",
             "spec": "Lifetime"
         },
         {
+            "title": "Magnetic",
+            "spec": 0
+        },
+        {
+            "title": "Package Quantity",
+            "spec": "1"
+        },
+        {
             "title": "UNSPSC",
-            "spec": "27111700"
+            "spec": "27111600"
         },
         {
-            "title": "Handle Length(s)",
-            "spec": "4-in; 4-1/4-in; 4-1/2-in"
-        },
-        {
-            "title": "Multi-Bit",
-            "spec": 1
+            "title": "CA Residents: Prop 65 Warning(s)",
+            "spec": "Yes"
         }
     ],
     "reviews": [
         {
-            "title": "\"Easy Peasey\"",
+            "title": "\"Quality Hammer\"",
             "rating": 5,
-            "date": "07/04/2019",
+            "date": "12/02/2018",
             "recommended": true,
-            "text": "All sorts of different heads, star, square, Alan, and you basic standard and Phillips. Great value for price.",
-            "author": "Wesley",
+            "text": "You can buy a cheaper hammer, but Stanley has returned to produce this particular hammer of the quality you know from the original Sears Craftsman hand tool brand.",
+            "author": "Robert",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good set at a great price\"",
-            "rating": 4,
-            "date": "11/23/2018",
-            "recommended": true,
-            "text": "Great variety, but I thought (by the title) that the entire set was magnetic. Only the multi bit driver is.",
-            "author": "Case",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 7,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Great value and quality\"",
-            "rating": 5,
-            "date": "02/12/2019",
-            "recommended": true,
-            "text": "I can tell its made from quality materials and will do the job",
-            "author": "Glean",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 1,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Kobalt 29-piece Magnetic-bit Screwdriver set\"",
-            "rating": 5,
-            "date": "01/08/2019",
-            "recommended": true,
-            "text": "Ever have a small screw or nut you just can't hang on to. this is the perfect solution. This set is better then a shirt pocket. No more dropped tips or small nut and screws.",
-            "author": "Randy",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 4,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Kobalt 29-Piece Magnetic Multi-Bit Screwdriver Set\"",
-            "rating": 5,
-            "date": "11/05/2018",
-            "recommended": true,
-            "text": "Great set for a great price. Versatile and very easy grip on the handles. Bought it for use in the house, but will probably make it the 'go to' set for all jobs.",
-            "author": "Rhonda",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 4,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Screw Driver Set\"",
-            "rating": 5,
-            "date": "11/13/2018",
-            "recommended": true,
-            "text": "Great affordable price. A very good set of screw drivers. The set has about any scew driver you would ever need.",
-            "author": "Joe",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 4,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Excellent basic set, but not the best from Kobalt\"",
-            "rating": 4,
-            "date": "11/16/2018",
-            "recommended": null,
-            "text": "I'm glad they came out with this because I enjoy using the other Kobalt screwdrivers. I have a multi-bit screwdriver that has the same handle shape as this and I've wanted to get more. You can tell that these are a bit cheaper than the nice bigger sets Kobalt currently also retails. What I'm talking about is the blue grip on the screwdrivers themselves having less grip pattern on it, lacking the hex/scaling entirely. That really added a nice touch on the previous drivers in my opinion. What is nice though is the hanging loop at the top which can also be used for extra torque by inserting another screwdriver and making a \"T shape\" handle. The precision screwdrivers also feel a bit cheaper than what you'll get with the dark blue Kobalt precision set (The one with the hardcase). These in comparison have very loose end caps and don't have the bright markings to indicate which is which. I'll be keeping this set as my easy-reach set for small things, while keeping my other ones in the workshop area for bigger projects.",
-            "author": "J",
-            "verifiedPurchaser": false,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 8,
-                "no": 3
-            }
-        },
-        {
-            "title": "\"Nice set for price\"",
-            "rating": 4,
-            "date": "06/13/2019",
-            "recommended": true,
-            "text": "Fairly good quality for the price . Grips are comfortable and tips have solid so far. May upgrade to 5 stars later if they cont to hold up.",
-            "author": "Dan",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "07/03/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "James",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "07/03/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Yulissa",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "07/03/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Yulissa",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "\"For non-professional use ok\"",
-            "rating": 4,
-            "date": "11/26/2018",
-            "recommended": true,
-            "text": "Quality for the price very good and competitive. Not professional grade but for every day use at home/garage more than enough.",
-            "author": "Ed",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 1,
+                "yes": 19,
                 "no": 0
             }
         },
         {
             "title": "",
             "rating": 4,
-            "date": "12/08/2018",
-            "recommended": false,
-            "text": "There is no review to accompany this rating.",
-            "author": "AC",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "\"Nice set.\"",
-            "rating": 3,
-            "date": "11/12/2018",
-            "recommended": true,
-            "text": "Its a nice set.  Would have been better if they included some of the square bits.",
-            "author": "Steve",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 3,
-                "no": 7
-            }
-        },
-        {
-            "title": "\"Screwdriver set\"",
-            "rating": 5,
-            "date": "12/14/2018",
-            "recommended": true,
-            "text": "Kobalt tools are top notch. My husband can't seem to find a screwdriver when he needs it. I bought him that set along with a bag to keep it in. He was so pleased he asked for your $99 kobalt tool set in a traveling suitcase for part of his Christmas. I bought that as well. Price and quality top motch",
-            "author": "Elaine",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "07/01/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Renodiva",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "07/01/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Jon",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "\"Kobalt 29 Piece Magnetic  Multi Bit Screwdriver Se\"",
-            "rating": 3,
             "date": "11/25/2018",
             "recommended": true,
-            "text": "Very useful for me to get work done around the house.",
-            "author": "John",
+            "text": "The hammer has a good grip. It is weighted well but still light weight.",
+            "author": "Dadbod3",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 1,
-                "no": 2
-            }
-        },
-        {
-            "title": "\"Great little set at a greater price\"",
-            "rating": 5,
-            "date": "02/12/2019",
-            "recommended": true,
-            "text": "So far it has been a great little set.  I threw mine in my tool chest, but if you don't have a \"screwdriver\" drawer it might be tough to store. This set must cover most of the needs for most people.  Especially like the tiny drivers, which come in so handy.",
-            "author": "blubull",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
+                "yes": 14,
                 "no": 0
             }
         },
         {
-            "title": "\"Good deal\"",
+            "title": "",
             "rating": 5,
-            "date": "01/14/2019",
+            "date": "12/01/2018",
             "recommended": true,
-            "text": "I really like this product especially the magnetic tip screwdrivers was working in tight confined space and need to make sure my screws and get lost so this product was perfect for the job and that the price point I definitely recommend it",
-            "author": "Kemp",
+            "text": "Good balance and just the weight I needed. The timing of sale was exactly when I was looking for a replacement hammer.",
+            "author": "Jerry",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 0,
-                "no": 1
-            }
-        },
-        {
-            "title": "\"a darn good product\"",
-            "rating": 4,
-            "date": "02/02/2019",
-            "recommended": true,
-            "text": "I have bought several Kobalt products in the past month and am really please with the price and quality.  Kobalt makes products that stand to compete with Craftsman … all good products.",
-            "author": "none",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
+                "yes": 11,
                 "no": 0
             }
         },
         {
-            "title": "\"Great Set - Incredible Blackfriday Price\"",
+            "title": "\"Great Hammer\"",
             "rating": 5,
-            "date": "12/09/2018",
+            "date": "11/27/2018",
             "recommended": true,
-            "text": "I was looking for a screwdriver set, and honestly I was surprised to not find as many as I figured would be out there. Nice set for a heck of a deal on blackfriday.",
+            "text": "Great hammer that holds up to the abuse and the claw grabs the nails out with ease.",
             "author": "Brian",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 0,
+                "yes": 10,
                 "no": 0
             }
         },
         {
-            "title": "\"Quick screwdriver set\"",
-            "rating": 4,
-            "date": "06/28/2019",
-            "recommended": true,
-            "text": "Decent enough to handle the job. Comfortable and feels good. Solid weight. I'm sure it will do the job for most home needs.",
-            "author": "Stud",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Nice gift\"",
-            "rating": 4,
-            "date": "01/13/2019",
-            "recommended": true,
-            "text": "I bought these as a gift. They are good quality and a good value. A handy toolset with lots of sizes in philips and regular. The grips are comfortable.",
-            "author": "Bill",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Kitchen Set\"",
+            "title": "\"Best hammer that I've owned.\"",
             "rating": 5,
-            "date": "12/08/2018",
+            "date": "01/26/2019",
             "recommended": true,
-            "text": "Keep this in the kitchen tool draw for quick access.  great variety to take care of those small problems around the house without going into the garage",
-            "author": "Cloyce",
+            "text": "The best hammer I've owned. I'm sure there are better but for me this hammer is great.",
+            "author": "Aphillyman",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 0,
+                "yes": 9,
                 "no": 0
             }
         },
         {
-            "title": "\"Home owner Essential\"",
-            "rating": 4,
-            "date": "12/07/2018",
-            "recommended": true,
-            "text": "Electric drivers are not effective all the time and there might be situations where you need to do it old school and also for hard to reach places.",
-            "author": "Sam",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Kobalt screwdriver set\"",
+            "title": "\"Solid inexpensive hammer for finish work\"",
             "rating": 5,
-            "date": "06/24/2019",
+            "date": "01/14/2019",
             "recommended": true,
-            "text": "I really like the quality of the kobalt screwdriverset that I purchased from Lowe's .I would recommend them to anyone shopping for screedrivers.",
-            "author": "Bill",
+            "text": "It's a hammer with a smooth face. It didn't cost much. I use it to drive finish nails. Seems like its going to last a long time.",
+            "author": "Sloppie",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 0,
+                "yes": 6,
                 "no": 0
             }
         },
         {
-            "title": "\"29 Piece Screwdriver Set\"",
+            "title": "\"hammer\"",
             "rating": 5,
-            "date": "12/10/2018",
+            "date": "01/10/2019",
             "recommended": true,
-            "text": "Bought these to work in Small Engines on my Lawnmowers and Snowblowers. Came in Handy with all the different Bits that came with this Kit!",
-            "author": "Dave",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Great Screwdriver Set\"",
-            "rating": 5,
-            "date": "01/11/2019",
-            "recommended": true,
-            "text": "Great set of screwdrivers.  I think they are well made and will last for me for years. You get a great variety of different screw drivers.",
-            "author": "Gunrunner",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Great value\"",
-            "rating": 5,
-            "date": "06/14/2019",
-            "recommended": true,
-            "text": "Working as expected at very good price! I ordered it online and had my wife pick it up later in the store near her office. So convenient!",
-            "author": "LqV",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Kobalt 29-Piece Magnetic Multi-Bit Screwdriver Set\"",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "What a great deal!  These are high quality, comfortable to use and lifetime guaranteed.  Intended as gift, but I think I'll keep them.",
-            "author": "AxeMan",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Great bundle!\"",
-            "rating": 5,
-            "date": "02/14/2019",
-            "recommended": true,
-            "text": "They are very heavy duty and I know they'll last a long time. All the great sizes including the very small hard to get screwdrivers",
-            "author": "Dwin",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Nice set of screwdrivers\"",
-            "rating": 5,
-            "date": "12/10/2018",
-            "recommended": true,
-            "text": "I bought this set as a gift for someone who needed a matching set.  Price was great and the handles are ergonomic and easy to use.",
-            "author": "jimbop",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good value\"",
-            "rating": 4,
-            "date": "11/26/2018",
-            "recommended": true,
-            "text": "This Kobalt 29 piece is a good value. It's always good to have an extra set of screw drivers handy on the garage and in the home.",
-            "author": "David",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Screwdriver set\"",
-            "rating": 5,
-            "date": "01/06/2019",
-            "recommended": true,
-            "text": "Screwdriver set Works as it should have not tried anything crazy with them so I don't know what they can really hold up to",
-            "author": "Steve",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Screwdriver set.\"",
-            "rating": 4,
-            "date": "11/24/2018",
-            "recommended": null,
-            "text": "They feel a little light and cheap, but I have not had them long enough to know if the blades will last. So far so good.",
-            "author": "Boburk",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Worth the money\"",
-            "rating": 4,
-            "date": "12/10/2018",
-            "recommended": true,
-            "text": "Nice size and gripp-my handles.  Only .com is that the larger straight blade should be longer, like the larger philips.",
-            "author": "FRShaffer",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"nice set\"",
-            "rating": 5,
-            "date": "12/07/2018",
-            "recommended": true,
-            "text": "I purchased this 1/2 off on Black Friday. Great Deal.  Set seems sturdy to last a long time and like the color.",
-            "author": "Trish",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good screwdrivers\"",
-            "rating": 4,
-            "date": "12/13/2018",
-            "recommended": true,
-            "text": "These have worked well. 4 stars because the handles are on the bulky side. Otherwise they are what was needing",
-            "author": "EAnderson",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Description is short but detailed of product\"",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "I'm glad I purchased this item. It offers heat versatility without buying more than needed. Great value.",
-            "author": "Jim",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Driver set\"",
-            "rating": 5,
-            "date": "06/11/2019",
-            "recommended": true,
-            "text": "Kobalt is my favorite brand when it comes to Hand tools.  reliable and their warranty is second to none",
-            "author": "Mike",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Kobalt magnetic screwdrivers\"",
-            "rating": 5,
-            "date": "06/25/2019",
-            "recommended": true,
-            "text": "Love this set. It has everything I need for household repairs requiring a screwdriver. Great price",
-            "author": "Happy",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Great Product\"",
-            "rating": 5,
-            "date": "01/31/2019",
-            "recommended": true,
-            "text": "Purchased these for my wife who has RA. She loves the handles cause they are easy for her to grip.",
+            "text": "Just want you'd expect from a Craftsman , Nice Hammer!",
             "author": "Michael",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 0,
+                "yes": 6,
                 "no": 0
             }
         },
         {
-            "title": "\"Handy for Extra Set\"",
+            "title": "\"Good hammer, reasonable price\"",
             "rating": 5,
-            "date": "12/07/2018",
+            "date": "12/10/2018",
+            "recommended": true,
+            "text": "If you are just a handyman at home, this is a nice hammer at the right price.",
+            "author": "the419yeti",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 10,
+                "no": 2
+            }
+        },
+        {
+            "title": "\"Great Hammer!\"",
+            "rating": 5,
+            "date": "10/29/2018",
             "recommended": null,
-            "text": "Nice little screwdriver set that we use as an extra set. You can never have enough screwdrivers",
-            "author": "Riz",
+            "text": "I've been using this puppy now for the past few weeks and it's been a great hammer.",
+            "author": "HairBear",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"great price, great tool!\"",
-            "rating": 5,
-            "date": "11/28/2018",
-            "recommended": true,
-            "text": "I needed a new set like this and couldn't beat the price and functionality! Great buy!",
-            "author": "kitty379",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
+                "yes": 24,
+                "no": 22
             }
         },
         {
             "title": "",
-            "rating": 5,
-            "date": "06/29/2019",
+            "rating": 3,
+            "date": "01/11/2019",
             "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Sheri",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "\"Very good and right product\"",
-            "rating": 4,
-            "date": "11/23/2018",
-            "recommended": true,
-            "text": "It looks very good and sturdy product. It has a bonus of philip screwdriver as well.",
-            "author": "Loka",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"very nice set of screwdrivers\"",
-            "rating": 5,
-            "date": "11/25/2018",
-            "recommended": true,
-            "text": "comfortable to hold, magnetic tip, great overall value and lifetime guarantee..",
-            "author": "Dieselshu",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Perfect set for my work shop\"",
-            "rating": 5,
-            "date": "02/03/2019",
-            "recommended": true,
-            "text": "Good addition to my home shop. I like the holder and could not beat the price.",
-            "author": "Doug",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"A Great Set\"",
-            "rating": 5,
-            "date": "02/10/2019",
-            "recommended": true,
-            "text": "This complete set of screw drivers is a perfect addition to any tool set.",
-            "author": "hanson",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good looking set\"",
-            "rating": 4,
-            "date": "11/25/2018",
-            "recommended": true,
-            "text": "These screwdrivers have a good grip. The multi-bit one is very handy.",
-            "author": "FDW",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Bought for brother.\"",
-            "rating": 5,
-            "date": "11/27/2018",
-            "recommended": true,
-            "text": "Exactly what he wanted so excited to give to him for Christmas Eve.",
-            "author": "Jules",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good for the price\"",
-            "rating": 4,
-            "date": "12/25/2018",
-            "recommended": true,
-            "text": "Got it on sale for $10 good little set to keep in reserve at work.",
-            "author": "Brian",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Screwdriver set\"",
-            "rating": 5,
-            "date": "12/27/2018",
-            "recommended": true,
-            "text": "This was given as a gift and the individual liked getting them",
-            "author": "Planemech98",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Nice set of screwdrivers\"",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "Nice little set.  Seems they will hold up to any regular use.",
-            "author": "toddr",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Great deal\"",
-            "rating": 5,
-            "date": "12/02/2018",
-            "recommended": true,
-            "text": "Good quality at a great price. I put a set in every vehicle.",
-            "author": "CampyBob",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "01/10/2019",
-            "recommended": true,
-            "text": "They are everything I expected and work great for my needs.",
-            "author": "Staci",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"kobalt 29 piece  screwdriver set\"",
-            "rating": 4,
-            "date": "12/02/2018",
-            "recommended": true,
-            "text": "excellent price, good quality and has enough for  most jobs",
-            "author": "rich",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/03/2018",
-            "recommended": true,
-            "text": "I bought these for all my sons. They absolutely love them.",
-            "author": "JJ",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Comfortable in hand\"",
-            "rating": 5,
-            "date": "12/07/2018",
-            "recommended": true,
-            "text": "Screwdrivers are comfortable to hold with ergonomic design",
-            "author": "Timbo",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Great Deal\"",
-            "rating": 4,
-            "date": "01/14/2019",
-            "recommended": true,
-            "text": "This is a nice little set that I got at a great price!!",
+            "text": "Solid little hammer at a super affordable price. The handle does feel a bit strange in the hand but that's only due to me being used to wooden handles with little to no ergonomics. It's great for small tasks around the house or garage.",
             "author": "Rich",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
@@ -938,12 +215,12 @@
             }
         },
         {
-            "title": "\"Best set ever\"",
+            "title": "\"Its a Hammer\"",
             "rating": 5,
-            "date": "01/28/2019",
+            "date": "02/21/2019",
             "recommended": true,
-            "text": "This set literally has every size screwdriver you need!",
-            "author": "Girl",
+            "text": "Finally a Craftsman product that has been made in the past few years that is actually up to the old standards of craftsman tools we are used to!!!  Love it.  Nice balance and easy to swing!",
+            "author": "Sam",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -952,26 +229,12 @@
             }
         },
         {
-            "title": "\"What I Need\"",
+            "title": "\"Excellent CRAFTSMAN 16-oz Hammer\"",
             "rating": 5,
-            "date": "12/13/2018",
-            "recommended": true,
-            "text": "Tools were quality, inexpensive, and just what I needed",
-            "author": "djb",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good quality\"",
-            "rating": 5,
-            "date": "12/08/2018",
+            "date": "05/04/2019",
             "recommended": null,
-            "text": "This set is hight quality and has many different sizes",
-            "author": "Terri",
+            "text": "I used this hammer to replace multiple sections of 4' high fence.  It worked great.  Wasn't too heavy but had enough punch to easily drive nails.",
+            "author": "Upaule",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -980,12 +243,12 @@
             }
         },
         {
-            "title": "\"Tiol Lover\"",
+            "title": "\"hammer time\"",
             "rating": 5,
-            "date": "12/08/2018",
+            "date": "03/29/2019",
             "recommended": true,
-            "text": "I love that all the pieces come together for easy use",
-            "author": "MimB",
+            "text": "I bought this because I needed another hammer. so far I have used it to bang the rotors off of my jeep. love it. good ergonomics.",
+            "author": "talyn",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -994,12 +257,12 @@
             }
         },
         {
-            "title": "\"Kobalt 29-Piece Magnetic Multi-Bit Screwdriver Set\"",
+            "title": "\"Great All Purpose Hammer\"",
             "rating": 5,
-            "date": "11/26/2018",
+            "date": "05/20/2019",
             "recommended": true,
-            "text": "This is a nice screwdriver set and very inexpensive.",
-            "author": "RMRYAN",
+            "text": "Great hammer for many multi-use purposes. Hammer head seems well forged and rubber grip handle is very comfortable in hand.",
+            "author": "Dude",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -1008,12 +271,12 @@
             }
         },
         {
-            "title": "\"Kobalt 29-Piece Magnetic Multi-Bit Screwdriver Set\"",
-            "rating": 4,
-            "date": "01/26/2019",
+            "title": "\"Hammer\"",
+            "rating": 5,
+            "date": "04/19/2019",
             "recommended": true,
-            "text": "Great tool, works well and has a long service time.",
-            "author": "LMJkid",
+            "text": "Demo'd the kitchen and used this every step of the way. The grip was excellent!",
+            "author": "BJ",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -1022,12 +285,12 @@
             }
         },
         {
-            "title": "\"Great value\"",
+            "title": "\"Excellent!\"",
             "rating": 5,
-            "date": "06/16/2019",
+            "date": "02/27/2019",
             "recommended": true,
-            "text": "Better than expected.  Kobolt is excellent quality",
-            "author": "Jamie",
+            "text": "I love this tool! Is friendly user and looks great!",
+            "author": "Alex",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -1036,160 +299,254 @@
             }
         },
         {
-            "title": "",
-            "rating": 5,
-            "date": "12/10/2018",
-            "recommended": true,
-            "text": "fits the need for a household tool kit . convinent",
-            "author": "tom",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good Quality\"",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "Great quality, great price, and very sharp.",
-            "author": "Thor",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "06/26/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "jenni",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "06/26/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Wife",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "06/22/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "rescuedad44",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/22/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "123",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/28/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "jojo",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Sheryl",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "April",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Cassie",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/15/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "PF",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
+            "title": "\"Craftsman is still the best\"",
             "rating": 5,
             "date": "12/21/2018",
             "recommended": true,
+            "text": "All around great hammer  especially for the price!",
+            "author": "Hm",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "12/04/2018",
+            "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Rose",
+            "author": "Philip",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/24/2018",
+            "date": "12/08/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Johnboy",
+            "author": "maconhurler",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/30/2018",
+            "date": "01/12/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Lainie",
+            "author": "Brad",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "\"Its a Hammer\"",
+            "rating": 5,
+            "date": "02/21/2019",
+            "recommended": true,
+            "text": "Finally a Craftsman product that has been made in the past few years that is actually up to the old standards of craftsman tools we are used to!!!  Love it.  Nice balance and easy to swing!",
+            "author": "Sam",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Excellent CRAFTSMAN 16-oz Hammer\"",
+            "rating": 5,
+            "date": "05/04/2019",
+            "recommended": null,
+            "text": "I used this hammer to replace multiple sections of 4' high fence.  It worked great.  Wasn't too heavy but had enough punch to easily drive nails.",
+            "author": "Upaule",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"hammer time\"",
+            "rating": 5,
+            "date": "03/29/2019",
+            "recommended": true,
+            "text": "I bought this because I needed another hammer. so far I have used it to bang the rotors off of my jeep. love it. good ergonomics.",
+            "author": "talyn",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Great All Purpose Hammer\"",
+            "rating": 5,
+            "date": "05/20/2019",
+            "recommended": true,
+            "text": "Great hammer for many multi-use purposes. Hammer head seems well forged and rubber grip handle is very comfortable in hand.",
+            "author": "Dude",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Hammer\"",
+            "rating": 5,
+            "date": "04/19/2019",
+            "recommended": true,
+            "text": "Demo'd the kitchen and used this every step of the way. The grip was excellent!",
+            "author": "BJ",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Excellent!\"",
+            "rating": 5,
+            "date": "02/27/2019",
+            "recommended": true,
+            "text": "I love this tool! Is friendly user and looks great!",
+            "author": "Alex",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Craftsman is still the best\"",
+            "rating": 5,
+            "date": "12/21/2018",
+            "recommended": true,
+            "text": "All around great hammer  especially for the price!",
+            "author": "Hm",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "12/04/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Philip",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/07/2018",
+            "date": "12/08/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Bryant",
+            "author": "maconhurler",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/12/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Brad",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "11/19/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Jock",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "12/25/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "STEVEN",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 1,
+            "date": "11/18/2018",
+            "recommended": false,
+            "text": "There is no review to accompany this rating.",
+            "author": "Jimmy",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "12/29/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "skinnycat",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/02/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "JT",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/11/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Layne",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/12/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Rooster",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/14/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Donges",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
@@ -1199,277 +556,87 @@
             "date": "01/15/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Dave",
+            "author": "baserock",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "01/21/2019",
+            "date": "01/25/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "James",
+            "author": "Elly",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/08/2018",
+            "date": "11/19/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Bandit",
+            "author": "Jock",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "02/02/2019",
+            "date": "12/25/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Robert",
+            "author": "STEVEN",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
-            "rating": 5,
-            "date": "12/05/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "KSD",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/16/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Pete3981",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "11/22/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Ed",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
+            "rating": 1,
             "date": "11/18/2018",
-            "recommended": true,
+            "recommended": false,
             "text": "There is no review to accompany this rating.",
-            "author": "Jim",
-            "verifiedPurchaser": true,
+            "author": "Jimmy",
+            "verifiedPurchaser": false,
             "sweepstakesEntry": true
         },
         {
             "title": "",
-            "rating": 4,
-            "date": "11/27/2018",
+            "rating": 5,
+            "date": "12/29/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Joe",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "11/30/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Magie",
+            "author": "skinnycat",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/02/2018",
+            "date": "01/02/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "EBass",
+            "author": "JT",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/03/2018",
+            "date": "01/11/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Christopher",
+            "author": "Layne",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/03/2018",
+            "date": "01/12/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "DrD",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/06/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Rufus",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/07/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "prodvo",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "April",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Shopper",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Denny",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/08/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Cj",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "12/09/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Renovista",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/12/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Rob",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/18/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Sandy",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/20/2018",
-            "recommended": null,
-            "text": "There is no review to accompany this rating.",
-            "author": "Mikerknight",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/23/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "James",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/27/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Ken",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/01/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Anthony",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/10/2019",
-            "recommended": null,
-            "text": "There is no review to accompany this rating.",
-            "author": "Al",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/13/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Tj",
+            "author": "Rooster",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
@@ -1479,250 +646,76 @@
             "date": "01/14/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "T",
+            "author": "Donges",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "11/20/2018",
+            "date": "01/15/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Outlaw",
+            "author": "baserock",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "11/18/2018",
+            "date": "01/25/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Rogerdale",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "11/25/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Me",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/25/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Power",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/27/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Danni",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/28/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Travis",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "12/03/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Mary",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/07/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Debbi",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/13/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Tj",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/14/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "T",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/20/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Outlaw",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/18/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Rogerdale",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "11/25/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Me",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/25/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Power",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/27/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Danni",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/28/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Travis",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "12/03/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Mary",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/07/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Debbi",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "02/03/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Keith",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "02/12/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Tina",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/01/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Wayne",
+            "author": "Elly",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         }
     ],
     "questions": [
         {
-            "question": "\"Are the bits and screwdrivers magnetic or just the bit holder?\"",
-            "author": "\n",
-            "date": "",
+            "question": "\"Where is this product made?\"",
+            "author": "BigPapai",
+            "date": "10/20/2018",
             "answers": [
                 {
-                    "author": "\n",
-                    "date": "",
-                    "text": "\n                \n                    Kobalt Team\n                 on 01/11/2019\n            ",
+                    "author": "",
+                    "text": "Craftsman on 11/14/2018",
                     "helpful": {
-                        "yes": 5,
-                        "no": 0
+                        "yes": 1,
+                        "no": 4
+                    }
+                },
+                {
+                    "author": "Jimmy",
+                    "date": "11/01/2018",
+                    "text": "Made in China.",
+                    "helpful": {
+                        "yes": 0,
+                        "no": 4
                     }
                 }
             ]
         },
         {
-            "question": "\"Just wanted to point out, unlike a reviewer said below, these DO include square bits: S1, S2, and S3 to be exact.\"",
-            "author": "\n",
-            "date": "",
+            "question": "\"Where is this product made?\"",
+            "author": "Anonymous",
+            "date": "10/16/2018",
             "answers": [
                 {
-                    "author": "\n",
-                    "date": "",
-                    "text": "\n                \n                    Kobalt Team\n                 on 01/07/2019\n            ",
+                    "author": "",
+                    "text": "Craftsman on 11/14/2018",
                     "helpful": {
                         "yes": 0,
-                        "no": 0
+                        "no": 2
+                    }
+                },
+                {
+                    "author": "Jimmy",
+                    "date": "11/08/2018",
+                    "text": "Made in China.",
+                    "helpful": {
+                        "yes": 0,
+                        "no": 2
                     }
                 }
             ]

@@ -52,8 +52,6 @@ class ProductDesc extends React.Component {
           <Specifications onClick={ this.handleClick } style={ this.style } specs={ specs } />
           <RatingsReviews onClick={ this.handleClick } style={ this.style } reviews={ reviews } />
           <QuestionsAnswers onClick={ this.handleClick } style={ this.style } questions={ questions } />
-          <div className="stars5"></div>
-          <div className="stars4"></div>
         </div>
       </div>
     );
