@@ -1,4 +1,5 @@
 import React from "react";
+import uuidv4 from 'uuid/v4';
 import ReviewItem from './ReviewItem.jsx'
 
 function RatingsReviews(props) {
@@ -6,6 +7,12 @@ function RatingsReviews(props) {
   const signToggle = document.querySelector(
     'span[data="toggleRatingsReviewsSign"]'
   );
+  const reviews = props.reviews.length ? (
+    props.reviews.map(review => <ReviewItem key={uuidv4()} readMore={ props.readMore } review={ review } />)
+    ) : (
+    <div />
+    )
+
   return (
     <div
       onClick={() => {
@@ -62,9 +69,9 @@ function RatingsReviews(props) {
                       <div className="stars5" />
                     </div>
                     <div className="col-10">
-                      <div class="progress">
+                      <div className="progress">
                         <div
-                          class="progress-bar bg-lowes"
+                          className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{ width: "89%" }}
                           aria-valuenow="89"
@@ -81,9 +88,9 @@ function RatingsReviews(props) {
                       <div className="stars4" />
                     </div>
                     <div className="col-10">
-                      <div class="progress">
+                      <div className="progress">
                         <div
-                          class="progress-bar bg-lowes"
+                          className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{ width: "89%" }}
                           aria-valuenow="89"
@@ -100,9 +107,9 @@ function RatingsReviews(props) {
                       <div className="stars3" />
                     </div>
                     <div className="col-10">
-                      <div class="progress">
+                      <div className="progress">
                         <div
-                          class="progress-bar bg-lowes"
+                          className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{ width: "89%" }}
                           aria-valuenow="89"
@@ -119,9 +126,9 @@ function RatingsReviews(props) {
                       <div className="stars2" />
                     </div>
                     <div className="col-10">
-                      <div class="progress">
+                      <div className="progress">
                         <div
-                          class="progress-bar bg-lowes"
+                          className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{ width: "89%" }}
                           aria-valuenow="89"
@@ -138,9 +145,9 @@ function RatingsReviews(props) {
                       <div className="stars1" />
                     </div>
                     <div className="col-10">
-                      <div class="progress">
+                      <div className="progress">
                         <div
-                          class="progress-bar bg-lowes"
+                          className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{ width: "89%" }}
                           aria-valuenow="89"
@@ -176,7 +183,7 @@ function RatingsReviews(props) {
 
             </div>
             <div data="all the reviews">
-              <ReviewItem  recommended={ true } />
+              { reviews }
             </div>
           </div>
         </div>

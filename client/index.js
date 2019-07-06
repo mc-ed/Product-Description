@@ -10,6 +10,7 @@ class ProductDesc extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleReadMore = this.handleReadMore.bind(this);
     this.style= {
         lowesMedBackground: {
           backgroundColor: "#0471AF"
@@ -42,6 +43,10 @@ class ProductDesc extends React.Component {
       sign.classList.add('plusSign');
     }
   }
+
+  handleReadMore(el) {
+    console.log(el)
+  }
  
   render() {
     const { descriptions, specs, reviews, questions } = this.state;
@@ -50,7 +55,7 @@ class ProductDesc extends React.Component {
         <div className="accordion" id="accordionExample">
           <Description onClick={ this.handleClick } style={ this.style } descriptions={ descriptions } />
           <Specifications onClick={ this.handleClick } style={ this.style } specs={ specs } />
-          <RatingsReviews onClick={ this.handleClick } style={ this.style } reviews={ reviews } />
+          <RatingsReviews onClick={ this.handleClick } readMore={ this.handleReadMore } style={ this.style } reviews={ reviews } />
           <QuestionsAnswers onClick={ this.handleClick } style={ this.style } questions={ questions } />
         </div>
       </div>
