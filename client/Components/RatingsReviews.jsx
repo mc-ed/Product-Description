@@ -1,6 +1,6 @@
 import React from "react";
-import uuidv4 from 'uuid/v4';
-import ReviewItem from './ReviewItem.jsx'
+import uuidv4 from "uuid/v4";
+import ReviewItem from "./ReviewItem.jsx";
 
 function RatingsReviews(props) {
   const { backgroundColor } = props.style.lowesMedBackground;
@@ -8,66 +8,68 @@ function RatingsReviews(props) {
     'span[data="toggleRatingsReviewsSign"]'
   );
   const reviews = props.reviews.length ? (
-    props.reviews.map(review => <ReviewItem key={uuidv4()} readMore={ props.readMore } review={ review } />)
-    ) : (
+    props.reviews.map(review => (
+      <ReviewItem key={uuidv4()} readMore={props.readMore} review={review} />
+    ))
+  ) : (
     <div />
-    )
+  );
 
   function percentRecommended() {
-    if(!props.reviews.length) {
-      return '';
+    if (!props.reviews.length) {
+      return "";
     } else {
       let recommendedCount = 0;
       props.reviews.forEach(review => {
-        if(review.recommended) {
+        if (review.recommended) {
           recommendedCount++;
         }
-      })
-      return Math.floor((recommendedCount/props.reviews.length) * 100).toString();
+      });
+      return Math.floor(
+        (recommendedCount / props.reviews.length) * 100
+      ).toString();
     }
-  } 
+  }
 
   function cssAdjust(num) {
-    num = Math.round(num*2)/2;
-    num = num.toString().split('');
-    num = !num[2] ? num[0] : `${num[0]}_${num[2]}`
-    return num
-}
+    num = Math.round(num * 2) / 2;
+    num = num.toString().split("");
+    num = !num[2] ? num[0] : `${num[0]}_${num[2]}`;
+    return num;
+  }
 
   function averageStars() {
-    if(!props.reviews.length) {
-      return '5.0'
+    if (!props.reviews.length) {
+      return "5.0";
     } else {
       let starSum = 0;
       props.reviews.forEach(review => {
         starSum += review.rating;
-      })
-      return (starSum/props.reviews.length).toFixed(1).toString();
+      });
+      return (starSum / props.reviews.length).toFixed(1).toString();
     }
   }
 
   function countStars(stars) {
-    if(!props.reviews.length) {
+    if (!props.reviews.length) {
       return 0;
     } else {
       let count = 0;
-      props.reviews.forEach(review =>{
-        if(review.rating === stars) {
+      props.reviews.forEach(review => {
+        if (review.rating === stars) {
           count++;
         }
-      })
+      });
       return count;
     }
   }
 
   return (
-    <div
-      onClick={() => {
-        props.onClick(signToggle);
-      }}
-      className="card"
-    >
+    <div className="card">
       <div
+        onClick={() => {
+          props.onClick(signToggle);
+        }}
         style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
         id="headingThree"
@@ -120,7 +122,10 @@ function RatingsReviews(props) {
                         <div
                           className="progress-bar bg-lowes"
                           role="progressbar"
-                          style={{ width: `${(countStars(5)/props.reviews.length) * 100}%` }}
+                          style={{
+                            width: `${(countStars(5) / props.reviews.length) *
+                              100}%`
+                          }}
                         >
                           {countStars(5)}
                         </div>
@@ -136,7 +141,10 @@ function RatingsReviews(props) {
                         <div
                           className="progress-bar bg-lowes"
                           role="progressbar"
-                          style={{ width: `${(countStars(4)/props.reviews.length) * 100}%` }}
+                          style={{
+                            width: `${(countStars(4) / props.reviews.length) *
+                              100}%`
+                          }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
@@ -155,7 +163,10 @@ function RatingsReviews(props) {
                         <div
                           className="progress-bar bg-lowes"
                           role="progressbar"
-                          style={{ width: `${(countStars(3)/props.reviews.length) * 100}%` }}
+                          style={{
+                            width: `${(countStars(3) / props.reviews.length) *
+                              100}%`
+                          }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
@@ -174,7 +185,10 @@ function RatingsReviews(props) {
                         <div
                           className="progress-bar bg-lowes"
                           role="progressbar"
-                          style={{ width: `${(countStars(2)/props.reviews.length) * 100}%` }}
+                          style={{
+                            width: `${(countStars(2) / props.reviews.length) *
+                              100}%`
+                          }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
@@ -193,7 +207,10 @@ function RatingsReviews(props) {
                         <div
                           className="progress-bar bg-lowes"
                           role="progressbar"
-                          style={{ width: `${(countStars(1)/props.reviews.length) * 100}%` }}
+                          style={{
+                            width: `${(countStars(1) / props.reviews.length) *
+                              100}%`
+                          }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
@@ -209,10 +226,17 @@ function RatingsReviews(props) {
                 </div>
               </div>
             </div>
-            <div className="row bg-grey" style={{paddingTop: '12px', marginTop: '16px'}}>
-              <h3 className='col-9'>109 Reviews</h3>
-              <div className='col-3'>
-                <select className='select-box' name="sortReviewBy" id="sortReviewBy">
+            <div
+              className="row bg-grey"
+              style={{ paddingTop: "12px", marginTop: "16px" }}
+            >
+              <h3 className="col-9">{props.reviews.length} Reviews</h3>
+              <div className="col-3">
+                <select
+                  className="select-box"
+                  name="sortReviewBy"
+                  id="sortReviewBy"
+                >
                   <option defaultValue="Most Relevant">Most Relevant</option>
                   <option value="Newest to Oldest">Newest to Oldest</option>
                   <option value="Oldest to Newest">Oldest to Newest</option>
@@ -224,11 +248,8 @@ function RatingsReviews(props) {
                   </option>
                 </select>
               </div>
-
             </div>
-            <div data="all the reviews">
-              { reviews }
-            </div>
+            <div data="all the reviews">{reviews}</div>
           </div>
         </div>
       </div>

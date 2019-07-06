@@ -2,11 +2,16 @@ import React from "react";
 import uuidv4 from "uuid/v4";
 
 function ReviewItem(props) {
-  let recommendedStatus = props.recommended ? (
+  let recommendedStatus = props.review.recommended === true ? (
     <div data="recommended data">
       <span className="checkMark" />
       <small>Recommended</small>
     </div>
+  ) : props.review.recommended === false ? (
+    <div data="recommended data">
+    <span className="crossMark" />
+    <small>Not Recommended</small>
+  </div>
   ) : (
     <div />
   );
@@ -25,7 +30,7 @@ function ReviewItem(props) {
     }
   }
 
-  const { title, rating, date, text, author, helpful } = props.review;
+  const { title, rating, date, text, author, helpful, verifiedPurchaser, sweepstakesEntry } = props.review;
   let textRef = null;
   let readMoreRef = null;
   return (
@@ -67,6 +72,14 @@ function ReviewItem(props) {
       </div>
       <div className="col-5">
         <p className="font-weight-bold">{author}</p>
+        {verifiedPurchaser ? (   <div>
+      <span className="checkMark" />
+      <small>Verfied Pruchaser</small>
+    </div>) : (<></>)}
+        {sweepstakesEntry ? (<div>
+      <span className="checkMark" />
+      <small>Sweepstakes Entry</small>
+    </div>) : (<></>)}
         {helpful ? (
           <>
             <p>Was this review helpful?</p>
@@ -89,7 +102,7 @@ function ReviewItem(props) {
             </div>{" "}
           </>
         ) : (
-          <div />
+          <></>
         )}
       </div>
       <hr />

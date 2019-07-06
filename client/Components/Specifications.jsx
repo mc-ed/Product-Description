@@ -12,8 +12,9 @@ function Specifications(props) {
   const signToggle = document.querySelector('span[data="toggleSpecificationsSign"]');
 
   return (
-    <div onClick={ ()=> { props.onClick(signToggle) } } className="card">
+    <div className="card">
       <div
+      onClick={ ()=> { props.onClick(signToggle) } }
         style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
         id="headingTwo"

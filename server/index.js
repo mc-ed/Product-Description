@@ -11,4 +11,4 @@ app.get('/api/product/:id', (req, res) => {
     res.send(data)
 });
 
-app.listen(3000);
+app.listen(3050);

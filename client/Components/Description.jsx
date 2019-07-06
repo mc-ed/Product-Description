@@ -15,12 +15,12 @@ function Description(props) {
 
   return (
     <div
-      onClick={() => {
-        props.onClick(signToggle);
-      }}
       className="card"
     >
       <div
+            onClick={() => {
+              props.onClick(signToggle);
+            }}
         style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
         id="headingOne"

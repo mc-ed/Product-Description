@@ -35,7 +35,6 @@ class ProductDesc extends React.Component {
   }
 
   handleClick(sign) {
-
     if(Array.from(sign.classList).includes('plusSign')) {
       Array.from(document.getElementsByClassName('minusSign')).forEach(el => {
         el.classList.remove('minusSign');
