@@ -9,7 +9,10 @@ function RatingsReviews(props) {
   );
   const reviews = props.reviews.length ? (
     props.reviews.map(review => (
+      <>
       <ReviewItem key={uuidv4()} readMore={props.readMore} review={review} />
+      <hr />
+      </>
     ))
   ) : (
     <div />
