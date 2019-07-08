@@ -88,7 +88,7 @@ function ReviewItem(props) {
                 )
               })}
               <div class="modal fade" id={`modal-${id}`} tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" ref={input => { modalRef = input; }}>
-                <div class="modal-dialog" role="document">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="exampleModalLongTitle">{title}</h5>
@@ -98,7 +98,7 @@ function ReviewItem(props) {
                     </div>
                     <div class="modal-body">
                       <div className="row">
-                        <div className="col-4 border-right">
+                        <div className="col-2 border-right">
                           {images.map((image, index) => {
                             return (
                               <div>
@@ -107,7 +107,7 @@ function ReviewItem(props) {
                             )
                           })}
                         </div>
-                        <div className="col-8">
+                        <div className="col-10">
                           {images.map((image, index) => {
                             return (
                               <div>
