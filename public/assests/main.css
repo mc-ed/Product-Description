@@ -181,3 +181,27 @@ p {
   color: #0471af;
   content: "\EDBF";
 }
+
+.thumbnailIMG {
+  cursor: pointer;
+  width: 75px;
+  height: 75px;
+  border: solid #0471af 2px;
+  margin: 4px;
+}
+
+.thumbnailIMGselected {
+  border-color:yellow;
+}
+
+.fullIMG {
+  display: none;
+  width: 400px;
+  height: 400px;
+  border: solid #0471af 2px;
+  margin: 24px;
+}
+
+.show {
+  display: inherit;
+}

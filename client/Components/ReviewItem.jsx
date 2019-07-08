@@ -9,14 +9,14 @@ function ReviewItem(props) {
     </div>
   ) : props.review.recommended === false ? (
     <div data="recommended data">
-    <span className="crossMark" />
-    <small>Not Recommended</small>
-  </div>
+      <span className="crossMark" />
+      <small>Not Recommended</small>
+    </div>
   ) : (
-    <div />
-  );
+        <div />
+      );
 
-  function handleClick() {
+  function handleExpand() {
     if (readMoreRef.innerText === "Read More") {
       textRef.classList.remove("fadeout");
       textRef.style.overflow = "visible";
@@ -30,9 +30,35 @@ function ReviewItem(props) {
     }
   }
 
-  const { title, rating, date, text, author, helpful, verifiedPurchaser, sweepstakesEntry } = props.review;
+  function handleModal(select) {
+    modalRef.getElementsByClassName('thumbnailIMG')[select].classList.add('thumbnailIMGselected');
+    modalRef.getElementsByClassName('fullIMG')[select].classList.add('show');
+    $(modalRef).on('hidden.bs.modal', () => {
+      Array.from(modalRef.getElementsByClassName('thumbnailIMG')).forEach(image => {
+        image.classList.remove('thumbnailIMGselected');
+      })
+      Array.from(modalRef.getElementsByClassName('fullIMG')).forEach(image => {
+        image.classList.remove('show');
+      })
+    })
+  }
+
+  function handleChange(select) {
+    Array.from(modalRef.getElementsByClassName('thumbnailIMG')).forEach(image => {
+      image.classList.remove('thumbnailIMGselected');
+    })
+    Array.from(modalRef.getElementsByClassName('fullIMG')).forEach(image => {
+      image.classList.remove('show');
+    })
+    modalRef.getElementsByClassName('thumbnailIMG')[select].classList.add('thumbnailIMGselected');
+    modalRef.getElementsByClassName('fullIMG')[select].classList.add('show');
+  }
+
+  const { title, rating, date, text, author, helpful, verifiedPurchaser, sweepstakesEntry, images } = props.review;
   let textRef = null;
   let readMoreRef = null;
+  let modalRef = null;
+  let id = uuidv4()
   return (
     <div className="row" style={{ padding: "40px" }}>
       <div className="col-7 border-right">
@@ -50,13 +76,60 @@ function ReviewItem(props) {
           }}
         >
           <p className="text-muted">{text}</p>
+          {images ? (
+            <>
+              {images.map((image, index) => {
+                return (
+                  <>
+                    <span key={uuidv4()}>
+                      <img onClick={() => { handleModal(index.toString()) }} data-toggle="modal" data-target={`#modal-${id}`} data-select={index.toString()} className='thumbnailIMG' src={`https://lowesproject.s3.amazonaws.com/userReviewPics/${image.smallName}.jpg`} large-id={image.largeName} alt="oops" />
+                    </span>
+                  </>
+                )
+              })}
+              <div class="modal fade" id={`modal-${id}`} tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" ref={input => { modalRef = input; }}>
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">{title}</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div className="row">
+                        <div className="col-4 border-right">
+                          {images.map((image, index) => {
+                            return (
+                              <div>
+                                <img onClick={() => { handleChange(index.toString()) }} className='thumbnailIMG' src={`https://lowesproject.s3.amazonaws.com/userReviewPics/${image.smallName}.jpg`} alt="oops" />
+                              </div>
+                            )
+                          })}
+                        </div>
+                        <div className="col-8">
+                          {images.map((image, index) => {
+                            return (
+                              <div>
+                                <img onClick={() => { handleChange(index.toString()) }} className='fullIMG' src={`https://lowesproject.s3.amazonaws.com/userReviewPics/${image.largeName}.jpg`} alt="oops" />
+                              </div>
+                            )
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </>
+          ) : (<></>)}
         </div>
 
         {text.length > 200 ? (
           <div className="text-primary font-weight-bold text-center">
             <u
               onClick={() => {
-                handleClick();
+                handleExpand();
               }}
               ref={input => {
                 readMoreRef = input;
@@ -67,24 +140,24 @@ function ReviewItem(props) {
             </u>
           </div>
         ) : (
-          <div />
-        )}
+            <div />
+          )}
       </div>
-      <div className="col-5">
-        <p className="font-weight-bold">{author}</p>
-        {verifiedPurchaser ? (   <div>
-      <span className="checkMark" />
-      <small>Verfied Pruchaser</small>
-    </div>) : (<></>)}
+      <div className="col-5" style={{ marginTop: '36px' }}>
+        <p className="font-weight-bold" >{author}</p>
+        {verifiedPurchaser ? (<div>
+          <span className="checkMark" />
+          <small>Verfied Pruchaser</small>
+        </div>) : (<></>)}
         {sweepstakesEntry ? (<div>
-      <span className="checkMark" />
-      <small>Sweepstakes Entry</small>
-    </div>) : (<></>)}
+          <span className="checkMark" />
+          <small>Sweepstakes Entry</small>
+        </div>) : (<></>)}
         {helpful ? (
           <>
             <p>Was this review helpful?</p>
             <div className="row">
-              <div className="col-3 text-center lowesButton">
+              <div className="col-3 text-center lowesButton" style={{ marginLeft: '8px' }}>
                 Yes({helpful.yes})
               </div>
               <div
@@ -102,10 +175,9 @@ function ReviewItem(props) {
             </div>{" "}
           </>
         ) : (
-          <></>
-        )}
+            <></>
+          )}
       </div>
-      <hr />
     </div>
   );
 }
