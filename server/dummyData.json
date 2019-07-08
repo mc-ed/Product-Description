@@ -1,10 +1,10 @@
 {
     "descriptions": {
-        "overview": "The 16-oz CRAFTSMAN fiberglass hammer is built for durabilty against overstriking with an added protective portion where most fiberglass hammers break. This added feature will give the hammer a longer life and added durability for frequent use.",
+        "overview": "16 oz fiberglass curved claw hammer.",
         "list": [
-            "Overstrike protection for added durability where fiberglass handles are most prone to break",
-            "Overmolded grip for improved grip during use",
-            "Includes (1) 16-oz fiberglass hammer"
+            "Forged and heat-treated head for durability",
+            "Fiberglass core and bi-material slip-resistant handle",
+            "Rim temper reduces incidence of chipping or palling"
         ]
     },
     "specs": [
@@ -26,7 +26,7 @@
         },
         {
             "title": "Handle Length (Inches)",
-            "spec": "10.75"
+            "spec": "11"
         },
         {
             "title": "Head Weight (oz.)",
@@ -42,7 +42,7 @@
         },
         {
             "title": "Cushioned Grip",
-            "spec": 1
+            "spec": 0
         },
         {
             "title": "Handle Style",
@@ -67,146 +67,526 @@
         {
             "title": "UNSPSC",
             "spec": "27111600"
-        },
-        {
-            "title": "CA Residents: Prop 65 Warning(s)",
-            "spec": "Yes"
         }
     ],
     "reviews": [
         {
-            "title": "\"Quality Hammer\"",
+            "images": [
+                {
+                    "smallName": "fee5a6be-f1a7-58f0-8a4e-60820d10b8a2",
+                    "largeName": "5b22f055-ca03-5643-8108-a1497ef6dafa"
+                },
+                {
+                    "smallName": "09747e97-4556-52ab-bfbc-b51ada7b2ea3",
+                    "largeName": "04fdc2c3-24ca-58f1-bff4-4a643163f659"
+                }
+            ],
+            "title": "\"Hammer Time!\"",
             "rating": 5,
-            "date": "12/02/2018",
+            "date": "08/15/2018",
             "recommended": true,
-            "text": "You can buy a cheaper hammer, but Stanley has returned to produce this particular hammer of the quality you know from the original Sears Craftsman hand tool brand.",
-            "author": "Robert",
-            "verifiedPurchaser": true,
+            "text": "When the glaziers came by to repair and replace all the broken windows and doors in our new property,  they couldn't quite get a stubborn twisted jamb to bend back the right way before they left.  Hammer time!  We ordered a bargain hammer online but when we went to pick it up we found this heavier one for just a dollar more.  It was sturdy, light (we are no marines) high quality, perfect for our simple job and less than ten dollars.  With the right tool we saved the $400 a new door would have cost and now we can use the storm door and let air in without bees coming in too!",
+            "author": "Augustine",
+            "verifiedPurchaser": false,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 19,
+                "yes": 2,
+                "no": 2
+            }
+        },
+        {
+            "title": "\"A Nails' Nightmare Come True\"",
+            "rating": 5,
+            "date": "10/26/2017",
+            "recommended": true,
+            "text": "Don't let the smooth face fool you.  This hammer is the number one cause of nails to go flush in wood.  You could buy a cheap knock off from some wack-a-mole website that claims to be better but don't be fooled.  Talk to a local nail and he will tell you this hammer hits hard.  I was using this the other day and my wife shouted out \"What is going on?\" I replied \"I'm wacking nails baby!\"  I'm dropping nails like Trump is dropping tweets at 3am.  With this hammer it's Hammer-Time-All-The-Time!  Nails are sold separately.",
+            "author": "SecretAgentAbe",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 39,
+                "no": 3
+            }
+        },
+        {
+            "title": "\"Nice Hammer\"",
+            "rating": 5,
+            "date": "06/26/2014",
+            "recommended": true,
+            "text": "This is a nice hammer. Good weight, nice balance. Great for pounding nails, not so good for driving screws. It's a hammer, but it's a NICE hammer.",
+            "author": "doug",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 17,
+                "no": 3
+            }
+        },
+        {
+            "title": "\"Great help\"",
+            "rating": 5,
+            "date": "02/01/2015",
+            "recommended": true,
+            "text": "This hammer is very solid without being too heave for my arthritic fingers, and has the surface that is good in the grip.",
+            "author": "Dzimm",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 7,
                 "no": 0
             }
         },
         {
-            "title": "",
+            "images": [
+                {
+                    "smallName": "1c9a1b26-7227-5b8f-8ee7-a3917857f649",
+                    "largeName": "040c10fc-ea67-59e9-8a43-250135522ab5"
+                }
+            ],
+            "title": "\"My Favorite Hammer!\"",
+            "rating": 5,
+            "date": "08/27/2018",
+            "recommended": true,
+            "text": "Love the comfort of the handle, it is sleek and does an excellent job!",
+            "author": "Betsy",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"My Last Hammer!\"",
+            "rating": 5,
+            "date": "03/27/2014",
+            "recommended": true,
+            "text": "I was tired of breaking hammers, this one is built tough and I believe it's my last hammer! And it's blue!!",
+            "author": "Bill",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 8,
+                "no": 1
+            }
+        },
+        {
+            "title": "\"Great flooring instal hammer\"",
+            "rating": 5,
+            "date": "10/09/2017",
+            "recommended": true,
+            "text": "I recommend this hammerPossitives- 1.)Feels great and is comfortable 2.)Light enough for extended use without fatigue 3.)Very durable 4.)Good enough for any work except framing 5.)Cheap priceNegitives-1.) I would like the claw to be straighter, I find it hard to do certain tasks when other hammers with straighter claws have worked in the past.I use this hammer everyday and it works great for pounding tack strip nails in for carpet, hit exposed nails not all the way hit in by the framers in the subfloor, driving in 1/4\" crown staples in underlayment that where not driven in completely by the stapler without damaging the underlayment to much because of the smooth head, and tapping laminate and engineered hardwood with a tapping block or pull bar.",
+            "author": "Teddy",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Very nice hammer.\"",
+            "rating": 5,
+            "date": "07/19/2013",
+            "recommended": true,
+            "text": "This hammer is well made and balanced. A good overall hammer that should last a lifetime. The only and perhaps last hammer you will need.",
+            "author": "Dano",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 3,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Hammer\"",
             "rating": 4,
-            "date": "11/25/2018",
+            "date": "12/04/2013",
             "recommended": true,
-            "text": "The hammer has a good grip. It is weighted well but still light weight.",
-            "author": "Dadbod3",
+            "text": "Yep, it's a hammer.... I just bought it for casual use; I'm not a contractor.",
+            "author": "EdBarltes",
             "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
+            "sweepstakesEntry": false,
             "helpful": {
-                "yes": 14,
+                "yes": 3,
                 "no": 0
             }
         },
         {
-            "title": "",
+            "title": "\"Hammer\"",
             "rating": 5,
-            "date": "12/01/2018",
+            "date": "08/15/2015",
             "recommended": true,
-            "text": "Good balance and just the weight I needed. The timing of sale was exactly when I was looking for a replacement hammer.",
-            "author": "Jerry",
+            "text": "This hammer has good balance, handle is well attached and easy to grip. Good hammer",
+            "author": "Toby",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 4,
+                "no": 1
+            }
+        },
+        {
+            "title": "\"Quality hammer\"",
+            "rating": 5,
+            "date": "11/12/2017",
+            "recommended": true,
+            "text": "This hammer is great for driveing nails and very strong made I bought 1 then used then I went back to lowes and bought another one great hammers well done kobalt",
+            "author": "Bubba",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 2,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Nice hammer\"",
+            "rating": 4,
+            "date": "09/17/2018",
+            "recommended": true,
+            "text": "Lightweight with a handle that fits nicely in a small hand. Nicely balanced. An overall good hammer",
+            "author": "itsme",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 11,
+                "yes": 2,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Works as advertised\"",
+            "rating": 5,
+            "date": "08/12/2018",
+            "recommended": true,
+            "text": "The Kobalt 16oz hammer is well built and balanced and provides a good option to a 20 oz. hammer",
+            "author": "chubking",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 2,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"love it\"",
+            "rating": 5,
+            "date": "08/18/2018",
+            "recommended": true,
+            "text": "I love this hammer, well balanced, conformable grip, great for hard worker or DIY",
+            "author": "doranu77",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 2,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Nice Hammer\"",
+            "rating": 5,
+            "date": "12/14/2017",
+            "recommended": true,
+            "text": "Nice hammer. It has a nice weight and feel to it. Good price too!",
+            "author": "Carol",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 2,
                 "no": 0
             }
         },
         {
             "title": "\"Great Hammer\"",
             "rating": 5,
-            "date": "11/27/2018",
+            "date": "07/23/2017",
             "recommended": true,
-            "text": "Great hammer that holds up to the abuse and the claw grabs the nails out with ease.",
-            "author": "Brian",
+            "text": "Love the weight and feel. Well made. Price was right too.",
+            "author": "Brucef111d",
             "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
+            "sweepstakesEntry": false,
             "helpful": {
-                "yes": 10,
+                "yes": 2,
                 "no": 0
             }
         },
         {
-            "title": "\"Best hammer that I've owned.\"",
+            "title": "\"Nice\"",
             "rating": 5,
-            "date": "01/26/2019",
+            "date": "08/27/2018",
             "recommended": true,
-            "text": "The best hammer I've owned. I'm sure there are better but for me this hammer is great.",
-            "author": "Aphillyman",
+            "text": "Very nice hammer. Did its job. Hope to have long time",
+            "author": "Mr4p0",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
-                "yes": 9,
+                "yes": 2,
                 "no": 0
             }
         },
         {
-            "title": "\"Solid inexpensive hammer for finish work\"",
+            "title": "\"Nice hammer\"",
+            "rating": 5,
+            "date": "09/16/2018",
+            "recommended": true,
+            "text": "Nice hammer fit nicely in the hand and easy to use",
+            "author": "Kyle",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 2,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Great Hammer For The Price.\"",
+            "rating": 4,
+            "date": "04/29/2014",
+            "recommended": true,
+            "text": "What is there to say about a hammer? Not much really but I will try.I bought this hammer about two years ago to replace a wooded handle one (i hate wooden handle hammers) and to just say I own a Kobalt tool. Well turns out that this is really just a general, run of the mill 16oz hammer. It gets the job done with very little issues. There are no cons I can think of. However, my current work has brought to my attention that a rip claw is needed. So if someone was to ask me curve claw or a rip claw, answer....rip claw.",
+            "author": "GMonkey",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Great Tool..\"",
+            "rating": 5,
+            "date": "10/20/2014",
+            "recommended": true,
+            "text": "I bought this item along with a pry bar to pull out nails in my handicapped ramp. That had been holding down anti-skid strips that had been coming off. This hammer was nicely lite and well balanced. It is easy for me to use because don't need alot of swing force.",
+            "author": "Paul31968",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Hammer\"",
+            "rating": 5,
+            "date": "09/12/2018",
+            "recommended": true,
+            "text": "This hammer feels great in my hand. As a left handed user this is unusual for me. most hammers have a mold that seems to be slightly uncomfortable to hold with a full grip. Not the case with this hammer.",
+            "author": "KCDCJ51",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"bought this hammer/loved the grip. of the handle\"",
+            "rating": 5,
+            "date": "10/24/2018",
+            "recommended": true,
+            "text": "i bought this hammer. and just enjoyed the over all feel of the fiber glass and rubber covering.  after using it an several jobs. this has become my favorite hammer !",
+            "author": "rumpole",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Comfortable, solid hammer.\"",
+            "rating": 5,
+            "date": "12/11/2018",
+            "recommended": null,
+            "text": "This hammer has a great balance and is easy to use.  It's just heavy enough to get the job done without being tiring.  Great price, buy one if you need a hammer.",
+            "author": "NeilC",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Good balance of quality and price\"",
+            "rating": 5,
+            "date": "08/29/2018",
+            "recommended": true,
+            "text": "This Kobalt hammer quickly is becoming the go-to hammer for my multiple homeowner projects. Great grip and balance with fine quality of craftsmanship.",
+            "author": "Jim",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"A steal for $4.98\"",
+            "rating": 5,
+            "date": "01/21/2019",
+            "recommended": true,
+            "text": "It's a good hammer. It being $4.98 (on sale) made it a great hammer. I bought 2 for myself and my wife one too.",
+            "author": "Brad",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Bought two of these\"",
+            "rating": 5,
+            "date": "01/11/2018",
+            "recommended": true,
+            "text": "Good basic hammer. I also got one for a friend. She will love it!",
+            "author": "Missy",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"It's a hammer\"",
+            "rating": 5,
+            "date": "06/28/2018",
+            "recommended": true,
+            "text": "It does what hammers do. Works especially well on nails.",
+            "author": "ted",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 1,
+                "no": 0
+            }
+        },
+        {
+            "title": "",
+            "rating": 4,
+            "date": "09/23/2017",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "JoeFixit99",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/22/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Rich",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "07/05/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Fox",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "\"Needed a new hammer\"",
+            "rating": 5,
+            "date": "03/03/2019",
+            "recommended": true,
+            "text": "I had been using a hammer owned and used by my grandfather, who passed away in 1974. It was handed down to my father at that point. Well, my father passed in 1998 and it became mine. The wood handle has become loose over the years and the head rocks when in use. Rather than cause further damage, I retired it to a special place on the tool wall and bought this one to use.",
+            "author": "Ed",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "07/05/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Fox",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "\"Great hammer\"",
+            "rating": 5,
+            "date": "08/23/2015",
+            "recommended": true,
+            "text": "What can I say, great hammer with very strong handle. Claw easily grabs all nails and makes them easy to remove.",
+            "author": "FishingPierRepair",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 1,
+                "no": 1
+            }
+        },
+        {
+            "title": "\"It's a hammer.\"",
+            "rating": 4,
+            "date": "06/13/2017",
+            "recommended": true,
+            "text": "It's a hammer.  It hits things.  It hits 'em good.  Comfortable handle.  Good balance.",
+            "author": "Copperhead43",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false,
+            "helpful": {
+                "yes": 1,
+                "no": 1
+            }
+        },
+        {
+            "title": "\"Great hammer\"",
+            "rating": 5,
+            "date": "07/04/2019",
+            "recommended": true,
+            "text": "Works like it's suppose too. Not too heavy. Good handgrip.",
+            "author": "CA",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "07/04/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Pgybnk",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 2,
+            "date": "07/04/2019",
+            "recommended": null,
+            "text": "There is no review to accompany this rating.",
+            "author": "Karuvipural",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "\"Awesome, simple hammer!\"",
             "rating": 5,
             "date": "01/14/2019",
             "recommended": true,
-            "text": "It's a hammer with a smooth face. It didn't cost much. I use it to drive finish nails. Seems like its going to last a long time.",
-            "author": "Sloppie",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 6,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"hammer\"",
-            "rating": 5,
-            "date": "01/10/2019",
-            "recommended": true,
-            "text": "Just want you'd expect from a Craftsman , Nice Hammer!",
-            "author": "Michael",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 6,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Good hammer, reasonable price\"",
-            "rating": 5,
-            "date": "12/10/2018",
-            "recommended": true,
-            "text": "If you are just a handyman at home, this is a nice hammer at the right price.",
-            "author": "the419yeti",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 10,
-                "no": 2
-            }
-        },
-        {
-            "title": "\"Great Hammer!\"",
-            "rating": 5,
-            "date": "10/29/2018",
-            "recommended": null,
-            "text": "I've been using this puppy now for the past few weeks and it's been a great hammer.",
-            "author": "HairBear",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 24,
-                "no": 22
-            }
-        },
-        {
-            "title": "",
-            "rating": 3,
-            "date": "01/11/2019",
-            "recommended": true,
-            "text": "Solid little hammer at a super affordable price. The handle does feel a bit strange in the hand but that's only due to me being used to wooden handles with little to no ergonomics. It's great for small tasks around the house or garage.",
-            "author": "Rich",
+            "text": "Great hammer with perfect balance for the price! If you can find this one on sale then it's the perfect hammer for regular use on your tool belt, or in the bag-o-tools you keep around the house for just-in-case.",
+            "author": "Eric",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -216,39 +596,77 @@
         },
         {
             "title": "",
+            "rating": 5,
+            "date": "07/03/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Warrior173",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "\"Kobalt hammer\"",
+            "rating": 5,
+            "date": "01/13/2019",
+            "recommended": true,
+            "text": "I do a lot of carpentry work, although it's not my primary job. This hammer feels comfortable in your hand,and it swings true. My only regret is that I didn't by a few more while they were on sale.",
+            "author": "Franco",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Hammer Review\"",
+            "rating": 5,
+            "date": "06/27/2019",
+            "recommended": true,
+            "text": "This claw hammer is well constructed and balanced. It has good ergonomics to help minimize user fatigue. Also, the reasonable price for this quality hammer makes it a very good deal.",
+            "author": "Dick",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Kobalt 16-oz. Smooth Face Steel Claw Hammer\"",
+            "rating": 5,
+            "date": "01/08/2019",
+            "recommended": true,
+            "text": "Well-balanced tool that is comfortable in the hand. Light enough to decrease fatigue yet heavy enough to get the job done. Construction seems solid.",
+            "author": "Fajer",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"I was looking specifically for a 20 OZ hammer...\"",
             "rating": 3,
-            "date": "01/11/2019",
+            "date": "06/28/2015",
             "recommended": true,
-            "text": "Solid little hammer at a super affordable price. The handle does feel a bit strange in the hand but that's only due to me being used to wooden handles with little to no ergonomics. It's great for small tasks around the house or garage.",
-            "author": "Rich",
+            "text": "I like the CLAW TYPE heads ...do not like the straight ones.... I settled on a 16 oz. until i find a 20 oz ,,in this CLAW TYPE HEAD",
+            "author": "blackhawk",
             "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
+            "sweepstakesEntry": false,
             "helpful": {
                 "yes": 0,
-                "no": 0
+                "no": 12
             }
         },
         {
-            "title": "\"Its a Hammer\"",
+            "title": "\"Its a Hammer!\"",
             "rating": 5,
-            "date": "02/21/2019",
-            "recommended": true,
-            "text": "Finally a Craftsman product that has been made in the past few years that is actually up to the old standards of craftsman tools we are used to!!!  Love it.  Nice balance and easy to swing!",
-            "author": "Sam",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Excellent CRAFTSMAN 16-oz Hammer\"",
-            "rating": 5,
-            "date": "05/04/2019",
+            "date": "01/08/2019",
             "recommended": null,
-            "text": "I used this hammer to replace multiple sections of 4' high fence.  It worked great.  Wasn't too heavy but had enough punch to easily drive nails.",
-            "author": "Upaule",
+            "text": "Its a Hammer! Works like a hammer, claw works quality handle and materials. Would buy again.",
+            "author": "Jason",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -257,12 +675,12 @@
             }
         },
         {
-            "title": "\"hammer time\"",
+            "title": "\"Simple but effective\"",
             "rating": 5,
-            "date": "03/29/2019",
-            "recommended": true,
-            "text": "I bought this because I needed another hammer. so far I have used it to bang the rotors off of my jeep. love it. good ergonomics.",
-            "author": "talyn",
+            "date": "01/08/2019",
+            "recommended": null,
+            "text": "Just the right weight.  I like the grip handle, and flat side for pounding in tight areas.",
+            "author": "Ken",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -271,12 +689,12 @@
             }
         },
         {
-            "title": "\"Great All Purpose Hammer\"",
-            "rating": 5,
-            "date": "05/20/2019",
+            "title": "\"Solid hammer\"",
+            "rating": 4,
+            "date": "01/16/2019",
             "recommended": true,
-            "text": "Great hammer for many multi-use purposes. Hammer head seems well forged and rubber grip handle is very comfortable in hand.",
-            "author": "Dude",
+            "text": "For someone who only needs a hammer to hang stuff on walls this gets the job done",
+            "author": "Drose",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -286,11 +704,11 @@
         },
         {
             "title": "\"Hammer\"",
-            "rating": 5,
-            "date": "04/19/2019",
+            "rating": 4,
+            "date": "09/20/2018",
             "recommended": true,
-            "text": "Demo'd the kitchen and used this every step of the way. The grip was excellent!",
-            "author": "BJ",
+            "text": "Solid hammer that came with 3 different sized nail sets for finishing nails.",
+            "author": "Lew",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -299,26 +717,12 @@
             }
         },
         {
-            "title": "\"Excellent!\"",
+            "title": "\"Great Hammer\"",
             "rating": 5,
-            "date": "02/27/2019",
+            "date": "03/21/2019",
             "recommended": true,
-            "text": "I love this tool! Is friendly user and looks great!",
-            "author": "Alex",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true,
-            "helpful": {
-                "yes": 0,
-                "no": 0
-            }
-        },
-        {
-            "title": "\"Craftsman is still the best\"",
-            "rating": 5,
-            "date": "12/21/2018",
-            "recommended": true,
-            "text": "All around great hammer  especially for the price!",
-            "author": "Hm",
+            "text": "This hammer was just the thing for the remodeling project we are doing.",
+            "author": "Packersfan",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
             "helpful": {
@@ -329,27 +733,175 @@
         {
             "title": "",
             "rating": 5,
-            "date": "12/04/2018",
+            "date": "02/20/2019",
+            "recommended": true,
+            "text": "great value and very good weight bought two 16oz and two 20oz hammers",
+            "author": "billy",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"16 oz hammer\"",
+            "rating": 5,
+            "date": "05/19/2019",
+            "recommended": true,
+            "text": "Drives nails like a champ. Dropped forged and fiberglass handle.",
+            "author": "Dewster",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Great Hammer for the Price\"",
+            "rating": 5,
+            "date": "01/08/2019",
+            "recommended": true,
+            "text": "Very good value.  Seems well constructed.  Sale price was great.",
+            "author": "Steve",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Good deal\"",
+            "rating": 4,
+            "date": "08/27/2018",
+            "recommended": true,
+            "text": "Tough, cheap, and the handle absorbs a good amount of shock.",
+            "author": "SCL",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Kobalt claw hammer\"",
+            "rating": 5,
+            "date": "04/16/2019",
+            "recommended": true,
+            "text": "Easy to work with and gets the job done with ease. I love it",
+            "author": "Lee",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"It's a hammer\"",
+            "rating": 5,
+            "date": "01/08/2019",
+            "recommended": true,
+            "text": "Good weight balance and it does it's job. It's a hammer.",
+            "author": "Bronk",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 0
+            }
+        },
+        {
+            "title": "\"Kobalt hammer great value!\"",
+            "rating": 5,
+            "date": "01/22/2019",
+            "recommended": true,
+            "text": "Excellent hammer comfortable grip & well balanced.",
+            "author": "Hen",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true,
+            "helpful": {
+                "yes": 0,
+                "no": 1
+            }
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "06/29/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Philip",
+            "author": "David",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/08/2018",
+            "date": "06/27/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "maconhurler",
+            "author": "Steven",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "01/12/2019",
+            "date": "06/26/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Steve",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "06/26/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Mel",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "06/24/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Glenda",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "07/15/2015",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Bruzzy",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "12/25/2016",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "dbr710",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "09/15/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
             "author": "Brad",
@@ -359,150 +911,70 @@
         {
             "title": "",
             "rating": 5,
-            "date": "01/14/2019",
+            "date": "08/02/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Grandpa",
-            "verifiedPurchaser": true,
+            "author": "Backtavern",
+            "verifiedPurchaser": false,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 4,
-            "date": "03/14/2019",
+            "date": "08/05/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Craig",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/30/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "alan",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/02/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Deb",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/18/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Tom",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/31/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Ryan",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/01/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Nathan",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "01/02/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Jays",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "02/13/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Z",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 4,
-            "date": "04/17/2019",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Anthony",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "11/19/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "Jock",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 5,
-            "date": "12/25/2018",
-            "recommended": true,
-            "text": "There is no review to accompany this rating.",
-            "author": "STEVEN",
-            "verifiedPurchaser": true,
-            "sweepstakesEntry": true
-        },
-        {
-            "title": "",
-            "rating": 1,
-            "date": "11/18/2018",
-            "recommended": false,
-            "text": "There is no review to accompany this rating.",
-            "author": "Jimmy",
+            "author": "Chris",
             "verifiedPurchaser": false,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "12/29/2018",
+            "date": "10/17/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "skinnycat",
+            "author": "DevilsBayou",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "01/02/2019",
+            "date": "11/02/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "JT",
+            "author": "db",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/08/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "joe",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/08/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "David",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/08/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "fishcable",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
@@ -512,27 +984,37 @@
             "date": "01/11/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Layne",
+            "author": "OConnell",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "01/12/2019",
+            "date": "02/28/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Rooster",
+            "author": "Pinguo",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "01/14/2019",
+            "date": "12/09/2017",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Donges",
+            "author": "Sal",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "03/31/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Arthur",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
@@ -542,102 +1024,365 @@
             "date": "01/15/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "baserock",
+            "author": "Horse",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "01/25/2019",
+            "date": "04/04/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Elly",
+            "author": "LT",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 4,
-            "date": "01/31/2019",
+            "date": "06/10/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Justin",
+            "author": "Jim",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "02/06/2019",
+            "date": "10/10/2018",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "Yennif",
+            "author": "Buck",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 4,
+            "date": "12/09/2013",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Peaekabooo",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "07/21/2016",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "David",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/11/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "OConnell",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "02/26/2019",
+            "date": "02/28/2019",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "E1776",
+            "author": "Pinguo",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         },
         {
             "title": "",
             "rating": 5,
-            "date": "02/12/2019",
+            "date": "12/09/2017",
             "recommended": true,
             "text": "There is no review to accompany this rating.",
-            "author": "DocH",
+            "author": "Sal",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "03/31/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Arthur",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/15/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Horse",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "04/04/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "LT",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 4,
+            "date": "06/10/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Jim",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "10/10/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Buck",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 4,
+            "date": "12/09/2013",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Peaekabooo",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "07/21/2016",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "David",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "08/07/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "V",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "08/08/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Chad",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "10/16/2014",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "mberry1983",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "08/05/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Rob",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "10/15/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "WarDamn",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "09/28/2014",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "CarGuyBri",
+            "verifiedPurchaser": false,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "\"Out standing hammer great balance\"",
+            "rating": 4,
+            "date": "05/19/2015",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Peter",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": false
+        },
+        {
+            "title": "",
+            "rating": 4,
+            "date": "09/15/2018",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Aleia",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/11/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Cleon",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/15/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Todd",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/19/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "chris",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "01/24/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "RK",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 4,
+            "date": "03/26/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Jim",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "03/22/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Lo",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "04/07/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Vince",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "04/14/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "JJ",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "06/09/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Dan",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "06/11/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Will",
+            "verifiedPurchaser": true,
+            "sweepstakesEntry": true
+        },
+        {
+            "title": "",
+            "rating": 5,
+            "date": "06/14/2019",
+            "recommended": true,
+            "text": "There is no review to accompany this rating.",
+            "author": "Greg",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true
         }
     ],
     "questions": [
         {
-            "question": "\"Where is this product made?\"",
-            "author": "BigPapai",
-            "date": "10/20/2018",
-            "answers": [
-                {
-                    "author": "Craftsman",
-                    "date": "11/14/2018",
-                    "text": "The country of origin for this hammer is China.",
-                    "helpful": {
-                        "yes": 1,
-                        "no": 4
-                    }
-                },
-                {
-                    "helpful": {
-                        "yes": 0,
-                        "no": 4
-                    }
-                }
-            ]
-        },
-        {
-            "question": "\"Where is this product made?\"",
+            "question": "\"looking for a device that will lock a push broom head from spinning on the handle.\"",
             "author": "Anonymous",
-            "date": "10/16/2018",
+            "date": "06/08/2018",
             "answers": [
                 {
-                    "author": "Craftsman",
-                    "date": "11/14/2018",
-                    "text": "The country of origin for this unit is China.",
+                    "badgeName": "5ef4aa0f-f5c8-5d1b-8da5-6950eac1d093",
+                    "author": "Kobalt Team",
+                    "date": "06/22/2018",
+                    "text": "Please contact your local Lowe's store for assistance with this problem.",
                     "helpful": {
                         "yes": 0,
-                        "no": 2
-                    }
-                },
-                {
-                    "helpful": {
-                        "yes": 0,
-                        "no": 2
+                        "no": 0
                     }
                 }
             ]

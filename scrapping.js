@@ -112,6 +112,28 @@ function grabReviews() {
   let arr = [];
   $('div[itemprop="review"]').each((i, el) => {
     arr[i] = {};
+    const images = $(el).find('img');
+  	if(images.length) {
+  		arr[i].images = [];
+  		images.each((__i,img) => {
+  			const smallImage = img.attributes.src.value;
+  			const largeImage = img.attributes['data-largeurl'].value;
+		arr[i].images.push({smallName: smallImage.split('/').slice(-1)[0], 
+			largeName: largeImage.split('/').slice(-1)[0]})
+		$.ajax({
+					url: 'https://chrisfauries.com/lowesS3BucketSave',
+					type: "POST",
+					data: JSON.stringify({url: smallImage, path: 'userReviewPics'}),
+					contentType: 'application/JSON'
+				})
+				$.ajax({
+					url: 'https://chrisfauries.com/lowesS3BucketSave',
+					type: "POST",
+					data: JSON.stringify({url: largeImage, path: 'userReviewPics'}),
+					contentType: 'application/JSON'
+				})
+  	})
+  	}
     arr[i].title = el.children[0].innerText;
     arr[i].rating = Number(
       $("div[itemprop=reviewRating] span")[i].innerText.split(" ")[2]
@@ -162,20 +184,29 @@ function getQuestionsAndAnswers() {
   $("div.question").each((i, question) => {
     arr[i] = {};
     arr[i].question = $(question).find('[role="button"] strong')[0].innerText;
-    let authorAndDate = $(question).find("div.v-spacing-mini")[0]
-      .nextElementSibling.innerText;
-    arr[i].author = authorAndDate.split(" ")[0];
-    arr[i].date = authorAndDate.split(" ")[2];
-    console.log($(question).find("div.answer").length);
+    arr[i].author = $(question).find('small.darkMidGrey span')[0].innerText;	
+    arr[i].date = $(question).find('small.darkMidGrey')[0].outerText.replace(/\s+/g,' ').trim().split(' ')[2];
+
     if ($(question).find("div.answer").length) {
       arr[i].answers = [];
       $(question)
         .find("div.answer")
         .each((j, answer) => {
           arr[i].answers[j] = {};
-          arr[i].answers[j].author = answer.children[0].innerText.split(" ")[0];
-          arr[i].answers[j].date = answer.children[0].innerText.split(" ")[2];
-          arr[i].answers[j].text = answer.children[1].innerText;
+          const img = $(answer).find('img');
+        	if(img.length) { 
+        	arr[i].answers[j].badgeName = img[0].src.split('/').slice(-1)[0];				
+				$.ajax({
+					url: 'https://chrisfauries.com/lowesS3BucketSave',
+					type: "POST",
+					data: JSON.stringify({url: img[0].src, path: 'badges'}),
+					contentType: 'application/JSON'
+				})
+           }
+           
+           arr[i].answers[j].author = $(answer.children).find('span.secondary-text')[0].innerText.trim();
+           arr[i].answers[j].date = $(answer.children).find('.darkMidGrey')[0].innerText.trim().split(' ').slice(-1)[0];
+           arr[i].answers[j].text = answer.children[2].innerText.trim();
           arr[i].answers[j].helpful = {
             yes: Number(
               $(answer)
@@ -195,5 +226,6 @@ function getQuestionsAndAnswers() {
 }
 
 scrape(function(obj) {
-  console.save(obj, "test.json");
+  console.save(obj, "dummy.json");
+// console.log(obj)
 });
