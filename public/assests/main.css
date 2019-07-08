@@ -182,6 +182,17 @@ p {
   content: "\EDBF";
 }
 
+.down {
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.rotateCaret {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+
+}
+
 .thumbnailIMG {
   cursor: pointer;
   width: 75px;
@@ -202,6 +213,18 @@ p {
   margin: 24px auto;
 }
 
+.questionHide {
+  max-height: 60px;
+  overflow: hidden;
+  transition: max-height 0.3s linear;
+}
+
 .show {
   display: inherit;
+}
+
+.expand {
+  height: auto;
+  max-height: 1000px;
+  transition: max-height 0.3s linear;
 }

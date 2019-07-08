@@ -3,11 +3,25 @@ import AnswerItem from "./AnswerItem.jsx";
 
 function QuestionItem(props) {
   console.log("question: ", props);
+
+
+  let questionRef = null;
+  function toggleShow () {
+    let rotateCaret = questionRef.querySelector('span.downCaret').parentElement;
+    if(questionRef.classList.contains('show')) {
+      questionRef.classList.remove('show', 'expand');
+      rotateCaret.classList.remove('rotateCaret');
+    } else {
+      questionRef.classList.add('show', 'expand');
+      rotateCaret.classList.add('rotateCaret');
+    }
+  }
+
   const { question, author, date, answers } = props.question;
   return (
-    <div data="single question and answer">
-      <div className="row">
-        <div className="col-1 text-center" style={{padding: '12px'}}>
+    <div className='questionHide' ref={input => questionRef = input}>
+      <div onClick={() => {toggleShow()} } className="row" style={{cursor: 'pointer', marginTop: '8px'}}>
+        <div className="col-1 text-center down" style={{padding: '16px'}}>
           <span className="downCaret" />
         </div>
         <div className="col-9">
@@ -25,20 +39,19 @@ function QuestionItem(props) {
           <div className='text-center'>
             <div style={{fontSize: '24px', fontWeight: 'bold'}}>{answers.length}</div>
             <div>{answers.length > 1 ? "Answers" : "Answer"}</div>
-            <span className="lowesButton" style={{position: 'absolute', width: '250px', left: '-80px', top: '80px'}}>ANSWER THIS QUESTION</span>
+            <span className="lowesButton" style={{position: 'absolute', width: '250px', left: '-120px', top: '80px'}}>ANSWER THIS QUESTION</span>
           </div>
         ) : (
-          <></>
+          <span className="lowesButton" style={{position: 'absolute', width: '250px', left: '-80px', top: '8px'}}>ANSWER THIS QUESTION</span>
         )}
 
         </div>
       </div>
       <div data="All Answers container">
-        {props.question.answers.length ? (
-          <AnswerItem answer={props.question.answers[0]} />
-        ) : (
-          <div />
-        )}
+        {answers.length && answers.length > 1 ? (
+          answers.map(answer => (<><AnswerItem answer={answer} /><hr /></>))) :
+          answers.length === 1 ? <AnswerItem answer={answers[0]} /> :<div />
+        }
       </div>
     </div>
   );

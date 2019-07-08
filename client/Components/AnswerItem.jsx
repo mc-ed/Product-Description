@@ -1,23 +1,31 @@
 import React from "react";
 
 function AnswerItem(props) {
-    console.log('answer:', props)
-    const { author, date, text, badgeName } = props.answer;
+  console.log('answer:', props)
+  const { author, date, text, badgeName, helpful } = props.answer;
   return (
     <div className='row'>
-        <div className="col-1"></div>
-      <div className='col-10'>
+      <div className="col-2"></div>
+      <div className='col-9'>
         <img src={`https://lowesproject.s3.amazonaws.com/badges/${badgeName}.jpg`} alt="Company Lego(if I do this)" />
-        <div>{author} on {date}</div>
-      <div>{text}</div>
-      <div data="button container">
-        <button>Yes</button>
-        <button>No</button>
-        <div>
-          <i data="flag">flag</i>
-          <a>Report</a>
-        </div>
-      </div>
+        <div className='mt-2'><small className='text-muted'>{author} on {date}</small></div>
+        <div className='mt-2'>{text}</div>
+        <div className="row mt-2">
+          <div className="col-2 text-center lowesButton ml-3">
+            Yes({helpful.yes})
+              </div>
+          <div
+            className="col-2 text-center lowesButton ml-3"
+          >
+            No({helpful.no})
+              </div>
+          <div>
+            <a>
+              <span className="flag" style={{ marginLeft: "16px" }} />
+              <span> Report</span>
+            </a>
+          </div>
+        </div>{" "}
       </div>
 
     </div>

@@ -1384,6 +1384,33 @@
                         "yes": 0,
                         "no": 0
                     }
+                },
+                {
+                    "badgeName": "5ef4aa0f-f5c8-5d1b-8da5-6950eac1d093",
+                    "author": "Kobalt Team",
+                    "date": "06/22/2018",
+                    "text": "Please contact your local Lowe's store for assistance with this problem.",
+                    "helpful": {
+                        "yes": 0,
+                        "no": 0
+                    }
+                }
+            ]
+        },
+        {
+            "question": "\"looking for a device that will lock a push broom head from spinning on the handle.\"",
+            "author": "Anonymous",
+            "date": "06/08/2018",
+            "answers": [
+                {
+                    "badgeName": "5ef4aa0f-f5c8-5d1b-8da5-6950eac1d093",
+                    "author": "Kobalt Team",
+                    "date": "06/22/2018",
+                    "text": "Please contact your local Lowe's store for assistance with this problem.",
+                    "helpful": {
+                        "yes": 0,
+                        "no": 0
+                    }
                 }
             ]
         }
