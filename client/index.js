@@ -10,6 +10,7 @@ class ProductDesc extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.handleMoreReviews = this.handleMoreReviews.bind(this);
     this.style= {
         lowesMedBackground: {
           backgroundColor: "#0471AF"
@@ -22,6 +23,8 @@ class ProductDesc extends React.Component {
         descriptions: [],
         specs: [],
         reviews: [],
+        reviewStats: {},
+        reviewCount : 10,
         questions: []
      };
   }
@@ -29,7 +32,7 @@ class ProductDesc extends React.Component {
   componentDidMount() {
     // window.parent.postMessage('{"hello": "world"}', 'http://127.0.0.1:3000')
 
-    axios.get('/api/product/1')
+    axios.get(`/api/product/1?review=0`)
     .then(data => {
       console.log(data)
       this.setState({ ...data.data })
@@ -49,15 +52,32 @@ class ProductDesc extends React.Component {
       sign.classList.add('plusSign');
     }
   }
+
+  handleMoreReviews() {
+    if(this.state.reviewStats.reviewCount - this.state.reviewCount < 10) {
+      this.setState(state => {return {reviewCount: state.reviewStats.reviewCount}})
+    } else {
+      this.setState(state => {return {reviewCount: state.reviewCount + 10}}, () => {
+        axios.get(`/api/product/1?review=${this.state.reviewCount}`)
+      .then(data => {
+        this.setState(state => {
+          return {
+            reviews: [...state.reviews, ...data.data.reviews]
+          }
+        })
+      })
+      })
+    }
+  }
  
   render() {
-    const { descriptions, specs, reviews, questions } = this.state;
+    const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
     return (
       <div className='container'>
         <div className="accordion" id="accordionExample">
           <Description onClick={ this.handleClick } style={ this.style } descriptions={ descriptions } />
           <Specifications onClick={ this.handleClick } style={ this.style } specs={ specs } />
-          <RatingsReviews onClick={ this.handleClick } style={ this.style } reviews={ reviews } />
+          <RatingsReviews onClick={ this.handleClick } style={ this.style } reviews={ reviews } count={reviewCount} moreReviews={this.handleMoreReviews} stats={reviewStats} />
           <QuestionsAnswers onClick={ this.handleClick } style={ this.style } questions={ questions } />
         </div>
       </div>

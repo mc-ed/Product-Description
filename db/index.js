@@ -48,6 +48,18 @@ var ProductSchema = new mongoose.Schema({
       }
     }
   ],
+  reviewStats : {
+    reviewCount: Number,
+    percentRecommended: String,
+    averageStars: String,
+    starCounts: {
+      five: Number,
+      four: Number,
+      three: Number,
+      two: Number,
+      one: Number,
+    }
+  },
   questions: [
     {
       question: String,

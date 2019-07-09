@@ -72,7 +72,7 @@
             "rating": 4,
             "date": "12/26/2016",
             "recommended": true,
-            "text": "Very good feel. The ergonomic grip does make a difference & is surprisingly helpful.Although I originally wanted a hammer solid forged shaft, I really couldn't recall or personally knew of a hammer head flying off. So, the value just wasn't there when comparing this fiberglass handle model's quality feel which is also a lighter load on my tool belt.You know you made a good choice when you keep playing with the tool...and thats what Ive been doing with this hammer.",
+            "text": "Very good feel. The ergonomic grip does make a difference & is surprisingly helpful.\nAlthough I originally wanted a hammer solid forged shaft, I really couldn't recall or personally knew of a hammer head flying off. So, the value just wasn't there when comparing this fiberglass handle model's quality feel which is also a lighter load on my tool belt.\nYou know you made a good choice when you keep playing with the tool...and thats what Ive been doing with this hammer.",
             "author": "Karl",
             "verifiedPurchaser": false,
             "sweepstakesEntry": false,
@@ -252,7 +252,7 @@
             "rating": 5,
             "date": "09/08/2018",
             "recommended": true,
-            "text": "I like the feel of the handle, well balanced It also looks good",
+            "text": "I like the feel of the handle, well balanced\nIt also looks good",
             "author": "Charlie",
             "verifiedPurchaser": true,
             "sweepstakesEntry": true,
@@ -514,6 +514,18 @@
             "sweepstakesEntry": true
         }
     ],
+    "reviewStats": {
+        "reviewCount": 37,
+        "percentRecommended": "81",
+        "averageStars": "4.6",
+        "starCounts": {
+            "five": 30,
+            "four": 5,
+            "three": 0,
+            "two": 0,
+            "one": 2
+        }
+    },
     "questions": [
         {
             "question": "\"Do they make a left handed version?\"",

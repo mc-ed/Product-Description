@@ -46,6 +46,18 @@ function scrape(cb) {
   $('a[href="#collapseQuestions"]')[1].click();
   clickMoreReviews($("a.btn.lazyload-btn.btn-primary"), () => {
     obj.reviews = grabReviews();
+    obj.reviewStats = {
+    	reviewCount : obj.reviews.length,
+    	percentRecommended: percentRecommended(obj.reviews),
+    	averageStars:averageStars(obj.reviews),
+    	starCounts : {
+    		five : countStars(obj.reviews, 5),
+    		four : countStars(obj.reviews, 4),
+    		three : countStars(obj.reviews, 3),
+    		two : countStars(obj.reviews, 2),
+    		one : countStars(obj.reviews, 1),
+    	}
+    }
     $('div.v-spacing-mini a[role="button"]').click();
     setTimeout(() => {
       openAllQuestionsAndAnswers(() => {
@@ -55,6 +67,51 @@ function scrape(cb) {
     }, 1000);
   });
 }
+
+  function countStars(arr, stars) {
+    if (!arr.length) {
+      return 0;
+    } else {
+      let count = 0;
+      arr.forEach(review => {
+        if (review.rating === stars) {
+          count++;
+        }
+      });
+      return count;
+    }
+  }
+
+  function averageStars(arr) {
+    if (!arr.length) {
+      return "5.0";
+    } else {
+      let starSum = 0;
+      arr.forEach(review => {
+        starSum += review.rating;
+      });
+      return (starSum / arr.length).toFixed(1).toString();
+    }
+  }
+
+
+  function percentRecommended(arr) {
+    if (!arr.length) {
+      return "";
+    } else {
+      let recommendedCount = 0;
+      arr.forEach(review => {
+        if (review.recommended) {
+          recommendedCount++;
+        }
+      });
+      return Math.floor(
+        (recommendedCount / arr.length) * 100
+      ).toString();
+    }
+  }
+
+
 
 function grabDescriptionBullets() {
   let obj = {};
@@ -203,10 +260,9 @@ function getQuestionsAndAnswers() {
 					contentType: 'application/JSON'
 				})
            }
-           
            arr[i].answers[j].author = $(answer.children).find('span.secondary-text')[0].innerText.trim();
            arr[i].answers[j].date = $(answer.children).find('.darkMidGrey')[0].innerText.trim().split(' ').slice(-1)[0];
-           arr[i].answers[j].text = answer.children[2].innerText.trim();
+           arr[i].answers[j].text = $(answer).find('p.v-spacing-medium.secondary-text')[0].innerText.trim();
           arr[i].answers[j].helpful = {
             yes: Number(
               $(answer)
@@ -226,6 +282,6 @@ function getQuestionsAndAnswers() {
 }
 
 scrape(function(obj) {
-  console.save(obj, "dummy.json");
+  console.save(obj, "product1.json");
 // console.log(obj)
 });

@@ -2,18 +2,26 @@ import React from "react";
 import uuidv4 from "uuid/v4";
 import ReviewItem from "./ReviewItem.jsx";
 
+
 function RatingsReviews(props) {
+  console.log(props)
+
+  function renderReviews() {
+    let arr = [];
+    for(let i = 0; i< props.count; i++) {
+       arr.push(<>
+      <ReviewItem key={uuidv4()} review={props.reviews[i]} />
+      <hr />
+      </>)
+    }
+    return arr;
+  }
   const { backgroundColor } = props.style.lowesMedBackground;
   const signToggle = document.querySelector(
     'span[data="toggleRatingsReviewsSign"]'
   );
   const reviews = props.reviews.length ? (
-    props.reviews.map(review => (
-      <>
-      <ReviewItem key={uuidv4()} readMore={props.readMore} review={review} />
-      <hr />
-      </>
-    ))
+    renderReviews()
   ) : (
     <div />
   );
@@ -67,6 +75,12 @@ function RatingsReviews(props) {
     }
   }
 
+  let fiveWidthValue = props.stats.starCounts ? ((props.stats.starCounts.five / props.stats.reviewCount) * 100) : 0
+  let fourWidthValue = props.stats.starCounts ? ((props.stats.starCounts.four / props.stats.reviewCount) * 100) : 0
+  let threeWidthValue = props.stats.starCounts ? ((props.stats.starCounts.three / props.stats.reviewCount) * 100) : 0
+  let twoWidthValue = props.stats.starCounts ? ((props.stats.starCounts.two / props.stats.reviewCount) * 100) : 0
+  let oneWidthValue = props.stats.starCounts ? ((props.stats.starCounts.one / props.stats.reviewCount) * 100) : 0
+
   return (
     <div className="card">
       <div
@@ -104,16 +118,16 @@ function RatingsReviews(props) {
                   className="col-2 text-center bg-grey"
                   style={{ padding: "16px" }}
                 >
-                  <h2 className="font-weight-bold">{percentRecommended()}%</h2>
+                  <h2 className="font-weight-bold">{props.stats.percentRecommended}%</h2>
                   <div className="font-weight-bold">
                     Recommended this product
                   </div>
-                  <div>of {props.reviews.length} reviews</div>
+                  <div>of {props.stats.reviewCount} reviews</div>
                 </div>
                 <div className="col-2 text-center" style={{ padding: "16px" }}>
-                  <div>{props.reviews.length} Ratings</div>
-                  <div className={`stars${cssAdjust(averageStars())}`} />
-                  <small>{averageStars()} Average</small>
+                  <div>{props.stats.reviewCount} Ratings</div>
+                  <div className={`stars${cssAdjust(props.stats.averageStars)}`} />
+                  <small>{props.stats.averageStars} Average</small>
                 </div>
                 <div className="col-6">
                   <div className="row no-gutters">
@@ -122,15 +136,15 @@ function RatingsReviews(props) {
                     </div>
                     <div className="col-10">
                       <div className="progress">
+
                         <div
                           className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{
-                            width: `${(countStars(5) / props.reviews.length) *
-                              100}%`
+                            width: `${fiveWidthValue}%`
                           }}
                         >
-                          {countStars(5)}
+                          {props.stats.starCounts ? props.stats.starCounts.five : 0}
                         </div>
                       </div>
                     </div>
@@ -145,14 +159,13 @@ function RatingsReviews(props) {
                           className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{
-                            width: `${(countStars(4) / props.reviews.length) *
-                              100}%`
+                            width: `${fourWidthValue}%`
                           }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
                         >
-                          {countStars(4)}
+                        {props.stats.starCounts ? props.stats.starCounts.four : 0}
                         </div>
                       </div>
                     </div>
@@ -167,14 +180,13 @@ function RatingsReviews(props) {
                           className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{
-                            width: `${(countStars(3) / props.reviews.length) *
-                              100}%`
+                            width: `${threeWidthValue}%`
                           }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
                         >
-                          {countStars(3)}
+                        {props.stats.starCounts ? props.stats.starCounts.three : 0}
                         </div>
                       </div>
                     </div>
@@ -189,14 +201,13 @@ function RatingsReviews(props) {
                           className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{
-                            width: `${(countStars(2) / props.reviews.length) *
-                              100}%`
+                            width: `${twoWidthValue}%`
                           }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
                         >
-                          {countStars(2)}
+                        {props.stats.starCounts ? props.stats.starCounts.two : 0}
                         </div>
                       </div>
                     </div>
@@ -211,14 +222,13 @@ function RatingsReviews(props) {
                           className="progress-bar bg-lowes"
                           role="progressbar"
                           style={{
-                            width: `${(countStars(1) / props.reviews.length) *
-                              100}%`
+                            width: `${oneWidthValue}%`
                           }}
                           aria-valuenow="89"
                           aria-valuemin="0"
                           aria-valuemax="100"
                         >
-                          {countStars(1)}
+                        {props.stats.starCounts ? props.stats.starCounts.one : 0}
                         </div>
                       </div>
                     </div>
@@ -233,7 +243,7 @@ function RatingsReviews(props) {
               className="row bg-grey"
               style={{ paddingTop: "12px", marginTop: "16px" }}
             >
-              <h3 className="col-9">{props.reviews.length} Reviews</h3>
+              <h3 className="col-9">{props.stats.reviewCount} Reviews</h3>
               <div className="col-3">
                 <select
                   className="select-box"
@@ -253,6 +263,9 @@ function RatingsReviews(props) {
               </div>
             </div>
             <div data="all the reviews">{reviews}</div>
+            {props.count !== props.stats.reviewCount ? (
+            <div onClick={()=> {props.moreReviews()}} className="lowesButton">Read {props.stats.reviewCount - props.count < 10 ? props.stats.reviewCount - props.count : 10} More</div>
+            ) : (<></>)}
           </div>
         </div>
       </div>
