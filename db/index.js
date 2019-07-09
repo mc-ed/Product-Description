@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 mongoose.connect("mongodb+srv://lowez-zporx.mongodb.net/main", {
   user: "cjfizzle",
-  pass: process.env.databasePass,
+  pass: "cjf114078145",
   useNewUrlParser: true
 });
 let data = require("../data/product1.json");
