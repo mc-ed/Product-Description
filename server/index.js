@@ -2,7 +2,7 @@ const dotenv = require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const app = express();
-const db = require('../db/index.js');
+// const db = require('../db/index.js');
 const axios = require('axios');
 const PORT = process.env.PORT || 3000
 
