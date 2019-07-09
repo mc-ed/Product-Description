@@ -1,7 +1,6 @@
 import React from "react";
 
 function AnswerItem(props) {
-  console.log('answer:', props)
   const { author, date, text, badgeName, helpful } = props.answer;
   return (
     <div className='row'>

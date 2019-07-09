@@ -11,7 +11,18 @@ app.use('/', express.static(path.join(__dirname, '../public')));
 
 app.get('/api/product/:id', (req, res) => {
     const { id } = req.params;
-    db.Product.find({product_id: id}).then(data => res.send(data[0]))
+    const review = Number(req.query.review) || 0;
+    if(!review) {
+        db.Product.findOne({product_id: id},{reviews:{$slice: [review, 20]}}).then(data => res.send(data))
+    } else {
+        db.Product.findOne({product_id: id}, { descriptions: 0, questions: 0, reviewStats: 0, specs: 0, reviews: { $slice: [review, 10] } }).exec((err,data) => res.send(data))
+    }
 });
+
+app.get('/api/stats/:id', (req,res) => {
+    const { id } = req.params;
+    db.Product.findOne({product_id: id}).select('reviewStats').exec((err,data) => res.send(data))
+})
+
 
 app.listen(PORT, () => console.log('now listening on port: ' + PORT));

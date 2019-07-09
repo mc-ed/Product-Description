@@ -2,9 +2,6 @@ import React from "react";
 import AnswerItem from "./AnswerItem.jsx";
 
 function QuestionItem(props) {
-  console.log("question: ", props);
-
-
   let questionRef = null;
   function toggleShow () {
     let rotateCaret = questionRef.querySelector('span.downCaret').parentElement;
