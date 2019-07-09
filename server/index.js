@@ -20,6 +20,12 @@ app.get('/api/product/:id', (req, res) => {
 });
 
 
+app.get('/api/stats/:id', (req,res) => {
+    const { id } = req.params;
+    db.Product.findOne({product_id: id}).select('reviewStats').exec((err,data) => res.send(data))
+})
+
+
 app.get('')
 
 app.listen(PORT, () => console.log('now listening on port: ' + PORT));

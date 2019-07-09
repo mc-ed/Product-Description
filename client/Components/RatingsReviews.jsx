@@ -26,53 +26,11 @@ function RatingsReviews(props) {
     <div />
   );
 
-  function percentRecommended() {
-    if (!props.reviews.length) {
-      return "";
-    } else {
-      let recommendedCount = 0;
-      props.reviews.forEach(review => {
-        if (review.recommended) {
-          recommendedCount++;
-        }
-      });
-      return Math.floor(
-        (recommendedCount / props.reviews.length) * 100
-      ).toString();
-    }
-  }
-
   function cssAdjust(num) {
     num = Math.round(num * 2) / 2;
     num = num.toString().split("");
     num = !num[2] ? num[0] : `${num[0]}_${num[2]}`;
     return num;
-  }
-
-  function averageStars() {
-    if (!props.reviews.length) {
-      return "5.0";
-    } else {
-      let starSum = 0;
-      props.reviews.forEach(review => {
-        starSum += review.rating;
-      });
-      return (starSum / props.reviews.length).toFixed(1).toString();
-    }
-  }
-
-  function countStars(stars) {
-    if (!props.reviews.length) {
-      return 0;
-    } else {
-      let count = 0;
-      props.reviews.forEach(review => {
-        if (review.rating === stars) {
-          count++;
-        }
-      });
-      return count;
-    }
   }
 
   let fiveWidthValue = props.stats.starCounts ? ((props.stats.starCounts.five / props.stats.reviewCount) * 100) : 0
