@@ -1,11 +1,11 @@
 @font-face {
   font-family: LowesFont;
-  src: url(./lowes-font.woff);
+  src: url(http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/assests/lowes-font.woff);
 }
 
 @font-face {
   font-family: LowesIcons;
-  src: url(./lowes-icons.woff);
+  src: url(http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/assests/lowes-font.woff);
 }
 
 html body {
