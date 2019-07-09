@@ -30,7 +30,14 @@ class ProductDesc extends React.Component {
   }
 
   componentDidMount() {
-    // window.parent.postMessage('{"hello": "world"}', 'http://127.0.0.1:3000')
+    window.addEventListener('product', (e) => {
+      const id = e.detail.product_id;
+      axios.get(`/api/product/${id}?review=0`)
+      .then(data => {
+        console.log(data)
+        this.setState({ ...data.data })
+      })
+    })
 
     axios.get(`/api/product/1?review=0`)
     .then(data => {
@@ -70,7 +77,7 @@ class ProductDesc extends React.Component {
     }
   }
  
-  
+
   render() {
     const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
     return (

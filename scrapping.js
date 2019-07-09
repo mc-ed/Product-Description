@@ -58,7 +58,6 @@ function scrape(cb) {
     		one : countStars(obj.reviews, 1),
     	}
     }
-    $('div.v-spacing-mini a[role="button"]').click();
     setTimeout(() => {
       openAllQuestionsAndAnswers(() => {
         obj.questions = getQuestionsAndAnswers();
@@ -129,7 +128,7 @@ function grabDescriptionBullets() {
 function grabSpecifications() {
   let arr = [];
   let obj = {};
-  $("tbody").each((i, element) => {
+  $('tbody').slice(0,2).each((i, element) => {
     Array.from($(element)[0].children).forEach(tr => {
       Array.from($(tr)[0].children).forEach((tableEl, i) => {
         if (i % 2 === 0) {
@@ -157,9 +156,12 @@ function clickMoreReviews($el, cb) {
     ($el[1] && $el[1].style.display !== "none")
   ) {
     $el.click();
-    setTimeout(() => {
+    $('div.v-spacing-mini a[role="button"][aria-expanded="false"]').click()
+    openAllQuestionsAndAnswers(() => {
+    	setTimeout(() => {
       clickMoreReviews($el, cb);
     }, 500);
+    })
   } else {
     cb();
   }
@@ -173,9 +175,10 @@ function grabReviews() {
   	if(images.length) {
   		arr[i].images = [];
   		images.each((__i,img) => {
-  			const smallImage = img.attributes.src.value;
-  			const largeImage = img.attributes['data-largeurl'].value;
-		arr[i].images.push({smallName: smallImage.split('/').slice(-1)[0], 
+  			if(img.attributes['data-largeurl']) {
+  				const smallImage = img.attributes.src.value;
+  				const largeImage = img.attributes['data-largeurl'].value;
+  						arr[i].images.push({smallName: smallImage.split('/').slice(-1)[0], 
 			largeName: largeImage.split('/').slice(-1)[0]})
 		$.ajax({
 					url: 'https://chrisfauries.com/lowesS3BucketSave',
@@ -189,6 +192,9 @@ function grabReviews() {
 					data: JSON.stringify({url: largeImage, path: 'userReviewPics'}),
 					contentType: 'application/JSON'
 				})
+  			}
+  			
+
   	})
   	}
     arr[i].title = el.children[0].innerText;
@@ -240,9 +246,17 @@ function getQuestionsAndAnswers() {
   let arr = [];
   $("div.question").each((i, question) => {
     arr[i] = {};
-    arr[i].question = $(question).find('[role="button"] strong')[0].innerText;
-    arr[i].author = $(question).find('small.darkMidGrey span')[0].innerText;	
-    arr[i].date = $(question).find('small.darkMidGrey')[0].outerText.replace(/\s+/g,' ').trim().split(' ')[2];
+    console.log()
+    if($(question).find('[role="button"] strong').length) {
+    	 arr[i].question = $(question).find('[role="button"] strong')[0].innerText;
+    	arr[i].author = $(question).find('small.darkMidGrey span')[0].innerText;	
+    	arr[i].date = $(question).find('small.darkMidGrey')[0].outerText.replace(/\s+/g,' ').trim().split(' ')[2];
+    } else {
+    	arr[i].question = $(question).find('div.grid-60.tablet-grid-60.push-5 strong')[0].innerText;
+    	arr[i].author = $(question).find('div.grid-60.tablet-grid-60.push-5 div span')[0].innerText;
+    	arr[i].date = $(question).find('div.grid-60.tablet-grid-60.push-5 div')[0].outerText.replace(/\s+/g,' ').trim().split(' ')[2];
+    }
+   
 
     if ($(question).find("div.answer").length) {
       arr[i].answers = [];
@@ -282,6 +296,6 @@ function getQuestionsAndAnswers() {
 }
 
 scrape(function(obj) {
-  console.save(obj, "product1.json");
+  console.save(obj, "product23.json");
 // console.log(obj)
 });

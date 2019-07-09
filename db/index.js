@@ -4,7 +4,6 @@ mongoose.connect("mongodb+srv://lowez-zporx.mongodb.net/main", {
   pass: "cjf114078145",
   useNewUrlParser: true
 });
-// let data = require("../data/product1.json");
 
 var db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -83,7 +82,8 @@ var ProductSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", ProductSchema);
 
-// const product = new Product({product_id: 1 ,...data});
+// let data = require("../data/product25.json");
+// const product = new Product({product_id: 25 ,...data});
 
 // product.save((err, data) => {
 //   if (err) {
