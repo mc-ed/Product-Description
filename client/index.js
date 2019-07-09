@@ -33,14 +33,14 @@ class ProductDesc extends React.Component {
     window.addEventListener('product', (e) => {
       const id = e.detail.product_id;
       console.log(id)
-      axios.get(`/api/product/${id}?review=0`)
+      axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0`)
       .then(data => {
         console.log(data)
         this.setState({ ...data.data })
       })
     })
 
-    axios.get(`/api/product/1?review=0`)
+    axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/1?review=0`)
     .then(data => {
       console.log(data)
       this.setState({ ...data.data })
@@ -66,7 +66,7 @@ class ProductDesc extends React.Component {
       this.setState(state => {return {reviewCount: state.reviewStats.reviewCount}})
     } else {
       this.setState(state => {return {reviewCount: state.reviewCount + 10}}, () => {
-        axios.get(`/api/product/1?review=${this.state.reviewCount}`)
+        axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/1?review=${this.state.reviewCount}`)
       .then(data => {
         this.setState(state => {
           return {
