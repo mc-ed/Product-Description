@@ -32,6 +32,7 @@ class ProductDesc extends React.Component {
   componentDidMount() {
     window.addEventListener('product', (e) => {
       const id = e.detail.product_id;
+      console.log(id)
       axios.get(`/api/product/${id}?review=0`)
       .then(data => {
         console.log(data)
