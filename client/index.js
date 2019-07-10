@@ -28,7 +28,7 @@ class ProductDesc extends React.Component {
         reviewStats: {},
         reviewCount : 10,
         questions: [],
-        _id: null
+        _Pid: null
      };
   }
 
@@ -70,11 +70,12 @@ class ProductDesc extends React.Component {
   }
 
   handleMoreReviews() {
+    let id = this.state._Pid  || 1
     if(this.state.reviewStats.reviewCount - this.state.reviewCount < 10) {
       this.setState(state => {return {reviewCount: state.reviewStats.reviewCount}})
     } else {
       this.setState(state => {return {reviewCount: state.reviewCount + 10}}, () => {
-        axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/1?review=${this.state.reviewCount}`)
+        axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=${this.state.reviewCount}`)
       .then(data => {
         this.setState(state => {
           return {
@@ -87,11 +88,11 @@ class ProductDesc extends React.Component {
   }
 
   changeID(e) {
-    this.setState({id: e.target.value})
+    this.setState({_Pid: e.target.value})
   }
 
   broadcastID() {
-    window.dispatchEvent(new CustomEvent('product',{detail: {product_id: this.state.id}}))
+    window.dispatchEvent(new CustomEvent('product',{detail: {product_id: this.state._Pid}}))
   }
  
 
