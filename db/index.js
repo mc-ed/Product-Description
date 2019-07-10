@@ -22,7 +22,7 @@ var ProductSchema = new mongoose.Schema({
   specs: [
     {
       title: String,
-      spec: String
+      spec: Schema.Types.Mixed
     }
   ],
   reviews: [
@@ -82,12 +82,12 @@ var ProductSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", ProductSchema);
 
-// let data = require("../data/product43.json");
-// const product = new Product({product_id: 43 ,...data});
+let data = require("../data/product43.json");
+const product = new Product({product_id: 43 ,...data});
 
 
 // function saveIt(i) {
-//   i = i || 0
+//   i = i || 1
 //   if(i > 100) {return;}
 //     let data = require(`../data/product${i}.json`);
 //     let product = new Product({product_id: `${i}` ,...data});

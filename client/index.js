@@ -6,8 +6,7 @@ import Specifications from './Components/Specifications.jsx'
 import RatingsReviews from './Components/RatingsReviews.jsx'
 import QuestionsAnswers from './Components/QuestionsAnswers.jsx'
 import styles from "./styles/index.less";
-
-  console.log(styles)
+import signs from './styles/signs.less';
 
 class ProductDesc extends React.Component {
   constructor(props) {
@@ -53,22 +52,23 @@ class ProductDesc extends React.Component {
       if(data.data.reviewStats.reviewCount < 10) {
         this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount })
       } else {
+        console.log(data.data)  
         this.setState({ ...data.data, reviewCount: 10})
       }
     })
   }
 
   handleClick(sign) {
-    if(Array.from(sign.classList).includes('plusSign')) {
-      Array.from(document.getElementsByClassName('minusSign')).forEach(el => {
-        el.classList.remove('minusSign');
-        el.classList.add('plusSign');
+    if(Array.from(sign.classList).includes(signs.plusSign)) {
+      Array.from(document.getElementsByClassName(signs.minusSign)).forEach(el => {
+        el.classList.remove(signs.minusSign);
+        el.classList.add(signs.plusSign);
       })
-      sign.classList.remove('plusSign');
-      sign.classList.add('minusSign');
+      sign.classList.remove(signs.plusSign);
+      sign.classList.add(signs.minusSign);
     } else {
-      sign.classList.remove('minusSign');
-      sign.classList.add('plusSign');
+      sign.classList.remove(signs.minusSign);
+      sign.classList.add(signs.plusSign);
     }
   }
 
@@ -102,8 +102,8 @@ class ProductDesc extends React.Component {
   render() {
     const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
     return (
-      <div className={`container ${styles.body}`}>
-      <div style={{position: 'absolute', top: 0, left: 0}}>
+      <div className={`container`}>
+      <div className={styles.input}>
         <input onChange={(e) =>{this.changeID(e)}} type="text" name="" id="IDinput"/>
         <button onClick={() =>{this.broadcastID()}}>Submit</button>
       </div>

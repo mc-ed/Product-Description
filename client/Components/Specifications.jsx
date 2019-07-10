@@ -1,6 +1,8 @@
 import React from "react";
 import uuidv4 from 'uuid/v4';
-import SpecItem from './SpecItem.jsx'
+import SpecItem from './SpecItem.jsx';
+import header from '../styles/CardHeader.less';
+import signs from '../styles/signs.less';
 
 function Specifications(props) {
   const { backgroundColor } = props.style.lowesMedBackground;
@@ -15,8 +17,7 @@ function Specifications(props) {
     <div className="card">
       <div
       onClick={ ()=> { props.onClick(signToggle) } }
-        style={{ backgroundColor, cursor: "pointer" }}
-        className="card-header"
+        className={`card-header ${header.header}`}
         id="headingTwo"
         data-toggle="collapse"
         data-target="#collapseTwo"
@@ -25,7 +26,7 @@ function Specifications(props) {
       >
         <span className="iconFont">{ '\u004D ' }</span>
         <span className="text-white font-weight-bold">Specifications</span>
-        <span data='toggleSpecificationsSign' className="float-right plusSign"></span>
+        <span data='toggleSpecificationsSign' className={`float-right ${signs.plusSign}`}></span>
       </div>
 
       <div
