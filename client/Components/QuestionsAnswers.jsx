@@ -2,7 +2,6 @@ import React from "react";
 import QuestionItem from "./QuestionItem.jsx";
 
 function QuestionsAnswers(props) {
-  console.log(props);
   const { backgroundColor } = props.style.lowesMedBackground;
   const signToggle = document.querySelector(
     'span[data="toggleQuestionAndAnswerSign"]'
