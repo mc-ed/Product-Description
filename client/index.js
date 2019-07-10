@@ -5,6 +5,9 @@ import Description from './Components/Description.jsx'
 import Specifications from './Components/Specifications.jsx'
 import RatingsReviews from './Components/RatingsReviews.jsx'
 import QuestionsAnswers from './Components/QuestionsAnswers.jsx'
+import styles from "./styles/index.less";
+
+  console.log(styles)
 
 class ProductDesc extends React.Component {
   constructor(props) {
@@ -99,7 +102,7 @@ class ProductDesc extends React.Component {
   render() {
     const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
     return (
-      <div className='container'>
+      <div className={`container ${styles.body}`}>
       <div style={{position: 'absolute', top: 0, left: 0}}>
         <input onChange={(e) =>{this.changeID(e)}} type="text" name="" id="IDinput"/>
         <button onClick={() =>{this.broadcastID()}}>Submit</button>

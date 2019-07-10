@@ -1,11 +1,11 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
-    entry: './client/index.js',
-    output: {
-      filename: 'bundle.js',
-      path: path.join(__dirname, 'public')
-    },
+  entry: "./client/index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.join(__dirname, "public")
+  },
   module: {
     rules: [
       {
@@ -14,7 +14,27 @@ module.exports = {
         use: {
           loader: "babel-loader"
         }
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            options: {
+              sourceMap: true,
+              modules: {
+                localIdentName: "[local]___[hash:base64:5]"
+              }
+            }
+          },
+          {
+            loader: "less-loader"
+          }
+        ]
       }
     ]
-}   
+  }
 };

@@ -20,6 +20,10 @@ p {
   font-family: Helvetica, Arial, sans-serif;
 }
 
+li {
+  height: auto !important;
+}
+
 .iconFont {
   font-family: LowesIcons;
   color: white;
