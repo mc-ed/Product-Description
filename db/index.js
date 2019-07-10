@@ -82,8 +82,8 @@ var ProductSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", ProductSchema);
 
-let data = require("../data/product43.json");
-const product = new Product({product_id: 43 ,...data});
+// let data = require("../data/product43.json");
+// const product = new Product({product_id: 43 ,...data});
 
 
 // function saveIt(i) {
