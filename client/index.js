@@ -9,6 +9,8 @@ import QuestionsAnswers from './Components/QuestionsAnswers.jsx'
 class ProductDesc extends React.Component {
   constructor(props) {
     super(props);
+    this.changeID = this.changeID.bind(this);
+    this.broadcastID = this.broadcastID.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleMoreReviews = this.handleMoreReviews.bind(this);
     this.style= {
@@ -25,7 +27,8 @@ class ProductDesc extends React.Component {
         reviews: [],
         reviewStats: {},
         reviewCount : 10,
-        questions: []
+        questions: [],
+        _id: null
      };
   }
 
@@ -77,12 +80,24 @@ class ProductDesc extends React.Component {
       })
     }
   }
+
+  changeID(e) {
+    this.setState({id: e.target.value})
+  }
+
+  broadcastID() {
+    window.dispatchEvent(new CustomEvent('product',{detail: {product_id: this.state.id}}))
+  }
  
 
   render() {
     const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
     return (
       <div className='container'>
+      <div style={{position: 'absolute', top: 0, left: 0}}>
+        <input onChange={(e) =>{this.changeID(e)}} type="text" name="" id="IDinput"/>
+        <button onClick={() =>{this.broadcastID()}}>Submit</button>
+      </div>
         <div className="accordion" id="accordionExample">
           <Description onClick={ this.handleClick } style={ this.style } descriptions={ descriptions } />
           <Specifications onClick={ this.handleClick } style={ this.style } specs={ specs } />

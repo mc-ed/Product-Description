@@ -82,16 +82,29 @@ var ProductSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", ProductSchema);
 
-// let data = require("../data/product25.json");
-// const product = new Product({product_id: 25 ,...data});
+let data = require("../data/product43.json");
+const product = new Product({product_id: 43 ,...data});
 
-// product.save((err, data) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log("success");
+
+// function saveIt(i) {
+//   i = i || 0
+//   if(i > 100) {return;}
+//     let data = require(`../data/product${i}.json`);
+//     let product = new Product({product_id: `${i}` ,...data});
+//     product.save((err, data) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         console.log("success");
+//         saveIt(++i)
+//       }
+//     });
 //   }
-// });
+
+//   saveIt();
+
+
+
 
 
 module.exports = {
