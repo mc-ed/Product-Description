@@ -1,6 +1,12 @@
 import React from "react";
 import uuidv4 from "uuid/v4";
 import ReviewItem from "./ReviewItem.jsx";
+import main from '../styles/main.less'
+import header from '../styles/CardHeader.less';
+import signs from "../styles/signs.less";
+import stars from '../styles/stars.less';
+import styles from '../styles/Ratings.less';
+import buttons from '../styles/buttons.less'
 
 
 function RatingsReviews(props) {
@@ -16,7 +22,6 @@ function RatingsReviews(props) {
     }
     return arr;
   }
-  const { backgroundColor } = props.style.lowesMedBackground;
   const signToggle = document.querySelector(
     'span[data="toggleRatingsReviewsSign"]'
   );
@@ -45,19 +50,18 @@ function RatingsReviews(props) {
         onClick={() => {
           props.onClick(signToggle);
         }}
-        style={{ backgroundColor, cursor: "pointer" }}
-        className="card-header"
+        className={`card-header ${header.header}`}
         id="headingThree"
         data-toggle="collapse"
         data-target="#collapseThree"
         aria-expanded="true"
         aria-controls="collapseThree"
       >
-        <span className="iconFont">{"\uECE0 "}</span>
+        <span className={header.icon}>{"\uECE0 "}</span>
         <span className="text-white font-weight-bold">Reviews and Ratings</span>
         <span
           data="toggleRatingsReviewsSign"
-          className="float-right plusSign"
+          className={`float-right ${signs.plusSign}`}
         />
       </div>
 
@@ -73,7 +77,7 @@ function RatingsReviews(props) {
               <h6 className="font-weight-bold">Ratings Summary</h6>
               <div className="row">
                 <div
-                  className="col-2 text-center bg-grey"
+                  className={`col-2 text-center ${styles.greyBG}`}
                   style={{ padding: "16px" }}
                 >
                   <h2 className="font-weight-bold">{props.stats.percentRecommended}%</h2>
@@ -82,21 +86,21 @@ function RatingsReviews(props) {
                   </div>
                   <div>of {props.stats.reviewCount} reviews</div>
                 </div>
-                <div className="col-2 text-center" style={{ padding: "16px" }}>
+                <div className={`col-2 text-center ${styles.pad16}`}>
                   <div>{props.stats.reviewCount} Ratings</div>
-                  <div className={`stars${cssAdjust(props.stats.averageStars)}`} />
+                  <div className={stars[`stars${cssAdjust(props.stats.averageStars)}`]} />
                   <small>{props.stats.averageStars} Average</small>
                 </div>
                 <div className="col-6">
                   <div className="row no-gutters">
                     <div className="col-2">
-                      <div className="stars5" />
+                      <div className={stars.stars5} />
                     </div>
                     <div className="col-10">
                       <div className="progress">
 
                         <div
-                          className="progress-bar bg-lowes"
+                          className={`progress-bar ${styles.lowesBG}`}
                           role="progressbar"
                           style={{
                             width: `${fiveWidthValue}%`
@@ -109,12 +113,12 @@ function RatingsReviews(props) {
                   </div>
                   <div className="row no-gutters">
                     <div className="col-2">
-                      <div className="stars4" />
+                      <div className={stars.stars4} />
                     </div>
                     <div className="col-10">
                       <div className="progress">
                         <div
-                          className="progress-bar bg-lowes"
+                          className={`progress-bar ${styles.lowesBG}`}
                           role="progressbar"
                           style={{
                             width: `${fourWidthValue}%`
@@ -130,12 +134,12 @@ function RatingsReviews(props) {
                   </div>
                   <div className="row no-gutters">
                     <div className="col-2">
-                      <div className="stars3" />
+                      <div className={stars.stars3} />
                     </div>
                     <div className="col-10">
                       <div className="progress">
                         <div
-                          className="progress-bar bg-lowes"
+                          className={`progress-bar ${styles.lowesBG}`}
                           role="progressbar"
                           style={{
                             width: `${threeWidthValue}%`
@@ -151,12 +155,12 @@ function RatingsReviews(props) {
                   </div>
                   <div className="row no-gutters">
                     <div className="col-2">
-                      <div className="stars2" />
+                      <div className={stars.stars2} />
                     </div>
                     <div className="col-10">
                       <div className="progress">
                         <div
-                          className="progress-bar bg-lowes"
+                          className={`progress-bar ${styles.lowesBG}`}
                           role="progressbar"
                           style={{
                             width: `${twoWidthValue}%`
@@ -172,12 +176,12 @@ function RatingsReviews(props) {
                   </div>
                   <div className="row no-gutters">
                     <div className="col-2">
-                      <div className="stars1" />
+                      <div className={stars.stars1} />
                     </div>
                     <div className="col-10">
                       <div className="progress">
                         <div
-                          className="progress-bar bg-lowes"
+                          className={`progress-bar ${styles.lowesBG}`}
                           role="progressbar"
                           style={{
                             width: `${oneWidthValue}%`
@@ -192,19 +196,19 @@ function RatingsReviews(props) {
                     </div>
                   </div>
                 </div>
-                <div className="col-2 wrapper">
-                  <span className="lowesButton content">WRITE A REVIEW</span>
+                <div className={`col-2 ${main.wrapper}`}>
+                  <span className={`${main.content} ${buttons.button}`}>WRITE A REVIEW</span>
                 </div>
               </div>
             </div>
             <div
-              className="row bg-grey"
+              className={`row ${styles.greyBG} ${styles.containerStrip}`}
               style={{ paddingTop: "12px", marginTop: "16px" }}
             >
               <h3 className="col-9">{props.stats.reviewCount} Reviews</h3>
               <div className="col-3">
                 <select
-                  className="select-box"
+                  className={styles['select-box']}
                   name="sortReviewBy"
                   id="sortReviewBy"
                 >
@@ -222,7 +226,7 @@ function RatingsReviews(props) {
             </div>
             <div data="all the reviews">{reviews}</div>
             {props.count !== props.stats.reviewCount ? (
-            <div onClick={()=> {props.moreReviews()}} className="lowesButton">Read {props.stats.reviewCount - props.count < 10 ? props.stats.reviewCount - props.count : 10} More</div>
+            <div onClick={()=> {props.moreReviews()}} className={buttons.button}>Read {props.stats.reviewCount - props.count < 10 ? props.stats.reviewCount - props.count : 10} More</div>
             ) : (<></>)}
           </div>
         </div>

@@ -3,9 +3,8 @@ import checks from '../styles/checks.less'
 
 function SpecItem(props) {
     let { title, spec } = props.spec
-    console.log(typeof spec, spec)
     if(typeof spec === 'number') {
-        spec = spec === 1 ? (<td className={`checks.checkMark`}></td>) : (<td className={`checks.crossMark`}></td>)
+        spec = spec === 1 ? (<td className={checks.checkMark}></td>) : (<td className={checks.crossMark}></td>)
     } else {
         spec = <td>{ spec }</td>
     }

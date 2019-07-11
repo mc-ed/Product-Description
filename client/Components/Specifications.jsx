@@ -24,7 +24,7 @@ function Specifications(props) {
         aria-expanded="true"
         aria-controls="collapseTwo"
       >
-        <span className="iconFont">{ '\u004D ' }</span>
+        <span className={header.icon}>{ '\u004D ' }</span>
         <span className="text-white font-weight-bold">Specifications</span>
         <span data='toggleSpecificationsSign' className={`float-right ${signs.plusSign}`}></span>
       </div>

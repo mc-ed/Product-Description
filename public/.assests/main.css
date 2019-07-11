@@ -224,7 +224,7 @@ li {
 }
 
 .show {
-  display: inherit;
+  display: inherit !important;
 }
 
 .expand {

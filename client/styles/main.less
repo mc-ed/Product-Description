@@ -1,0 +1,27 @@
+.content {
+    display: inline-block;
+  }
+
+.wrapper {
+    height: 100px;
+    overflow: hidden;
+    /* this needs to change */
+  }
+  
+  .wrapper:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.35em;
+  }
+
+  .show {
+    display: inherit !important;
+  }
+  
+  .expand {
+    height: auto;
+    max-height: 1000px;
+    transition: max-height 0.3s linear;
+  }

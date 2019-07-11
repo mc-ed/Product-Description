@@ -29,7 +29,7 @@ function Description(props) {
         aria-expanded="true"
         aria-controls="collapseOne"
       >
-        <span className="iconFont">{"\u004B "}</span>
+        <span className={header.icon}>{"\u004B "}</span>
         <span className="text-white font-weight-bold">Description</span>
         <span data="toggleDescriptionSign" className={`float-right ${signs.plusSign}`} />
       </div>
