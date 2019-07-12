@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios'
+import axios from 'axios';
 import Description from './Components/Description.jsx'
 import Specifications from './Components/Specifications.jsx'
 import RatingsReviews from './Components/RatingsReviews.jsx'
 import QuestionsAnswers from './Components/QuestionsAnswers.jsx'
 import styles from "./styles/index.less";
 import signs from './styles/signs.less';
+import fonts from './styles/fonts/fonts.json'
 
 class ProductDesc extends React.Component {
   constructor(props) {
@@ -35,6 +36,16 @@ class ProductDesc extends React.Component {
   }
 
   componentDidMount() {
+    //LOWES font Loader
+    var font = new Int8Array(fonts.font);
+    var theLowesFont = new FontFace('theLowesFont', font);
+    theLowesFont.loaded.then(loaded => loaded.load()).then(f => document.fonts.add(f));
+
+    //LOWES icon loader
+    var icons = new Int8Array(fonts.icons);
+    var theLowesIcons = new FontFace('theLowesIcons', icons);
+    theLowesIcons.loaded.then(loaded => loaded.load()).then(f => document.fonts.add(f));
+
     window.addEventListener('product', (e) => {
       const id = e.detail.product_id;
       axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0`)
@@ -102,7 +113,7 @@ class ProductDesc extends React.Component {
   render() {
     const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
     return (
-      <div className={`container`}>
+      <div className={`container ${styles.font}`}>
       <div className={styles.input}>
         <input onChange={(e) =>{this.changeID(e)}} type="text" name="" id="IDinput"/>
         <button onClick={() =>{this.broadcastID()}}>Submit</button>

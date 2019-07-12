@@ -1,4 +1,4 @@
-@font-face {
+/* @font-face {
   font-family: LowesFont;
   src: url(http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/assests/lowes-font.woff);
 }
@@ -130,7 +130,6 @@ li {
 .wrapper {
   height: 100px;
   overflow: hidden;
-  /* this needs to change */
 }
 
 .wrapper:before {
@@ -231,4 +230,4 @@ li {
   height: auto;
   max-height: 1000px;
   transition: max-height 0.3s linear;
-}
+} */
