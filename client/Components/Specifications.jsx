@@ -5,7 +5,6 @@ import header from '../styles/CardHeader.less';
 import signs from '../styles/signs.less';
 
 function Specifications(props) {
-  const { backgroundColor } = props.style.lowesMedBackground;
   let { specs } = props;
 
   specs = specs.map(spec => <SpecItem key={ uuidv4() } spec={ spec } />)

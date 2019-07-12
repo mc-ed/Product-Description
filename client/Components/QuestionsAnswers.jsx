@@ -2,17 +2,16 @@ import React from "react";
 import QuestionItem from "./QuestionItem.jsx";
 
 function QuestionsAnswers(props) {
-  const { backgroundColor } = props.style.lowesMedBackground;
   const signToggle = document.querySelector(
     'span[data="toggleQuestionAndAnswerSign"]'
   );
+  {/* style={{ backgroundColor, cursor: "pointer" }} */}
   return (
     <div className="card">
       <div
         onClick={() => {
           props.onClick(signToggle);
         }}
-        style={{ backgroundColor, cursor: "pointer" }}
         className="card-header"
         id="headingFour"
         data-toggle="collapse"

@@ -7,7 +7,7 @@ import RatingsReviews from './Components/RatingsReviews.jsx'
 import QuestionsAnswers from './Components/QuestionsAnswers.jsx'
 import styles from "./styles/index.less";
 import signs from './styles/signs.less';
-import fonts from './styles/fonts/fonts.json'
+import fonts from './styles/fonts/fonts.json';
 
 class ProductDesc extends React.Component {
   constructor(props) {
@@ -16,14 +16,6 @@ class ProductDesc extends React.Component {
     this.broadcastID = this.broadcastID.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleMoreReviews = this.handleMoreReviews.bind(this);
-    this.style= {
-        lowesMedBackground: {
-          backgroundColor: "#0471AF"
-        },
-        lowesDarkBackground: {
-          backgroundColor: "#004990"
-        }
-    };
     this.state = {  
         descriptions: [],
         specs: [],
@@ -119,10 +111,10 @@ class ProductDesc extends React.Component {
         <button onClick={() =>{this.broadcastID()}}>Submit</button>
       </div>
         <div className="accordion" id="accordionExample">
-          <Description onClick={ this.handleClick } style={ this.style } descriptions={ descriptions } />
-          <Specifications onClick={ this.handleClick } style={ this.style } specs={ specs } />
-          <RatingsReviews onClick={ this.handleClick } style={ this.style } reviews={ reviews } count={reviewCount} moreReviews={this.handleMoreReviews} stats={reviewStats} />
-          <QuestionsAnswers onClick={ this.handleClick } style={ this.style } questions={ questions } />
+          <Description onClick={ this.handleClick } descriptions={ descriptions } />
+          <Specifications onClick={ this.handleClick } specs={ specs } />
+          <RatingsReviews onClick={ this.handleClick } reviews={ reviews } count={reviewCount} moreReviews={this.handleMoreReviews} stats={reviewStats} />
+          <QuestionsAnswers onClick={ this.handleClick } questions={ questions } />
         </div>
       </div>
     );
