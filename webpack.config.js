@@ -44,6 +44,10 @@ module.exports = {
                 outputPath: 'fonts/'
             }
         }]
+      },
+      {
+        test: /\.txt$/i,
+        use: 'raw-loader',
       }
     ]
   }

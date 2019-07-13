@@ -7,7 +7,8 @@ import RatingsReviews from './Components/RatingsReviews.jsx'
 import QuestionsAnswers from './Components/QuestionsAnswers.jsx'
 import styles from "./styles/index.less";
 import signs from './styles/signs.less';
-import fonts from './styles/fonts/fonts.json';
+import icons from './styles/fonts/symbols.txt';
+import font from './styles/fonts/font.txt';
 
 class ProductDesc extends React.Component {
   constructor(props) {
@@ -28,14 +29,24 @@ class ProductDesc extends React.Component {
   }
 
   componentDidMount() {
+    let fontArr = [];
+    for(let i = 0; i < font.length; i+=2) {
+      fontArr.push(parseInt(font.substring(i, i+2), 16));
+    }
+
+    let iconsArr = [];
+    for(let i = 0; i < icons.length; i+=2) {
+      iconsArr.push(parseInt(icons.substring(i, i+2), 16));
+    }
+
     //LOWES font Loader
-    var font = new Int8Array(fonts.font);
-    var theLowesFont = new FontFace('theLowesFont', font);
+    var fontTyped = new Int8Array(fontArr);
+    var theLowesFont = new FontFace('theLowesFont', fontTyped);
     theLowesFont.loaded.then(loaded => loaded.load()).then(f => document.fonts.add(f));
 
     //LOWES icon loader
-    var icons = new Int8Array(fonts.icons);
-    var theLowesIcons = new FontFace('theLowesIcons', icons);
+    var iconsTyped = new Int8Array(iconsArr);
+    var theLowesIcons = new FontFace('theLowesIcons', iconsTyped);
     theLowesIcons.loaded.then(loaded => loaded.load()).then(f => document.fonts.add(f));
 
     window.addEventListener('product', (e) => {

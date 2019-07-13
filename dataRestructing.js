@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-fs.readFile('./public/fonts/lowes-icons.woff','hex',(err, results) => {
+fs.readFile('./public/fonts/lowes-font.woff','hex',(err, results) => {
     console.log(results.slice(0,8))
 
     // var arr = new Int32Array(Math.ceil(results.length / 4));
@@ -11,10 +11,7 @@ fs.readFile('./public/fonts/lowes-icons.woff','hex',(err, results) => {
     //     }
     //     arr.set([val], i);
     // }
-    fs.writeFile('./testing2.js', results , (err) => {
+    fs.writeFile('./font.txt', results , (err) => {
         console.log(err)
     })
 })
-
-
-
