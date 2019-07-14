@@ -1,5 +1,6 @@
 import React from "react";
 import AnswerItem from "./AnswerItem.jsx";
+import uuidv4 from 'uuid/v4';
 
 function QuestionItem(props) {
   let questionRef = null;
@@ -46,7 +47,7 @@ function QuestionItem(props) {
       </div>
       <div data="All Answers container">
         {answers.length && answers.length > 1 ? (
-          answers.map(answer => (<><AnswerItem answer={answer} /><hr /></>))) :
+          answers.map(answer => (<div key={uuidv4()}><AnswerItem answer={answer} /><hr /></div>))) :
           answers.length === 1 ? <AnswerItem answer={answers[0]} /> :<div />
         }
       </div>

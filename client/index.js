@@ -1,6 +1,8 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import { Accordion } from 'react-bootstrap'
 import Description from './Components/Description.jsx'
 import Specifications from './Components/Specifications.jsx'
 import RatingsReviews from './Components/RatingsReviews.jsx'
@@ -18,16 +20,16 @@ class ProductDesc extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleMoreReviews = this.handleMoreReviews.bind(this);
     this.state = {  
-        descriptions: [],
-        specs: [],
-        reviews: [],
-        reviewStats: {},
-        reviewCount : 10,
-        questions: [],
-        _Pid: null
-     };
+      descriptions: [],
+      specs: [],
+      reviews: [],
+      reviewStats: {},
+      reviewCount : 10,
+      questions: [],
+      _Pid: null
+    };
   }
-
+  
   componentDidMount() {
     let fontArr = [];
     for(let i = 0; i < font.length; i+=2) {
@@ -65,8 +67,7 @@ class ProductDesc extends React.Component {
     .then(data => {
       if(data.data.reviewStats.reviewCount < 10) {
         this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount })
-      } else {
-        console.log(data.data)  
+      } else { 
         this.setState({ ...data.data, reviewCount: 10})
       }
     })
@@ -121,12 +122,18 @@ class ProductDesc extends React.Component {
         <input onChange={(e) =>{this.changeID(e)}} type="text" name="" id="IDinput"/>
         <button onClick={() =>{this.broadcastID()}}>Submit</button>
       </div>
-        <div className="accordion" id="accordionExample">
+        {/* <div className="accordion" id="accordionExample">
           <Description onClick={ this.handleClick } descriptions={ descriptions } />
           <Specifications onClick={ this.handleClick } specs={ specs } />
           <RatingsReviews onClick={ this.handleClick } reviews={ reviews } count={reviewCount} moreReviews={this.handleMoreReviews} stats={reviewStats} />
           <QuestionsAnswers onClick={ this.handleClick } questions={ questions } />
-        </div>
+        </div> */}
+      <Accordion>
+          <Description onClick={ this.handleClick } descriptions={ descriptions } />
+          <Specifications onClick={ this.handleClick } specs={ specs } />
+          <RatingsReviews onClick={ this.handleClick } reviews={ reviews } count={reviewCount} moreReviews={this.handleMoreReviews} stats={reviewStats} />
+          <QuestionsAnswers onClick={ this.handleClick } questions={ questions } />
+      </Accordion>
       </div>
     );
   }
