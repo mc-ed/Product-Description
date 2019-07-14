@@ -1,0 +1,65 @@
+@import 'themes.less';
+
+.textLowes {
+    color: @lowesMed;
+}
+
+.pad16 {
+	padding: 16px;
+}
+
+.downCaret::after {
+	font-family: 'theLowesIcons';
+	color: #0471af;
+	content: '\EDBF';
+}
+
+.down {
+	transform: rotate(0deg);
+	transition: transform 0.3s ease;
+}
+
+.rotateCaret {
+	transform: rotate(180deg);
+	transition: transform 0.3s ease;
+}
+
+.pointer {
+	cursor: pointer;
+}
+
+.mt8 {
+	margin-top: 8px;
+}
+
+.questionHide {
+	max-height: 76px;
+	overflow: hidden;
+	transition: max-height 0.3s linear;
+}
+
+.show {
+	display: inherit;
+}
+
+.expand {
+	height: auto;
+	max-height: 1000px;
+	transition: max-height 0.3s linear;
+}
+
+.answerLength {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.answerButton {
+    position: absolute;
+    width: 250px;
+    left: -120px;
+    top: 80px;
+}
+
+.ml16 {
+	margin-left: 16px;
+}
