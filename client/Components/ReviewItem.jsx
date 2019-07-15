@@ -124,7 +124,7 @@ function ReviewItem(props) {
 
 			<>
 				<div className={`row ${styles.container}`}>
-					<div className='col-7 border-right'>
+					<div className={`col-md-7 border-right ${styles.qBorder}`}>
 						<h4>{title}</h4>
 						<div data='star data'>
 							<span className={stars[`stars${rating}`]} />
@@ -174,7 +174,7 @@ function ReviewItem(props) {
 							<div />
 						)}
 					</div>
-					<div className={`col-5 ${styles.reviewSide}`}>
+					<div className={`col-md-5 ${styles.reviewSide}`}>
 						<p className='font-weight-bold'>{author}</p>
 						{verifiedPurchaser ? (
 							<div>
@@ -196,9 +196,9 @@ function ReviewItem(props) {
 							<>
 								<p>Was this review helpful?</p>
 								<div className='row'>
-									<div className={`col-3 text-center ${buttons.button} ${buttons.spaceLeft}`}>Yes({helpful.yes})</div>
-									<div className={`col-3 text-center ${buttons.button} ${buttons.spaceLeft}`}>No({helpful.no})</div>
-									<div>
+									<div className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>Yes({helpful.yes})</div>
+									<div className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>No({helpful.no})</div>
+									<div className='col-sm-12 col-12 text-center mt-3'>
 										<a>
 											<span className={`${signs.flag} ${buttons.spaceLeft}`} />
 											<span> Report</span>

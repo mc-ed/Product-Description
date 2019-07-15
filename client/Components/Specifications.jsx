@@ -38,12 +38,12 @@ function Specifications(props) {
       <Accordion.Collapse eventKey="1">
         <Card.Body>
           <div className="row">
-            <div className="col">
+            <div className="col-md-6">
               <table className="table table-borderless">
                 <tbody>{columnA}</tbody>
               </table>
             </div>
-            <div className="col">
+            <div className="col-md-6">
               <table className="table table-borderless">
                 <tbody>{columnB}</tbody>
               </table>
