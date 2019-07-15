@@ -9,6 +9,7 @@ const cookieSetting = require('./middleWare/cookies.js')
 const PORT = process.env.PORT || 3000
 const cookieParser = require('cookie-parser');
 
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser('LowesUsesJQuery!'))

@@ -3,6 +3,7 @@ const {Session} = require('../../db/index.js')
 
 const cookies = function(req,res,next) {
     const { ip } = req;
+    console.log(ip)
     const id = uuidv4();
     if(req.cookies.customerID === "s%3A3c9a12fc-5beb-42de-9645-89187ef12151555") {
         console.log('cookie previously tampered with')
