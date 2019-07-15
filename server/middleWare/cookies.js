@@ -6,24 +6,31 @@ const cookies = function(req,res,next) {
     const id = uuidv4();
     if(req.cookies.customerID === "s%3A3c9a12fc-5beb-42de-9645-89187ef12151555") {
         req.validSession = false;
+        next();
     } else if(req.signedCookies.customerID === false) {
         res.cookie('customerID', "s%3A3c9a12fc-5beb-42de-9645-89187ef12151555");
         req.validSession = false;
+        next();
     } else if(!req.signedCookies.customerID) {
         res.cookie('customerID', id, {signed: true});
-        req.validSession = {id, ip}
         let session = new Session({customerID : id, ip: ip});
         session.save((err, data) => {
             if (err) {
                 console.log(err);
+                req.validSession = false;
+                next();
             } else {
                 console.log("success");
+                req.validSession = {id, ip}
+                next();
             }
         })
     } else if(req.signedCookies.customerID) {
         Session.findOne({customerID: req.signedCookies.customerID}).exec((err,data) => {
             if(err || !data){
                 console.log(err)
+                req.validSession = false;
+                next();
             } else {
                 req.validSession = {id :data.customerID, ip: data.ip}
                 next();

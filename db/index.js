@@ -15,7 +15,7 @@ var Schema = mongoose.Schema;
 
 var SessionSchema = new mongoose.Schema({
       customerID: String,
-      ip : {type: String},
+      ip : String,
       timeStamp: { type: Date, default: Date.now },
       responses: [String]
 })
@@ -110,10 +110,6 @@ const Session = mongoose.model("Session", SessionSchema);
 //   }
 
 //   saveIt();
-
-
-
-
 
 module.exports = {
   Product,
