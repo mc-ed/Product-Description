@@ -34,8 +34,8 @@ const cookies = function(req,res,next) {
                 req.validSession = false;
                 next();
             } else {
-                console.log('good cookie!')
-                req.validSession = {id :data.customerID, ip: data.ip}
+                console.log('good cookie!: ', data.customerID)
+                req.validSession = {id :data.customerID}
                 next();
             }
         })
