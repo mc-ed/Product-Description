@@ -15,7 +15,6 @@ var Schema = mongoose.Schema;
 
 var SessionSchema = new mongoose.Schema({
       customerID: String,
-      ip : String,
       timeStamp: { type: Date, default: Date.now },
       responses: [String]
 })
