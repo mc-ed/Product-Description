@@ -57,10 +57,11 @@ module.exports = {
           }
         ]
       },
-      {
-        test: /\.txt$/i,
-        use: "raw-loader"
-      }
     ]
   }
 };
+
+// {
+//   test: /\.txt$/i,
+//   use: "raw-loader"
+// }

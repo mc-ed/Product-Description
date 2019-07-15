@@ -13,6 +13,13 @@ db.once("open", function() {
 
 var Schema = mongoose.Schema;
 
+var SessionSchema = new mongoose.Schema({
+      customerID: String,
+      ip : String,
+      timeStamp: { type: Date, default: Date.now },
+      responses: [String]
+})
+
 var ProductSchema = new mongoose.Schema({
   product_id : Number,
   descriptions: {
@@ -81,6 +88,7 @@ var ProductSchema = new mongoose.Schema({
 });
 
 const Product = mongoose.model("Product", ProductSchema);
+const Session = mongoose.model("Session", SessionSchema);
 
 // let data = require("../data/product43.json");
 // const product = new Product({product_id: 43 ,...data});
@@ -103,10 +111,7 @@ const Product = mongoose.model("Product", ProductSchema);
 
 //   saveIt();
 
-
-
-
-
 module.exports = {
-  Product
+  Product,
+  Session
 };

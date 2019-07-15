@@ -65,22 +65,22 @@ function RatingsReviews(props) {
 					<div className='container-fluid'>
 						<h6 className='font-weight-bold'>Ratings Summary</h6>
 						<div className='row'>
-							<div className={`col-2 text-center ${styles.greyBG}`} style={{ padding: '16px' }}>
+							<div className={`col-md-6 col-lg-2 text-center ${styles.greyBG}`} style={{ padding: '16px' }}>
 								<h2 className='font-weight-bold'>{props.stats.percentRecommended}%</h2>
 								<div className='font-weight-bold'>Recommended this product</div>
 								<div>of {props.stats.reviewCount} reviews</div>
 							</div>
-							<div className={`col-2 text-center ${styles.pad16}`}>
+							<div className={`col-md-6 col-lg-2 text-center ${styles.pad16}`}>
 								<div>{props.stats.reviewCount} Ratings</div>
 								<div className={stars[`stars${cssAdjust(props.stats.averageStars)}`]} />
 								<small>{props.stats.averageStars} Average</small>
 							</div>
-							<div className='col-6'>
-								<div className='row no-gutters'>
+							<div className={`col-md-12 col-lg-6 ${styles.totalByStars}`}>
+								<div className={`row no-gutters ${styles.starStats}`} >
 									<div className='col-2'>
 										<div className={stars.stars5} />
 									</div>
-									<div className='col-10'>
+									<div className='col-8 col-sm-9 col-md-10'>
 										<div className='progress'>
 											<div
 												className={`progress-bar ${styles.lowesBG}`}
@@ -93,11 +93,11 @@ function RatingsReviews(props) {
 										</div>
 									</div>
 								</div>
-								<div className='row no-gutters'>
+								<div className={`row no-gutters ${styles.starStats}`} >
 									<div className='col-2'>
 										<div className={stars.stars4} />
 									</div>
-									<div className='col-10'>
+									<div className='col-8 col-sm-9 col-md-10'>
 										<div className='progress'>
 											<div
 												className={`progress-bar ${styles.lowesBG}`}
@@ -113,11 +113,11 @@ function RatingsReviews(props) {
 										</div>
 									</div>
 								</div>
-								<div className='row no-gutters'>
+								<div className={`row no-gutters ${styles.starStats}`} >
 									<div className='col-2'>
 										<div className={stars.stars3} />
 									</div>
-									<div className='col-10'>
+									<div className='col-8 col-sm-9 col-md-10'>
 										<div className='progress'>
 											<div
 												className={`progress-bar ${styles.lowesBG}`}
@@ -133,11 +133,11 @@ function RatingsReviews(props) {
 										</div>
 									</div>
 								</div>
-								<div className='row no-gutters'>
-									<div className='col-2'>
+								<div className={`row no-gutters ${styles.starStats}`} >
+									<div className='col-2 col-sm-2'>
 										<div className={stars.stars2} />
 									</div>
-									<div className='col-10'>
+									<div className='col-8 col-sm-9 col-md-10'>
 										<div className='progress'>
 											<div
 												className={`progress-bar ${styles.lowesBG}`}
@@ -153,11 +153,11 @@ function RatingsReviews(props) {
 										</div>
 									</div>
 								</div>
-								<div className='row no-gutters'>
+								<div className={`row no-gutters ${styles.starStats}`} >
 									<div className='col-2'>
 										<div className={stars.stars1} />
 									</div>
-									<div className='col-10'>
+									<div className='col-8 col-sm-9 col-md-10'>
 										<div className='progress'>
 											<div
 												className={`progress-bar ${styles.lowesBG}`}
@@ -174,16 +174,15 @@ function RatingsReviews(props) {
 									</div>
 								</div>
 							</div>
-							<div className={`col-2 ${main.wrapper}`}>
+							<div className={`col-md-12 col-xl-2 justify-content-center text-center ${main.wrapper}`}>
 								<span className={`${main.content} ${buttons.button}`}>WRITE A REVIEW</span>
 							</div>
 						</div>
 					</div>
 					<div
-						className={`row ${styles.greyBG} ${styles.containerStrip}`}
-						style={{ paddingTop: '12px', marginTop: '16px' }}>
-						<h3 className='col-9'>{props.stats.reviewCount} Reviews</h3>
-						<div className='col-3'>
+						className={`row ${styles.greyBG} ${styles.containerStrip}`}>
+						<h3 className='col-sm-6'>{props.stats.reviewCount} Reviews</h3>
+						<div className='col-sm-6'>
 							<select className={styles['select-box']} name='sortReviewBy' id='sortReviewBy'>
 								<option defaultValue='Most Relevant'>Most Relevant</option>
 								<option value='Newest to Oldest'>Newest to Oldest</option>

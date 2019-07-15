@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import checks from '../styles/checks.less'
 
 function SpecItem(props) {

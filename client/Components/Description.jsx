@@ -36,8 +36,8 @@ function Description(props) {
       <Accordion.Collapse eventKey="0">
         <Card.Body>
           <div className="row">
-            <div className="col">{props.descriptions.overview}</div>
-            <div className="col">
+            <div className="col-md-6">{props.descriptions.overview}</div>
+            <div className="col-md-6">
               <ul>{items}</ul>
             </div>
           </div>
