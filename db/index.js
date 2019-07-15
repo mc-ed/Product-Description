@@ -17,6 +17,12 @@ var SessionSchema = new mongoose.Schema({
       customerID: String,
       timeStamp: { type: Date, default: Date.now },
       responses: [String]
+});
+
+var ReportSchema = new mongoose.Schema({
+  product_id: Number,
+  review_id: String,
+  reported_by: String
 })
 
 var ProductSchema = new mongoose.Schema({
@@ -88,6 +94,7 @@ var ProductSchema = new mongoose.Schema({
 
 const Product = mongoose.model("Product", ProductSchema);
 const Session = mongoose.model("Session", SessionSchema);
+const Report = mongoose.model("Report", ReportSchema);
 
 // let data = require("../data/product43.json");
 // const product = new Product({product_id: 43 ,...data});
@@ -109,10 +116,10 @@ const Session = mongoose.model("Session", SessionSchema);
 //   }
 
 //   saveIt();
-// var selection = 'reviews.$.helpful.no'
-// Product.update({product_id: 1, "reviews._id": '5d26726ae45292178080690b'  }, {$inc: {[selection]: 1}}).exec((err,data) => console.log(err,data))
+
 
 module.exports = {
   Product,
-  Session
+  Session,
+  Report
 };

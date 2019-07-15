@@ -96,7 +96,24 @@ class ProductDesc extends React.Component {
 	handleHelpfulClick(helpfulID, selection) {
 		console.log(helpfulID, selection);
 		axios.get('http://localhost:3050/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection)
-		.then(results => console.log(results))
+		.then(results => {
+			if(results.data.allow === true) {
+				let reviews = [...this.state.reviews];
+				let objToChange = reviews.find(review => review._id === helpfulID);
+				if(selection === 'yes' || selection === 'no') {
+					++objToChange.helpful[selection];
+					console.log(objToChange, reviews)
+					this.setState({
+						reviews : reviews
+					})
+				}
+			} else if(results.data.allow === false) {
+				console.log('Future Modal: already gave feedback here!')
+			}
+			if(results.data.reported) {
+				console.log('Future Modal: report was submitted')
+			}
+		})
 	}
 
 	render() {
