@@ -12,7 +12,7 @@ const cookieParser = require('cookie-parser');
 app.use(express.json());
 app.use(cors());
 app.use(cookieParser('LowesUsesJQuery!'))
-app.use('/*', cookieSetting )
+app.use('/*', cookieSetting );
 
 app.get('/helpful/:id', (req, res, next) => {
     const itemID = req.params.id;

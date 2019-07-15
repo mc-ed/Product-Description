@@ -13,7 +13,7 @@ const cookies = function(req,res,next) {
         next();
     } else if(!req.signedCookies.customerID) {
         res.cookie('customerID', id, {signed: true});
-        let session = new Session({customerID : id, ip: ip});
+        let session = new Session({customerID : id});
         session.save((err, data) => {
             if (err) {
                 console.log(err);
@@ -21,17 +21,18 @@ const cookies = function(req,res,next) {
                 next();
             } else {
                 console.log("success");
-                req.validSession = {id, ip}
+                req.validSession = {id}
                 next();
             }
         })
     } else if(req.signedCookies.customerID) {
         Session.findOne({customerID: req.signedCookies.customerID}).exec((err,data) => {
             if(err || !data){
-                console.log(err)
+                console.log(err, data)
                 req.validSession = false;
                 next();
             } else {
+                console.log('good cookie')
                 req.validSession = {id :data.customerID, ip: data.ip}
                 next();
             }
