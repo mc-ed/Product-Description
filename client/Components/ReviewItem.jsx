@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import uuidv4 from 'uuid/v4';
 import main from '../styles/main.less';
 import checks from '../styles/checks.less';
@@ -6,7 +6,7 @@ import styles from '../styles/RatingItem.less';
 import stars from '../styles/stars.less';
 import buttons from '../styles/buttons.less';
 import signs from '../styles/signs.less';
-import { Button, Modal } from 'react-bootstrap';
+import {  Modal } from 'react-bootstrap';
 
 function ReviewItem(props) {
 	let recommendedStatus =
