@@ -23,7 +23,7 @@ function RatingsReviews(props) {
 		for (let i = 0; i < props.count; i++) {
 			arr.push(
 				<div key={uuidv4()}>
-					<ReviewItem key={uuidv4()} isExpanded={isExpanded} review={props.reviews[i]} />
+					<ReviewItem key={uuidv4()} isExpanded={isExpanded} review={props.reviews[i]} helpfulClick={props.helpfulClick} />
 					<hr />
 				</div>
 			);

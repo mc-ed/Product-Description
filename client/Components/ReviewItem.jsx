@@ -67,7 +67,7 @@ function ReviewItem(props) {
 		setSelect(id);
 	};
 
-	const { title, rating, date, text, author, helpful, verifiedPurchaser, sweepstakesEntry, images } = props.review;
+	const { title, rating, date, text, author, helpful, verifiedPurchaser, sweepstakesEntry, images, _id } = props.review;
 	return (
 		<>
 			<>
@@ -196,9 +196,9 @@ function ReviewItem(props) {
 							<>
 								<p>Was this review helpful?</p>
 								<div className='row'>
-									<div className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>Yes({helpful.yes})</div>
-									<div className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>No({helpful.no})</div>
-									<div className='col-sm-12 col-12 text-center mt-3'>
+									<div onClick={()=>{props.helpfulClick(_id, 'yes')}} className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>Yes({helpful.yes})</div>
+									<div onClick={()=>{props.helpfulClick(_id, 'no')}} className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>No({helpful.no})</div>
+									<div onClick={()=>{props.helpfulClick(_id, 'report')}} className='col-sm-12 col-12 text-center mt-3'>
 										<a>
 											<span className={`${signs.flag} ${buttons.spaceLeft}`} />
 											<span> Report</span>

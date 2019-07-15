@@ -109,6 +109,8 @@ const Session = mongoose.model("Session", SessionSchema);
 //   }
 
 //   saveIt();
+// var selection = 'reviews.$.helpful.no'
+// Product.update({product_id: 1, "reviews._id": '5d26726ae45292178080690b'  }, {$inc: {[selection]: 1}}).exec((err,data) => console.log(err,data))
 
 module.exports = {
   Product,

@@ -15,12 +15,33 @@ app.use(cors());
 app.use(cookieParser('LowesUsesJQuery!'))
 app.use('/*', cookieSetting );
 
-app.get('/helpful/:id', (req, res, next) => {
-    const itemID = req.params.id;
-    console.log(itemID, req.validSession);
+app.get('/helpful/:itemID', (req, res, next) => {
+    const {itemID} = req.params
+    const helpfulID = req.query.id;
+    const selection = req.query.selection;
+    console.log(helpfulID,itemID , selection, req.validSession);
     if(req.validSession) {
         const {id} = req.validSession;
-        Session.findOne({customerID : id}).exec((err, data) => res.send({err, data}))
+        Session.findOne({customerID : id, responses: helpfulID}).exec((err, data) => {
+            if(err) {
+                console.log(err)
+                res.send({allow: false})
+            } else {
+                if(data) {
+                    res.send({allow: false})
+                } else {
+                    res.send({allow: true})
+                    Session.updateOne({customerID: id},{ $push :{responses: helpfulID}}).exec((err,data) => {
+                        if(err) {
+                            console.log(err)
+                        } else {
+                            console.log('successful reponse to user record: ', data)
+                            
+                        }
+                    })
+                }
+            }
+        })
     }
 })
 

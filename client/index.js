@@ -15,6 +15,7 @@ class ProductDesc extends React.Component {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
 		this.handleMoreReviews = this.handleMoreReviews.bind(this);
+		this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
 		this.state = {
 			descriptions: [],
 			specs: [],
@@ -92,6 +93,12 @@ class ProductDesc extends React.Component {
 		}
 	}
 
+	handleHelpfulClick(helpfulID, selection) {
+		console.log(helpfulID, selection);
+		axios.get('http://localhost:3050/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection)
+		.then(results => console.log(results))
+	}
+
 	render() {
 		const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
 		return (
@@ -105,6 +112,7 @@ class ProductDesc extends React.Component {
 						count={reviewCount}
 						moreReviews={this.handleMoreReviews}
 						stats={reviewStats}
+						helpfulClick={this.handleHelpfulClick}
 					/>
 					<QuestionsAnswers onClick={this.handleClick} questions={questions} />
 				</Accordion>
