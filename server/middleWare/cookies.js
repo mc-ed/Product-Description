@@ -8,7 +8,9 @@ const cookies = function(req,res,next) {
     var userIP = req.socket.remoteAddress;
     console.log(ip, host, origin, userIP);
     const id = uuidv4();
-    if(req.cookies.customerID === "s%3A3c9a12fc-5beb-42de-9645-89187ef12151555") {
+    if(origin === 'http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com') {
+        next();
+    } else if(req.cookies.customerID === "s%3A3c9a12fc-5beb-42de-9645-89187ef12151555") {
         console.log('cookie previously tampered with')
         req.validSession = false;
         next();
