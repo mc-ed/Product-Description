@@ -183,12 +183,12 @@ function RatingsReviews(props) {
 						className={`row ${styles.greyBG} ${styles.containerStrip}`}>
 						<h3 className='col-sm-6'>{props.stats.reviewCount} Reviews</h3>
 						<div className='col-sm-6'>
-							<select className={styles['select-box']} name='sortReviewBy' id='sortReviewBy'>
-								<option defaultValue='Most Relevant'>Most Relevant</option>
-								<option value='Newest to Oldest'>Newest to Oldest</option>
-								<option value='Oldest to Newest'>Oldest to Newest</option>
-								<option value='Highest to Lowest Rating'>Highest to Lowest Rating</option>
-								<option value='Lowest to Highest Rating'>Lowest to Highest Rating</option>
+							<select onChange={(e) => props.sort(e.target.value) } className={styles['select-box']} name='sortReviewBy' id='sortReviewBy'>
+								<option defaultValue=''>Most Relevant</option>
+								<option value='newest'>Newest to Oldest</option>
+								<option value='oldest'>Oldest to Newest</option>
+								<option value='highest'>Highest to Lowest Rating</option>
+								<option value='lowest'>Lowest to Highest Rating</option>
 							</select>
 						</div>
 					</div>

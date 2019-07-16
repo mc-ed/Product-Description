@@ -20,6 +20,7 @@ class ProductDesc extends React.Component {
 		this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
 		this.toggleReviewModal = this.toggleReviewModal.bind(this);
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
+		this.handleReviewSort = this.handleReviewSort.bind(this);
 		this.state = {
 			newReviewModal: false,
 			descriptions: [],
@@ -28,15 +29,17 @@ class ProductDesc extends React.Component {
 			reviewStats: {},
 			reviewCount: 10,
 			questions: [],
-			_Pid: null
+			reviewSortType: '',
+			product_id: 1
 		};
 	}
 
 	componentDidMount() {
-
+		this.getProducts();
 		window.addEventListener('product', e => {
+			let type = this.state.reviewSortType;
 			const id = e.detail.product_id;
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0`).then(data => {
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
 					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 				} else {
@@ -44,8 +47,13 @@ class ProductDesc extends React.Component {
 				}
 			});
 		});
+	}
 
-		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/1?review=0`).then(data => {
+
+	getProducts() {
+		const type = this.state.reviewSortType;
+		const id = this.state.product_id;
+		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`).then(data => {
 			if (data.data.reviewStats.reviewCount < 10) {
 				this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 			} else {
@@ -69,7 +77,8 @@ class ProductDesc extends React.Component {
 	}
 
 	handleMoreReviews() {
-		let id = this.state._Pid || 1;
+		let id = this.state.product_id || 1;
+		let type = this.state.reviewSortType;
 		if (this.state.reviewStats.reviewCount - this.state.reviewCount < 10) {
 			this.setState(state => {
 				return { reviewCount: state.reviewStats.reviewCount };
@@ -84,9 +93,10 @@ class ProductDesc extends React.Component {
 						.get(
 							`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=${
 								this.state.reviewCount
-							}`
+							}&type=${type}`
 						)
 						.then(data => {
+							console.log(data)
 							this.setState(state => {
 								return {
 									reviews: [...state.reviews, ...data.data.reviews]
@@ -99,7 +109,7 @@ class ProductDesc extends React.Component {
 	}
 
 	handleHelpfulClick(helpfulID, selection) {
-		axios.get('http://localhost:3050/api/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection)
+		axios.get('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection)
 		.then(results => {
 			if(results.data.allow === true) {
 				let reviews = [...this.state.reviews];
@@ -137,6 +147,14 @@ class ProductDesc extends React.Component {
 		.catch(err => console.log(err))
 	}
 
+	handleReviewSort(type) {
+		let id = this.state.product_id;
+		this.setState({reviewSortType : type}, () => {
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`)
+			.then(data => {this.setState({reviews : data.data.reviews, reviewCount: 10})})
+		})
+	}
+
 	render() {
 		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal } = this.state;
 		return (
@@ -153,6 +171,7 @@ class ProductDesc extends React.Component {
 						stats={reviewStats}
 						helpfulClick={this.handleHelpfulClick}
 						newReview={this.toggleReviewModal}
+						sort={this.handleReviewSort}
 					/>
 					<QuestionsAnswers onClick={this.handleClick} questions={questions} />
 				</Accordion>
