@@ -9,6 +9,7 @@ const cors = require("cors");
 const cookieSetting = require("./middleWare/cookies.js");
 const PORT = process.env.PORT || 3000;
 const cookieParser = require("cookie-parser");
+const padStart = require('./poly/padStart.js');
 
 app.set("trust proxy", true);
 app.use(express.json());
@@ -187,7 +188,7 @@ app.get("/api/product/:id", (req, res) => {
   const review = Number(req.query.review) || 0;
 	const type = req.query.type;
 	console.log(review, type)
-  if (type.length) {
+  if (type || type.length) {
     let sorted;
     if (type === "newest" || type === "oldest" || type === 'highest' || type === 'lowest') {
       Product.findOne({ product_id: id }, { reviews: 1 }).then(data => {
