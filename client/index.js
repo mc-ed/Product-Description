@@ -134,9 +134,11 @@ class ProductDesc extends React.Component {
 	}
 
 	handleSubmitReview(review) {
+		let id = this.state.product_id;
+		let type = this.state.reviewSortType;
 		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id})
 		.then(results =>{
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${this.state.product_id}?review=0`).then(data => {
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
 					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 				} else {
