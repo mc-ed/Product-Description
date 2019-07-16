@@ -2,6 +2,7 @@ const dotenv = require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const app = express();
+const moment = require('moment');
 const { Product, Session, Report } = require("../db/index.js");
 const axios = require("axios");
 const cors = require("cors");
@@ -15,11 +16,10 @@ app.use(cors());
 app.use(cookieParser("LowesUsesJQuery!"));
 app.use("/*", cookieSetting);
 
-app.get("/helpful/:itemID", (req, res, next) => {
+app.get("/api/helpful/:itemID", (req, res, next) => {
   const { itemID } = req.params;
   const helpfulID = req.query.id;
   const selection = req.query.selection;
-  console.log(helpfulID, itemID, selection, req.validSession);
   if (req.validSession) {
     const { id } = req.validSession;
     Session.findOne({ customerID: id, responses: helpfulID }).exec(
@@ -57,16 +57,20 @@ app.get("/helpful/:itemID", (req, res, next) => {
                       res.send({ allow: true });
                     }
                   });
-                }else if(selection === 'report') {
-                    const report = new Report({product_id: itemID, review_id: helpfulID, reported_by: req.validSession.id })
-                    report.save((err, data) => {
-                        if (err) {
-                            console.log('error creating report',err);
-                            res.send({reported: false});
-                        } else {
-                            res.send({reported: true});
-                        }
-                    })
+                } else if (selection === "report") {
+                  const report = new Report({
+                    product_id: itemID,
+                    review_id: helpfulID,
+                    reported_by: req.validSession.id
+                  });
+                  report.save((err, data) => {
+                    if (err) {
+                      console.log("error creating report", err);
+                      res.send({ reported: false });
+                    } else {
+                      res.send({ reported: true });
+                    }
+                  });
                 }
               }
             });
@@ -77,7 +81,52 @@ app.get("/helpful/:itemID", (req, res, next) => {
   }
 });
 
-app.use("/", express.static(path.join(__dirname, "../public")));
+app.post("/api/review", (req, res) => {
+
+  const {
+    product_id,
+    author,
+    title,
+    description,
+    stars,
+    recommended,
+    purchased
+  } = req.body;
+  Product.updateOne(
+    {product_id},
+    {
+      $push: {
+        reviews: {
+          $each: [
+            {
+              author,
+              images : [],
+              date : moment().format('l'),
+              title,
+              text : description,
+              rating: Number(stars),
+              recommended,
+              verifiedPurchaser: purchased,
+              sweepstakesEntry: false,
+              helpful: {
+                  yes: 0,
+                  no : 0
+              }
+            }
+          ],
+          $position: 0
+        }
+      }
+    }
+  ).exec((err,data) => {
+    if(err) {
+        res.sendStatus(500);
+    } else {
+        res.sendStatus(200);
+    }
+  })
+  // Needs to reupdate the ReviewStats when I a new Review is added, emit event to other components;
+});
 
 app.get("/api/product/:id", (req, res) => {
   const { id } = req.params;
@@ -108,4 +157,5 @@ app.get("/api/stats/:id", (req, res) => {
     .exec((err, data) => res.send(data));
 });
 
+app.use("/", express.static(path.join(__dirname, "../public")));
 app.listen(PORT, () => console.log("now listening on port: " + PORT));

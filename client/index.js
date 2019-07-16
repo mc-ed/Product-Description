@@ -9,6 +9,8 @@ import RatingsReviews from './Components/RatingsReviews.jsx';
 import QuestionsAnswers from './Components/QuestionsAnswers.jsx';
 import styles from './styles/index.less';
 import signs from './styles/signs.less';
+import ReviewModal from './Components/ReviewModal.jsx';
+// import API from './API/get.js'
 
 class ProductDesc extends React.Component {
 	constructor(props) {
@@ -16,7 +18,10 @@ class ProductDesc extends React.Component {
 		this.handleClick = this.handleClick.bind(this);
 		this.handleMoreReviews = this.handleMoreReviews.bind(this);
 		this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
+		this.toggleReviewModal = this.toggleReviewModal.bind(this);
+		this.handleSubmitReview = this.handleSubmitReview.bind(this);
 		this.state = {
+			newReviewModal: false,
 			descriptions: [],
 			specs: [],
 			reviews: [],
@@ -94,15 +99,13 @@ class ProductDesc extends React.Component {
 	}
 
 	handleHelpfulClick(helpfulID, selection) {
-		console.log(helpfulID, selection);
-		axios.get('http://localhost:3050/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection)
+		axios.get('http://localhost:3050/api/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection)
 		.then(results => {
 			if(results.data.allow === true) {
 				let reviews = [...this.state.reviews];
 				let objToChange = reviews.find(review => review._id === helpfulID);
 				if(selection === 'yes' || selection === 'no') {
 					++objToChange.helpful[selection];
-					console.log(objToChange, reviews)
 					this.setState({
 						reviews : reviews
 					})
@@ -116,10 +119,29 @@ class ProductDesc extends React.Component {
 		})
 	}
 
+	toggleReviewModal() {
+		this.setState(state => { return {newReviewModal : !state.newReviewModal}});
+	}
+
+	handleSubmitReview(review) {
+		axios.post('http://localhost:3050/api/review', {...review, product_id: this.state.product_id})
+		.then(results =>{
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${this.state.product_id}?review=0`).then(data => {
+				if (data.data.reviewStats.reviewCount < 10) {
+					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
+				} else {
+					this.setState({ ...data.data, reviewCount: 10 });
+				}
+			});
+		})
+		.catch(err => console.log(err))
+	}
+
 	render() {
-		const { descriptions, specs, reviews, questions, reviewCount, reviewStats } = this.state;
+		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal } = this.state;
 		return (
 			<div className={`container ${styles.font}`}>
+				<ReviewModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
 				<Accordion>
 					<Description onClick={this.handleClick} descriptions={descriptions} />
 					<Specifications onClick={this.handleClick} specs={specs} />
@@ -130,6 +152,7 @@ class ProductDesc extends React.Component {
 						moreReviews={this.handleMoreReviews}
 						stats={reviewStats}
 						helpfulClick={this.handleHelpfulClick}
+						newReview={this.toggleReviewModal}
 					/>
 					<QuestionsAnswers onClick={this.handleClick} questions={questions} />
 				</Accordion>
