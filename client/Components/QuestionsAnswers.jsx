@@ -25,7 +25,7 @@ function QuestionsAnswers(props) {
 			</Accordion.Toggle>
 			<Accordion.Collapse eventKey='3'>
 				<Card.Body>
-					<div className='row no-gutters'>
+					<div id='CommunityQandA' className='row no-gutters'>
 						<div className={`col-md-2 text-center ${styles.totalWrap}`}>
 							<div className={styles.questionsNo}>{props.questions.length}</div>
 							<div>Question{props.questions.length > 1 ? 's' : ''}</div>
