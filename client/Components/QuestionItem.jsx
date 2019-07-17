@@ -25,7 +25,7 @@ function QuestionItem(props) {
 					toggleShow();
 				}}
 				className={`row ${styles.pointer} ${styles.mt8}`}>
-				<div className={`col-1 text-center down ${styles.pad16}`}>
+				<div className={`col-1 text-center down ${styles.caretContainer}`}>
 					<span className={styles.downCaret} />
 				</div>
 				<div className='col-10 col-sm-8 col-xl-9'>
@@ -48,7 +48,7 @@ function QuestionItem(props) {
 					)}
 				</div>
 			</div>
-			<div data='All Answers container'>
+			<div className={styles.answersContainer}>
 				{answers.length && answers.length > 1 ? (
 					answers.map(answer => (
 						<div key={uuidv4()}>
