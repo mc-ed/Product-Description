@@ -28,7 +28,7 @@ function QuestionItem(props) {
 				<div className={`col-1 text-center down ${styles.pad16}`}>
 					<span className={styles.downCaret} />
 				</div>
-				<div className='col-9'>
+				<div className='col-10 col-sm-8 col-xl-9'>
 					<div className={`${styles.textLowes} font-weight-bold`}>{question}</div>
 					<div className='ml-3'>
 						<small className='text-muted'>
@@ -36,7 +36,7 @@ function QuestionItem(props) {
 						</small>
 					</div>
 				</div>
-				<div className='col-2'>
+				<div className={`col-1 col-sm-3 col-xl-2 ${styles.answerNum}`}>
 					{answers.length ? (
 						<div className='text-center'>
 							<div className={styles.answerLength}>{answers.length}</div>
