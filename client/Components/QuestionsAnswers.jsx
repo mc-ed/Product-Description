@@ -11,7 +11,7 @@ function QuestionsAnswers(props) {
 	const signToggle = document.querySelector('span[data="toggleQuestionAndAnswerSign"]');
 
 	return (
-		<Card>
+		<Card id='CommunityQandA'>
 			<Accordion.Toggle
 				as={Card.Header}
 				eventKey='3'
@@ -25,7 +25,7 @@ function QuestionsAnswers(props) {
 			</Accordion.Toggle>
 			<Accordion.Collapse eventKey='3'>
 				<Card.Body>
-					<div id='CommunityQandA' className='row no-gutters'>
+					<div className='row no-gutters'>
 						<div className={`col-md-2 text-center ${styles.totalWrap}`}>
 							<div className={styles.questionsNo}>{props.questions.length}</div>
 							<div>Question{props.questions.length > 1 ? 's' : ''}</div>
