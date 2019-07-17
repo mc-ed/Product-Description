@@ -1,113 +1,129 @@
-@import 'themes.less';
+@import "themes.less";
 
 .textLowes {
-    color: @lowesMed;
+  color: @lowesMed;
 }
 
 .caretContainer {
-	padding: 16px;
+  padding: 16px;
 }
 
 .downCaret::after {
-	font-family: 'theLowesIcons';
-	color: #0471af;
-	content: '\EDBF';
+  font-family: "theLowesIcons";
+  color: #0471af;
+  content: "\EDBF";
 }
 
 .down {
-	transform: rotate(0deg);
-	transition: transform 0.3s ease;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
 }
 
 .rotateCaret {
-	transform: rotate(180deg);
-	transition: transform 0.3s ease;
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
 }
 
 .pointer {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .mt8 {
-	margin-top: 8px;
+  margin-top: 8px;
 }
 
 .questionHide {
-	max-height: 76px;
-	overflow: hidden;
-	transition: max-height 0.3s linear;
+  max-height: 76px;
+  overflow: hidden;
+  transition: max-height 0.3s linear;
 }
 
 .show {
-	display: inherit;
+  display: inherit;
 }
 
 .expand {
-	height: auto;
-	max-height: 1000px;
-	transition: max-height 0.3s linear;
+  height: auto;
+  max-height: 1000px;
+  transition: max-height 0.3s linear;
 }
 
 .answerLength {
-    font-size: 24px;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .answerButton {
-    position: absolute;
-    width: 250px;
-    left: -120px;
-    top: 80px;
+  position: absolute;
+  width: 250px;
+  left: -120px;
+  top: 80px;
 }
 
 .ml16 {
-	margin-left: 16px;
+  margin-left: 16px;
 }
 
-
+.answerButton2 {
+	display: none;
+}
 
 @media (max-width: 992px) {
-	.answersContainer {
-		margin-top : 100px;
-	}
+  .answersContainer {
+    margin-top: 100px;
+  }
 
-	.answerButton {
-		left: -300px;
-	}
+  .answerButton {
+    left: -300px;
+  }
+
+  .answerContainer {
+    text-align: center;
+  }
+
+  .answerButtons {
+    justify-content: center !important;
+  }
 }
 
 @media (max-width: 767px) {
-	.caretContainer {
-		position: relative;
-		left: 16px;
-	}
+  .caretContainer {
+    position: relative;
+    left: 16px;
+  }
 
-	.answerButton {
-		left: -250px;
-	}
-
-	.answerContainer {
-		text-align: center;
-	}
-
-	.answerButtons {
-		justify-content: center !important;
-	}
-
+  .answerButton {
+    left: -250px;
+  }
 }
 
 @media (max-width: 575px) {
-	.answerNum{
-		position: relative;
-		left: -60px;
-		div {
-			width: 70px;
-		}
+  .answerNum {
+    position: relative;
+    left: -60px;
+    div {
+      width: 70px;
+    }
+  }
+  .answerButtons {
+    margin-right: 0;
+	margin-left: 0;
+	margin: 0 auto;
+	width: 120px;
+	div {
+		margin: 4px auto;
 	}
+  }
 }
 
-@media (max-width:425px) {
-	.answerNum {
-		display: none;
-	}
+@media (max-width: 425px) {
+  .answerNum {
+    display: none;
+  }
+  .answerButton2 {
+    display: initial;
+    top: 480px;
+    text-align: center;
+    left: 40px;
+  }
 }

@@ -45,8 +45,9 @@ function QuestionItem(props) {
 						</div>
 					) : (
 						<span className={`${buttons.button} ${styles.answerButton}`}>ANSWER THIS QUESTION</span>
-					)}
+						)}
 				</div>
+						<span className={`${buttons.button} ${styles.answerButton} ${styles.answerButton2}`}>ANSWER THIS QUESTION</span>
 			</div>
 			<div className={styles.answersContainer}>
 				{answers.length && answers.length > 1 ? (

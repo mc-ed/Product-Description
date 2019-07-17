@@ -12,11 +12,11 @@ function AnswerItem(props) {
         <div className='mt-2'><small className='text-muted'>{author} on {date}</small></div>
         <div className='mt-2'>{text}</div>
         <div className={`row mt-2 ${styles.answerButtons}`}>
-          <div className={`col-2 text-center ml-3 ${buttons.button}`}>
+          <div className={`col-sm-2 text-center ml-3 ${buttons.button} ${buttons.button}`}>
             Yes({helpful.yes})
               </div>
           <div
-            className={`col-2 text-center ml-3 ${buttons.button}`}
+            className={`col-sm-2 text-center ml-3 ${buttons.button}`}
           >
             No({helpful.no})
               </div>
