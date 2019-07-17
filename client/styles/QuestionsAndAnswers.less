@@ -22,4 +22,54 @@
 .select {
     height: 36px;
     margin: 10px;
+    background-color: white;
+    padding-left: 16px;
+}
+
+.searchBar {
+    div {
+        text-align: center;
+    }
+}
+
+.askQuestion {
+    text-align: center;
+    padding-top: 24px;
+    div {
+        min-width: 153px;
+        max-height: 36px;
+    }
+}
+
+.searchButton {
+    padding: 4px 16px;
+}
+
+@media (max-width: 991px) {
+    .searchBar {
+        padding: 16px;
+    }
+
+    .askQuestion {
+        width: 200px;
+        margin: 0 auto;
+        padding-top : 0px;
+    }
+
+    .totalWrap {
+        margin-top: 24px;
+    }
+}
+
+
+@media (max-width: 575px) {
+    .searchBar {
+        input {
+            margin: 8px auto;
+        }
+    }
+    .searchButton {
+        width: 140px;
+        margin: 0 auto;
+    }
 }
