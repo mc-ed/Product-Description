@@ -11,9 +11,25 @@ const PORT = process.env.PORT || 3000;
 const cookieParser = require("cookie-parser");
 const padStart = require('./poly/padStart.js');
 
+const whitelist = ['http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com', 'http://ec2-18-188-213-241.us-east-2.compute.amazonaws.com', 'http://fec-proxy.us-east-1.elasticbeanstalk.com', 'http://search-banner.us-east-1.elasticbeanstalk.com', 'http://fec-lowes-carousel.us-east-2.elasticbeanstalk.com']
+const whitelistRegex = /http:\/\/localhost.*/;
+const corsOptions = {
+  credentials: true,
+  origin: function (origin, callback) {
+    console.log(origin)
+    if (whitelist.indexOf(origin) !== -1 || !origin || whitelistRegex.test(origin)) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
+}
+
+
+
 app.set("trust proxy", true);
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser("LowesUsesJQuery!"));
 app.use("/*", cookieSetting);
 
