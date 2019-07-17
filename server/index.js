@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const cookieParser = require("cookie-parser");
 const padStart = require('./poly/padStart.js');
 
-const whitelist = ['http://localhost:3050', 'http://http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com']
+const whitelist = ['http://localhost:3050', 'http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com']
 const corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
