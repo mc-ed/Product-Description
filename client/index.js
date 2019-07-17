@@ -39,7 +39,7 @@ class ProductDesc extends React.Component {
 		window.addEventListener('product', e => {
 			let type = this.state.reviewSortType;
 			const id = e.detail.product_id;
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`).then(data => {
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`, {withCredentials: true}).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
 					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 				} else {
@@ -53,7 +53,7 @@ class ProductDesc extends React.Component {
 	getProducts() {
 		const type = this.state.reviewSortType;
 		const id = this.state.product_id;
-		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`).then(data => {
+		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`, {withCredentials: true}).then(data => {
 			if (data.data.reviewStats.reviewCount < 10) {
 				this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 			} else {
@@ -93,7 +93,7 @@ class ProductDesc extends React.Component {
 						.get(
 							`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=${
 								this.state.reviewCount
-							}&type=${type}`
+							}&type=${type}`, {withCredentials: true}
 						)
 						.then(data => {
 							console.log(data)
@@ -109,7 +109,7 @@ class ProductDesc extends React.Component {
 	}
 
 	handleHelpfulClick(helpfulID, selection) {
-		axios.get('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection)
+		axios.get('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection, {withCredentials: true})
 		.then(results => {
 			if(results.data.allow === true) {
 				let reviews = [...this.state.reviews];
@@ -136,9 +136,9 @@ class ProductDesc extends React.Component {
 	handleSubmitReview(review) {
 		let id = this.state.product_id;
 		let type = this.state.reviewSortType;
-		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id})
+		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
 		.then(results =>{
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`).then(data => {
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
 					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 				} else {
@@ -152,7 +152,7 @@ class ProductDesc extends React.Component {
 	handleReviewSort(type) {
 		let id = this.state.product_id;
 		this.setState({reviewSortType : type}, () => {
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`)
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`, {withCredentials: true})
 			.then(data => {this.setState({reviews : data.data.reviews, reviewCount: 10})})
 		})
 	}
