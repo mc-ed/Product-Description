@@ -10,7 +10,7 @@ import QuestionsAnswers from './Components/QuestionsAnswers.jsx';
 import styles from './styles/index.less';
 import signs from './styles/signs.less';
 import ReviewModal from './Components/ReviewModal.jsx';
-// import API from './API/get.js'
+import MessageModal from './Components/MessageModal.jsx';
 
 class ProductDesc extends React.Component {
 	constructor(props) {
@@ -19,10 +19,16 @@ class ProductDesc extends React.Component {
 		this.handleMoreReviews = this.handleMoreReviews.bind(this);
 		this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
 		this.toggleReviewModal = this.toggleReviewModal.bind(this);
+		this.toggleMessageModal = this.toggleMessageModal.bind(this);
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
 		this.handleReviewSort = this.handleReviewSort.bind(this);
 		this.state = {
 			newReviewModal: false,
+			messageModal: false,
+			message: {
+				title: '',
+				text: ''
+			},
 			descriptions: [],
 			specs: [],
 			reviews: [],
@@ -117,14 +123,31 @@ class ProductDesc extends React.Component {
 				if(selection === 'yes' || selection === 'no') {
 					++objToChange.helpful[selection];
 					this.setState({
-						reviews : reviews
+						messageModal: true,
+						reviews : reviews,
+						message :{
+							title: "Feedback Submitted - Thank you!",
+							text: "Thank you for your feedback!"
+						}
 					})
 				}
 			} else if(results.data.allow === false) {
-				console.log('Future Modal: already gave feedback here!')
+				this.setState({
+					messageModal : true,
+					message :{
+						title: "Feedback already given",
+						text: "Looks like you've already given feedback to this review. Do you not remember?"
+					}
+				})
 			}
 			if(results.data.reported) {
-				console.log('Future Modal: report was submitted')
+				this.setState({
+					messageModal : true,
+					message :{
+						title: "Report Received",
+						text: "Thank you for your feedback! One of our team memebers will look into this review as soon as possible!"
+					}
+				})
 			}
 		})
 	}
@@ -133,12 +156,25 @@ class ProductDesc extends React.Component {
 		this.setState(state => { return {newReviewModal : !state.newReviewModal}});
 	}
 
+	toggleMessageModal(message) {
+		this.setState(state => { return {messageModal : !state.messageModal, message}});
+	}
+
 	handleSubmitReview(review) {
 		let id = this.state.product_id;
 		let type = this.state.reviewSortType;
-		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+		axios.post('http://localhost:3050/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+		// axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
 		.then(results =>{
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+			this.setState({
+				messageModal : true,
+				message: {
+					title: results.data.title,
+					message: results.data.message
+				}
+			})
+			axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+			// axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
 					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 				} else {
@@ -146,7 +182,15 @@ class ProductDesc extends React.Component {
 				}
 			});
 		})
-		.catch(err => console.log(err))
+		.catch(err => {
+			this.setState({
+				messageModal : true,
+				message: {
+					title: "Server error: " + err.response.data.err,
+					message: "Sorry, we encountered the following error:\n\n" + err.response.data.message
+				}
+			})
+		})
 	}
 
 	handleReviewSort(type) {
@@ -158,10 +202,11 @@ class ProductDesc extends React.Component {
 	}
 
 	render() {
-		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal } = this.state;
+		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal, messageModal } = this.state;
 		return (
 			<div className={`container ${styles.font}`}>
 				<ReviewModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
+				<MessageModal show={messageModal} toggle={this.toggleMessageModal} message={this.state.message}/>
 				<Accordion>
 					<Description onClick={this.handleClick} descriptions={descriptions} />
 					<Specifications onClick={this.handleClick} specs={specs} />
