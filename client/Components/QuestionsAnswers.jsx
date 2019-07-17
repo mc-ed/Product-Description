@@ -25,17 +25,19 @@ function QuestionsAnswers(props) {
 			</Accordion.Toggle>
 			<Accordion.Collapse eventKey='3'>
 				<Card.Body>
-					<div className='row'>
-						<div className='col-2 text-center'>
+					<div className='row no-gutters'>
+						<div className={`col-md-2 text-center ${styles.totalWrap}`}>
 							<div className={styles.questionsNo}>{props.questions.length}</div>
 							<div>Question{props.questions.length > 1 ? 's' : ''}</div>
 						</div>
-						<div className='col-8'>
+						<div className={`col-md-8 ${styles.searchBar}`}>
 							<div className='font-weight-bold'>Search All Questions</div>
+							<div className="row no-gutters">
 							<input className={styles.input} type='text' />
-							<span className={buttons.button}>Search</span>
+							<span className={`${buttons.button} ${styles.searchButton}`}>Search</span>
+							</div>
 						</div>
-						<div className='col-2'>
+						<div className={`col-lg-2 ${styles.askQuestion}`}>
 							<div className={buttons.button}>ASK A QUESTION</div>
 						</div>
 					</div>

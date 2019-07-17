@@ -25,10 +25,10 @@ function QuestionItem(props) {
 					toggleShow();
 				}}
 				className={`row ${styles.pointer} ${styles.mt8}`}>
-				<div className={`col-1 text-center down ${styles.pad16}`}>
+				<div className={`col-1 text-center down ${styles.caretContainer}`}>
 					<span className={styles.downCaret} />
 				</div>
-				<div className='col-9'>
+				<div className='col-10 col-sm-8 col-xl-9'>
 					<div className={`${styles.textLowes} font-weight-bold`}>{question}</div>
 					<div className='ml-3'>
 						<small className='text-muted'>
@@ -36,7 +36,7 @@ function QuestionItem(props) {
 						</small>
 					</div>
 				</div>
-				<div className='col-2'>
+				<div className={`col-1 col-sm-3 col-xl-2 ${styles.answerNum}`}>
 					{answers.length ? (
 						<div className='text-center'>
 							<div className={styles.answerLength}>{answers.length}</div>
@@ -45,10 +45,11 @@ function QuestionItem(props) {
 						</div>
 					) : (
 						<span className={`${buttons.button} ${styles.answerButton}`}>ANSWER THIS QUESTION</span>
-					)}
+						)}
 				</div>
+						<span className={`${buttons.button} ${styles.answerButton} ${styles.answerButton2}`}>ANSWER THIS QUESTION</span>
 			</div>
-			<div data='All Answers container'>
+			<div className={styles.answersContainer}>
 				{answers.length && answers.length > 1 ? (
 					answers.map(answer => (
 						<div key={uuidv4()}>
