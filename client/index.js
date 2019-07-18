@@ -173,6 +173,8 @@ class ProductDesc extends React.Component {
 					message: results.data.message
 				}
 			})
+
+			window.dispatchEvent(new CustomEvent('stars',{detail: {product_id: this.state.id}}));
 			// axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
