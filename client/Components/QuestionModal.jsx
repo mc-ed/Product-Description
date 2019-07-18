@@ -1,6 +1,6 @@
-import React from 'react'
-
-function QuestionModal() {
+import React,{useState} from 'react'
+import {Modal, Button, Form} from 'react-bootstrap';
+function QuestionModal(props) {
     const [author, setAuthor] = useState('');
     const [question, setQuestion] = useState('');
 

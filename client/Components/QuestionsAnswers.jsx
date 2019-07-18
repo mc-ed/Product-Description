@@ -38,7 +38,7 @@ function QuestionsAnswers(props) {
 							</div>
 						</div>
 						<div className={`col-lg-2 ${styles.askQuestion}`}>
-							<div className={buttons.button}>ASK A QUESTION</div>
+							<div onClick={props.newQuestion} className={buttons.button}>ASK A QUESTION</div>
 						</div>
 					</div>
 					<div className={`${styles.greyBG} ${styles.selectBar}`}>

@@ -4,6 +4,15 @@
   color: @lowesMed;
 }
 
+.answersContainer {
+  margin-top: -60px;
+}
+
+.empty {
+  position: relative;
+  top: -60px;
+}
+
 .caretContainer {
   padding: 16px;
 }
@@ -54,27 +63,19 @@
 }
 
 .answerButton {
-  position: absolute;
   width: 250px;
-  left: -120px;
-  top: 80px;
+  float: right;
+  margin-top : 12px;
+  text-align: center;
 }
 
 .ml16 {
   margin-left: 16px;
 }
 
-.answerButton2 {
-	display: none;
-}
-
 @media (max-width: 992px) {
   .answersContainer {
-    margin-top: 100px;
-  }
-
-  .answerButton {
-    left: -300px;
+    margin-top: 20px;
   }
 
   .answerContainer {
@@ -92,8 +93,19 @@
     left: 16px;
   }
 
+  .answerButtonContainer {
+    text-align: center;
+    margin-top: 16px;
+  }
+
   .answerButton {
-    left: -250px;
+    float: none;
+  }
+  
+  .empty {
+    float: right !important;
+    width: auto !important;
+    top: -80px;
   }
 }
 
@@ -116,14 +128,12 @@
   }
 }
 
-@media (max-width: 425px) {
+@media (max-width: 475px) {
   .answerNum {
     display: none;
   }
-  .answerButton2 {
-    display: initial;
-    top: 480px;
-    text-align: center;
-    left: 40px;
+
+  .answerButtonContainer {
+    margin-top: 20px;
   }
 }

@@ -17,7 +17,8 @@ var SessionSchema = new mongoose.Schema({
       customerID: String,
       timeStamp: { type: Date, default: Date.now },
       responses: [String],
-      reviews : [Number]
+      reviews : [Number],
+      questions: [Number]
 });
 
 var ReportSchema = new mongoose.Schema({

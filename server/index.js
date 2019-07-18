@@ -98,6 +98,67 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
   }
 });
 
+app.post("/api/question", (req, res) => {
+  console.log(req.validSession);
+
+  const {
+    product_id,
+    author,
+    question
+  } = req.body;
+  if (req.validSession) {
+    Session.findOne({ customerID: req.validSession.id }).exec((err, data) => {
+      if(err) {
+        res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
+      } else if (data.questions.includes(product_id)) {
+        res.status(403).send({err: "Question already exists", message: "Looks like you have already submitted a review for this product. Thank you for your continued interest!"});
+      } else {
+        Product.updateOne(
+          { product_id },
+          {
+            $push: {
+              questions: {
+                $each: [
+                  {
+                    author,
+                    answers: [],
+                    date: moment().format("l"),
+                    question,
+                    helpful: {
+                      yes: 0,
+                      no: 0
+                    }
+                  }
+                ],
+                $position: 0
+              }
+            }
+          }
+        ).exec((err, data) => {
+          if (err) {
+            res.status(500).send({err: "Unable to save question", message: "We are very sorry, we were unable to save your question at this moment. \n\nPlease try again later."})
+          } else {
+            Session.updateOne(
+              { customerID: req.validSession.id },
+              { $push: { questions: product_id } }
+            ).exec((err, data) => {
+              if (err) {
+                console.log(err);
+                res.status(500).send({err: "Unable to save question", message: "We are very sorry, we were unable to save your question at this moment. \n\nPlease try again later."})
+              } else {
+                res.status(201).send({title: "Question submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to inquire about this product. \nWe have added your question to the page.\n\nGo take a look!"})
+              }
+            });
+          }
+        });
+      }
+    });
+  } else {
+    res.status(400).send({err: "User doesn't exist", message: "Not a valid Session"})
+  }
+});
+
+
 app.post("/api/review", (req, res) => {
   const starsArr = [null, "one", "two", "three", "four", "five"];
   console.log(req.validSession);
@@ -156,7 +217,7 @@ app.post("/api/review", (req, res) => {
                 console.log(err);
                 res.status(500).send({err: "Unable to save review", message: "We are very sorry, we were unable to save your review at this moment. \n\nPlease try again later."})
               } else {
-                res.status(201).send({title: "Review submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to review this product. \nWe have added your to the page.\n\nGo take a look!"})
+                res.status(201).send({title: "Review submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to review this product. \nWe have added your review to the page.\n\nGo take a look!"})
               }
             });
             Product.findOne(

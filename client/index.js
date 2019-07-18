@@ -11,6 +11,7 @@ import styles from './styles/index.less';
 import signs from './styles/signs.less';
 import ReviewModal from './Components/ReviewModal.jsx';
 import MessageModal from './Components/MessageModal.jsx';
+import QuestionModal from './Components/QuestionModal.jsx';
 
 class ProductDesc extends React.Component {
 	constructor(props) {
@@ -22,6 +23,7 @@ class ProductDesc extends React.Component {
 		this.toggleMessageModal = this.toggleMessageModal.bind(this);
 		this.toggleQuestionModal = this.toggleQuestionModal.bind(this);
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
+		this.handleSubmitQuestion = this.handleSubmitQuestion.bind(this);
 		this.handleReviewSort = this.handleReviewSort.bind(this);
 		this.state = {
 			newReviewModal: false,
@@ -209,13 +211,47 @@ class ProductDesc extends React.Component {
 		})
 	}
 
+	handleSubmitQuestion(question) {
+		let id = this.state.product_id;
+		// let type = this.state.reviewSortType;
+		axios.post('http://localhost:3050/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
+		// axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+		.then(results =>{
+			this.setState({
+				messageModal : true,
+				message: {
+					title: results.data.title,
+					message: results.data.message
+				}
+			})
+
+			axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+			// axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+				if (data.data.reviewStats.reviewCount < 10) {
+					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
+				} else {
+					this.setState({ ...data.data, reviewCount: 10 });
+				}
+			});
+		})
+		.catch(err => {
+			this.setState({
+				messageModal : true,
+				message: {
+					title: "Server error: " + err.response.data.err,
+					message: "Sorry, we encountered the following error:\n\n" + err.response.data.message
+				}
+			})
+		})
+	}
+
 	render() {
-		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal, messageModal } = this.state;
+		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal, messageModal, questionModal } = this.state;
 		return (
 			<div className={`container ${styles.font}`}>
 				<MessageModal show={messageModal} toggle={this.toggleMessageModal} message={this.state.message}/>
 				<ReviewModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
-				<QuestionModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
+				<QuestionModal show={questionModal} close={this.toggleQuestionModal} submit={this.handleSubmitQuestion}/>
 				<Accordion>
 					<Description onClick={this.handleClick} descriptions={descriptions} />
 					<Specifications onClick={this.handleClick} specs={specs} />
@@ -229,7 +265,7 @@ class ProductDesc extends React.Component {
 						newReview={this.toggleReviewModal}
 						sort={this.handleReviewSort}
 					/>
-					<QuestionsAnswers onClick={this.handleClick} questions={questions} />
+					<QuestionsAnswers onClick={this.handleClick} questions={questions} newQuestion={this.toggleQuestionModal} />
 				</Accordion>
 			</div>
 		);

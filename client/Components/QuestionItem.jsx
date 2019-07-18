@@ -17,6 +17,9 @@ function QuestionItem(props) {
 		}
 	}
 
+	const [width, setWidth] = useState(window.innerWidth)
+	window.addEventListener('resize', (e) => setWidth(e.target.innerWidth));
+
 	const { question, author, date, answers } = props.question;
 	return (
 		<div className={styles.questionHide} ref={input => setQuestionRef(input)}>
@@ -36,18 +39,19 @@ function QuestionItem(props) {
 						</small>
 					</div>
 				</div>
-				<div className={`col-1 col-sm-3 col-xl-2 ${styles.answerNum}`}>
 					{answers.length ? (
+						<div className={`col-1 col-sm-3 col-xl-2 ${styles.answerNum}`}>
 						<div className='text-center'>
 							<div className={styles.answerLength}>{answers.length}</div>
 							<div>{answers.length > 1 ? 'Answers' : 'Answer'}</div>
-							<span className={`${buttons.button} ${styles.answerButton}`}>ANSWER THIS QUESTION</span>
+						</div>
 						</div>
 					) : (
-						<span className={`${buttons.button} ${styles.answerButton}`}>ANSWER THIS QUESTION</span>
+						<></>
 						)}
+				<div className={`col-12 ${styles.answerButtonContainer}`}>
+					<span className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>{width <= 767 ? 'ANSWER' : 'ANSWER THIS QUESTION'}</span>
 				</div>
-						<span className={`${buttons.button} ${styles.answerButton} ${styles.answerButton2}`}>ANSWER THIS QUESTION</span>
 			</div>
 			<div className={styles.answersContainer}>
 				{answers.length && answers.length > 1 ? (
