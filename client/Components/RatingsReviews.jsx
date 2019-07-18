@@ -53,7 +53,7 @@ function RatingsReviews(props) {
 				eventKey='2'
 				className={`card-header ${header.header}`}
 				onClick={() => {
-					props.onClick(signToggle);
+					props.toggle(signToggle);
 					toggleExpanded();
 				}}>
 				<span className={header.icon}>{'\uECE0 '}</span>

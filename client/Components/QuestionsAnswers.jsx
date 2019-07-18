@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import uuidv4 from 'uuid/v4';
 import header from '../styles/CardHeader.less';
 import QuestionItem from './QuestionItem.jsx';
@@ -10,6 +10,13 @@ import buttons from '../styles/buttons.less';
 function QuestionsAnswers(props) {
 	const signToggle = document.querySelector('span[data="toggleQuestionAndAnswerSign"]');
 
+	const [search, setSearch] = useState('');
+	
+	function clearSearch() {
+		setSearch('');
+		props.search('');
+	}
+
 	return (
 		<Card id='CommunityQandA'>
 			<Accordion.Toggle
@@ -17,7 +24,7 @@ function QuestionsAnswers(props) {
 				eventKey='3'
 				className={`card-header ${header.header}`}
 				onClick={() => {
-					props.onClick(signToggle);
+					props.toggle(signToggle);
 				}}>
 				<span className={header.icon}>{'\uEAC6 '}</span>
 				<span className='text-white font-weight-bold'>Community Q & A</span>
@@ -33,8 +40,9 @@ function QuestionsAnswers(props) {
 						<div className={`col-md-8 ${styles.searchBar}`}>
 							<div className='font-weight-bold'>Search All Questions</div>
 							<div className="row no-gutters">
-							<input className={styles.input} type='text' />
-							<span className={`${buttons.button} ${styles.searchButton}`}>Search</span>
+							<input onChange={(e)=> {setSearch(e.target.value)}} value={search} className={styles.input} type='text' />
+							<span onClick={()=>{props.search(search)}} className={`${buttons.button} ${styles.searchButton}`}>Search</span>
+							<div onClick={clearSearch} className={`${styles.cross} ${search.length ? styles.showX : ''}`}>{'\u0049'}</div>
 							</div>
 						</div>
 						<div className={`col-lg-2 ${styles.askQuestion}`}>

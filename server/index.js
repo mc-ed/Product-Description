@@ -261,6 +261,27 @@ app.post("/api/review", (req, res) => {
   }
 });
 
+app.get('/api/search', (req, res) => {
+  const {product_id, type, string} = req.query;
+  const queryArr = string.split(/[\s-]/)
+  Product.findOne({ product_id },{questions: 1}).exec((err, results) => {
+    let filtered = results.questions.filter(question => {
+      let split = question.question.split(/[\s-]/);
+      for(let part of queryArr) {
+        console.log(part)
+        const regEx = new RegExp('^"?'+part+".*")
+        for(let word of split) {
+          if(regEx.test(word.toLowerCase())) {
+            return true;
+          }
+        }
+      }
+      return false;
+    })
+    res.send(filtered);
+  })
+});
+
 app.get("/api/product/:id", (req, res) => {
   const { id } = req.params;
   const review = Number(req.query.review) || 0;

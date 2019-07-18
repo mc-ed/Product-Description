@@ -73,6 +73,10 @@
   margin-left: 16px;
 }
 
+.shortAnswerText {
+  display: none;
+}
+
 @media (max-width: 992px) {
   .answersContainer {
     margin-top: 20px;
@@ -88,6 +92,14 @@
 }
 
 @media (max-width: 767px) {
+  .shortAnswerText {
+    display: block;
+  }
+
+  .fullAnswerText {
+    display: none;
+  }
+
   .caretContainer {
     position: relative;
     left: 16px;

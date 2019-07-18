@@ -16,7 +16,7 @@ import QuestionModal from './Components/QuestionModal.jsx';
 class ProductDesc extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleClick = this.handleClick.bind(this);
+		this.handleAccordionToggle = this.handleAccordionToggle.bind(this);
 		this.handleMoreReviews = this.handleMoreReviews.bind(this);
 		this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
 		this.toggleReviewModal = this.toggleReviewModal.bind(this);
@@ -25,6 +25,7 @@ class ProductDesc extends React.Component {
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
 		this.handleSubmitQuestion = this.handleSubmitQuestion.bind(this);
 		this.handleReviewSort = this.handleReviewSort.bind(this);
+		this.handleQuestionSearch = this.handleQuestionSearch.bind(this);
 		this.state = {
 			newReviewModal: false,
 			messageModal: false,
@@ -72,7 +73,7 @@ class ProductDesc extends React.Component {
 		});
 	}
 
-	handleClick(sign) {
+	handleAccordionToggle(sign) {
 		if (Array.from(sign.classList).includes(signs.plusSign)) {
 			Array.from(document.getElementsByClassName(signs.minusSign)).forEach(el => {
 				el.classList.remove(signs.minusSign);
@@ -245,6 +246,12 @@ class ProductDesc extends React.Component {
 		})
 	}
 
+	handleQuestionSearch(search) {
+		const id = this.state.product_id;
+		axios.get(`http://localhost:3050/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
+		.then(results => this.setState({questions: results.data}));
+	}
+
 	render() {
 		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal, messageModal, questionModal } = this.state;
 		return (
@@ -253,10 +260,10 @@ class ProductDesc extends React.Component {
 				<ReviewModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
 				<QuestionModal show={questionModal} close={this.toggleQuestionModal} submit={this.handleSubmitQuestion}/>
 				<Accordion>
-					<Description onClick={this.handleClick} descriptions={descriptions} />
-					<Specifications onClick={this.handleClick} specs={specs} />
+					<Description toggle={this.handleAccordionToggle} descriptions={descriptions} />
+					<Specifications toggle={this.handleAccordionToggle} specs={specs} />
 					<RatingsReviews
-						onClick={this.handleClick}
+						toggle={this.handleAccordionToggle}
 						reviews={reviews}
 						count={reviewCount}
 						moreReviews={this.handleMoreReviews}
@@ -265,7 +272,7 @@ class ProductDesc extends React.Component {
 						newReview={this.toggleReviewModal}
 						sort={this.handleReviewSort}
 					/>
-					<QuestionsAnswers onClick={this.handleClick} questions={questions} newQuestion={this.toggleQuestionModal} />
+					<QuestionsAnswers toggle={this.handleAccordionToggle} questions={questions} newQuestion={this.toggleQuestionModal} search={this.handleQuestionSearch} />
 				</Accordion>
 			</div>
 		);
