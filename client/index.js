@@ -163,8 +163,8 @@ class ProductDesc extends React.Component {
 	handleSubmitReview(review) {
 		let id = this.state.product_id;
 		let type = this.state.reviewSortType;
-		axios.post('http://localhost:3050/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
-		// axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+		// axios.post('http://localhost:3050/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
 		.then(results =>{
 			this.setState({
 				messageModal : true,
@@ -173,8 +173,8 @@ class ProductDesc extends React.Component {
 					message: results.data.message
 				}
 			})
-			axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
-			// axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+			// axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
 					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 				} else {
