@@ -20,11 +20,13 @@ class ProductDesc extends React.Component {
 		this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
 		this.toggleReviewModal = this.toggleReviewModal.bind(this);
 		this.toggleMessageModal = this.toggleMessageModal.bind(this);
+		this.toggleQuestionModal = this.toggleQuestionModal.bind(this);
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
 		this.handleReviewSort = this.handleReviewSort.bind(this);
 		this.state = {
 			newReviewModal: false,
 			messageModal: false,
+			questionModal : false,
 			message: {
 				title: '',
 				message: ''
@@ -159,6 +161,10 @@ class ProductDesc extends React.Component {
 	toggleMessageModal(message) {
 		this.setState(state => { return {messageModal : !state.messageModal, message}});
 	}
+	
+	toggleQuestionModal() {
+		this.setState(state => { return {questionModal : !state.questionModal}});
+	}
 
 	handleSubmitReview(review) {
 		let id = this.state.product_id;
@@ -207,8 +213,9 @@ class ProductDesc extends React.Component {
 		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal, messageModal } = this.state;
 		return (
 			<div className={`container ${styles.font}`}>
-				<ReviewModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
 				<MessageModal show={messageModal} toggle={this.toggleMessageModal} message={this.state.message}/>
+				<ReviewModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
+				<QuestionModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
 				<Accordion>
 					<Description onClick={this.handleClick} descriptions={descriptions} />
 					<Specifications onClick={this.handleClick} specs={specs} />
