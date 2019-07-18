@@ -25,8 +25,6 @@ const corsOptions = {
   }
 }
 
-
-
 app.set("trust proxy", true);
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -55,7 +53,6 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
               if (err) {
                 console.log(err);
               } else {
-                console.log("successful reponse to user record: ", data);
                 if (selection === "yes" || selection === "no") {
                   let input =
                     selection === "yes"
@@ -99,8 +96,6 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
 });
 
 app.post("/api/question", (req, res) => {
-  console.log(req.validSession);
-
   const {
     product_id,
     author,
@@ -111,7 +106,7 @@ app.post("/api/question", (req, res) => {
       if(err) {
         res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
       } else if (data.questions.includes(product_id)) {
-        res.status(403).send({err: "Question already exists", message: "Looks like you have already submitted a review for this product. Thank you for your continued interest!"});
+        res.status(403).send({err: "Question already exists", message: "Looks like you have already submitted a question for this product. Thank you for your continued interest!"});
       } else {
         Product.updateOne(
           { product_id },
@@ -147,6 +142,7 @@ app.post("/api/question", (req, res) => {
                 res.status(500).send({err: "Unable to save question", message: "We are very sorry, we were unable to save your question at this moment. \n\nPlease try again later."})
               } else {
                 res.status(201).send({title: "Question submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to inquire about this product. \nWe have added your question to the page.\n\nGo take a look!"})
+                setTimeout(() =>{sortDBQuestions(product_id)}, 1000);
               }
             });
           }
@@ -161,8 +157,6 @@ app.post("/api/question", (req, res) => {
 
 app.post("/api/review", (req, res) => {
   const starsArr = [null, "one", "two", "three", "four", "five"];
-  console.log(req.validSession);
-
   const {
     product_id,
     author,
@@ -268,7 +262,6 @@ app.get('/api/search', (req, res) => {
     let filtered = results.questions.filter(question => {
       let split = question.question.split(/[\s-]/);
       for(let part of queryArr) {
-        console.log(part)
         const regEx = new RegExp('^"?'+part+".*")
         for(let word of split) {
           if(regEx.test(word.toLowerCase())) {
@@ -282,11 +275,67 @@ app.get('/api/search', (req, res) => {
   })
 });
 
+app.get('/api/questions/:id', (req, res) => {
+  const {id} = req.params;
+  const {type} = req.query;
+  if(type === 'default') {
+    Product.findOne({ product_id: id }, { questions: 1 }).then(data => res.send(data.questions))
+  } else if(type === "newest" || type === "oldest" || type === 'needed' || type === 'recentlyAnswered') {
+    Product.findOne({ product_id: id }, { questions: 1 }).then(data => {
+      sorted = data.questions.sort((a, b) => {
+        let A = a.date.split("/");
+        let B = b.date.split("/");
+        let strA = `${A[2].padStart(2, "0")}-${A[0].padStart(
+          2,
+          "0"
+        )}-${A[1].padStart(2, "0")}`;
+        let strB = `${B[2].padStart(2, "0")}-${B[0].padStart(
+          2,
+          "0"
+        )}-${B[1].padStart(2, "0")}`;
+
+        if (type === "newest") {
+          return moment(strB).unix() - moment(strA).unix();
+        } else if(type === 'oldest'){
+          return moment(strA).unix() - moment(strB).unix();
+        } else if(type === 'needed') {
+          return a.answers.length - b.answers.length || moment(strB).unix() - moment(strA).unix();;
+        } else if(type === 'recentlyAnswered') {
+          let AA;
+          let BB;
+          if(a.answers.length) {
+            AA = a.answers[0].date.split("/");
+          } else {
+            AA = '05/05/1995';
+            AA = AA.split("/");
+          }
+          if(b.answers.length) {
+            BB = b.answers[0].date.split("/");
+          } else {
+            BB = '05/05/1975';
+            BB = BB.split("/");
+          }
+          let strAA = `${AA[2].padStart(2, "0")}-${AA[0].padStart(
+            2,
+            "0"
+          )}-${AA[1].padStart(2, "0")}`;
+          let strBB = `${BB[2].padStart(2, "0")}-${BB[0].padStart(
+            2,
+            "0"
+          )}-${BB[1].padStart(2, "0")}`;
+          return moment(strBB).unix() - moment(strAA).unix();
+        }
+      });
+      res.send(sorted);
+    });
+  }
+
+})
+
 app.get("/api/product/:id", (req, res) => {
   const { id } = req.params;
   const review = Number(req.query.review) || 0;
 	const type = req.query.type;
-	console.log(review, type)
   if (type || type.length) {
     let sorted;
     if (type === "newest" || type === "oldest" || type === 'highest' || type === 'lowest') {
@@ -369,4 +418,24 @@ function newAvg(counts) {
   total += counts.one;
   avg += counts.one * 1;
   return (avg / total).toFixed(1).toString();
+}
+
+
+function sortDBQuestions(id) {
+  Product.findOne({product_id : id}).exec((err, results) => {
+    if(err) {
+      console.log(err);
+    } else {
+      results.questions.sort((questionA, questionB) => {
+        return questionB.answers.length - questionA.answers.length;
+      })
+      Product.updateOne({product_id: id}, results).exec((err, results) => {
+        if(err) {
+          console.log(err)
+        } else {
+          console.log('sorted product questions')
+        }
+      })
+    }
+  })
 }

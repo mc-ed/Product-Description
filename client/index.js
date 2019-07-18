@@ -25,6 +25,7 @@ class ProductDesc extends React.Component {
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
 		this.handleSubmitQuestion = this.handleSubmitQuestion.bind(this);
 		this.handleReviewSort = this.handleReviewSort.bind(this);
+		this.handleQuestionSort = this.handleQuestionSort.bind(this);
 		this.handleQuestionSearch = this.handleQuestionSearch.bind(this);
 		this.state = {
 			newReviewModal: false,
@@ -212,6 +213,12 @@ class ProductDesc extends React.Component {
 		})
 	}
 
+	handleQuestionSort(type) {
+		let id = this.state.product_id;
+		axios.get(`http://localhost:3050/api/questions/${id}?type=${type}`, {withCredentials: true})
+		.then(data => {this.setState({questions : data.data})})
+	}
+
 	handleSubmitQuestion(question) {
 		let id = this.state.product_id;
 		// let type = this.state.reviewSortType;
@@ -272,7 +279,7 @@ class ProductDesc extends React.Component {
 						newReview={this.toggleReviewModal}
 						sort={this.handleReviewSort}
 					/>
-					<QuestionsAnswers toggle={this.handleAccordionToggle} questions={questions} newQuestion={this.toggleQuestionModal} search={this.handleQuestionSearch} />
+					<QuestionsAnswers toggle={this.handleAccordionToggle} questions={questions} newQuestion={this.toggleQuestionModal} search={this.handleQuestionSearch} sort={this.handleQuestionSort} />
 				</Accordion>
 			</div>
 		);

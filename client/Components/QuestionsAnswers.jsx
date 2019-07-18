@@ -20,6 +20,7 @@ function QuestionsAnswers(props) {
 	return (
 		<Card id='CommunityQandA'>
 			<Accordion.Toggle
+				id='EvelynClickHere'
 				as={Card.Header}
 				eventKey='3'
 				className={`card-header ${header.header}`}
@@ -50,12 +51,12 @@ function QuestionsAnswers(props) {
 						</div>
 					</div>
 					<div className={`${styles.greyBG} ${styles.selectBar}`}>
-						<select className={`float-right ${styles.select}`} name='sortQuestions' id='sortQuestions'>
-							<option defaultValue='MOST ANSWERED'>MOST ANSWERED</option>
-							<option defaultValue='Newest to Oldest'>Newest to Oldest</option>
-							<option defaultValue='Oldest to Newest'>Oldest to Newest</option>
-							<option defaultValue='Answers Needed'>Answers Needed</option>
-							<option defaultValue='Most Recently Answered'>Most Recently Answered</option>
+						<select onChange={(e) => props.sort(e.target.value) } className={`float-right ${styles.select}`} name='sortQuestions' id='sortQuestions'>
+							<option value="default" defaultValue='default'>MOST ANSWERED</option>
+							<option value='newest'>Newest to Oldest</option>
+							<option value='oldest'>Oldest to Newest</option>
+							<option value='needed'>Answers Needed</option>
+							<option value='recentlyAnswered'>Most Recently Answered</option>
 						</select>
 					</div>
 					<div data='All questions container'>
