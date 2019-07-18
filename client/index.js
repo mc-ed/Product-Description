@@ -27,7 +27,7 @@ class ProductDesc extends React.Component {
 			messageModal: false,
 			message: {
 				title: '',
-				text: ''
+				message: ''
 			},
 			descriptions: [],
 			specs: [],
@@ -127,7 +127,7 @@ class ProductDesc extends React.Component {
 						reviews : reviews,
 						message :{
 							title: "Feedback Submitted - Thank you!",
-							text: "Thank you for your feedback!"
+							message: "Thank you for your feedback!"
 						}
 					})
 				}
@@ -136,7 +136,7 @@ class ProductDesc extends React.Component {
 					messageModal : true,
 					message :{
 						title: "Feedback already given",
-						text: "Looks like you've already given feedback to this review. Do you not remember?"
+						message: "Looks like you've already given feedback to this review. Do you not remember?"
 					}
 				})
 			}
@@ -145,7 +145,7 @@ class ProductDesc extends React.Component {
 					messageModal : true,
 					message :{
 						title: "Report Received",
-						text: "Thank you for your feedback! One of our team memebers will look into this review as soon as possible!"
+						message: "Thank you for your feedback! One of our team memebers will look into this review as soon as possible!"
 					}
 				})
 			}
