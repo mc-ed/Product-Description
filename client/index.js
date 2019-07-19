@@ -108,7 +108,6 @@ class ProductDesc extends React.Component {
 							}&type=${type}`, {withCredentials: true}
 						)
 						.then(data => {
-							console.log(data)
 							this.setState(state => {
 								return {
 									reviews: [...state.reviews, ...data.data.reviews]
@@ -120,22 +119,42 @@ class ProductDesc extends React.Component {
 		}
 	}
 
-	handleHelpfulClick(helpfulID, selection) {
-		axios.get('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection, {withCredentials: true})
+	handleHelpfulClick(helpfulID, selection, category) {
+		const id = this.state.product_id;
+		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/helpful/${id}?id=${helpfulID}&selection=${selection}${category ? `&category=${category}` : ''}`, {withCredentials: true})
 		.then(results => {
 			if(results.data.allow === true) {
-				let reviews = [...this.state.reviews];
-				let objToChange = reviews.find(review => review._id === helpfulID);
-				if(selection === 'yes' || selection === 'no') {
-					++objToChange.helpful[selection];
-					this.setState({
-						messageModal: true,
-						reviews : reviews,
-						message :{
-							title: "Feedback Submitted - Thank you!",
-							message: "Thank you for your feedback!"
-						}
-					})
+				if(category === 'questions') {
+					let questions = [...this.state.questions];
+					//this update isn't working on client side. Fix this tomorrow.
+
+					
+					let objToChange = questions.find(review => review._id === helpfulID);
+					if(selection === 'yes' || selection === 'no') {
+						++objToChange.helpful[selection];
+						this.setState({
+							messageModal: true,
+							reviews : reviews,
+							message :{
+								title: "Feedback Submitted - Thank you!",
+								message: "Thank you for your feedback!"
+							}
+						})
+					}
+				} else {
+					let reviews = [...this.state.reviews];
+					let objToChange = reviews.find(review => review._id === helpfulID);
+					if(selection === 'yes' || selection === 'no') {
+						++objToChange.helpful[selection];
+						this.setState({
+							messageModal: true,
+							reviews : reviews,
+							message :{
+								title: "Feedback Submitted - Thank you!",
+								message: "Thank you for your feedback!"
+							}
+						})
+					}
 				}
 			} else if(results.data.allow === false) {
 				this.setState({
@@ -279,7 +298,7 @@ class ProductDesc extends React.Component {
 						newReview={this.toggleReviewModal}
 						sort={this.handleReviewSort}
 					/>
-					<QuestionsAnswers toggle={this.handleAccordionToggle} questions={questions} newQuestion={this.toggleQuestionModal} search={this.handleQuestionSearch} sort={this.handleQuestionSort} />
+					<QuestionsAnswers helpfulClick={this.handleHelpfulClick} toggle={this.handleAccordionToggle} questions={questions} newQuestion={this.toggleQuestionModal} search={this.handleQuestionSearch} sort={this.handleQuestionSort} />
 				</Accordion>
 			</div>
 		);

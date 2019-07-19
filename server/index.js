@@ -35,6 +35,7 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
   const { itemID } = req.params;
   const helpfulID = req.query.id;
   const selection = req.query.selection;
+  const {category} = req.query;
   if (req.validSession) {
     const { id } = req.validSession;
     Session.findOne({ customerID: id, responses: helpfulID }).exec(
@@ -54,23 +55,55 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
                 console.log(err);
               } else {
                 if (selection === "yes" || selection === "no") {
-                  let input =
-                    selection === "yes"
-                      ? "reviews.$.helpful.yes"
-                      : "reviews.$.helpful.no";
-                  Product.update(
-                    {
-                      product_id: itemID,
-                      "reviews._id": helpfulID
-                    },
-                    { $inc: { [input]: 1 } }
-                  ).exec((err, data) => {
-                    if (err) {
-                      console.log(err);
-                    } else {
-                      res.send({ allow: true });
-                    }
-                  });
+                  if(!category) {
+                    let input =
+                      selection === "yes"
+                        ? "reviews.$.helpful.yes"
+                        : "reviews.$.helpful.no";
+                    Product.update(
+                      {
+                        product_id: itemID,
+                        "reviews._id": helpfulID
+                      },
+                      { $inc: { [input]: 1 } }
+                    ).exec((err, data) => {
+                      if (err) {
+                        console.log(err);
+                      } else {
+                        res.send({ allow: true });
+                      }
+                    });
+                  } else {
+                    Product.findOne({product_id : itemID}, {questions: 1}).exec((err, results) => {
+                      if(err) {
+                        console.log(err);
+                      } else {
+                        let updated = results.questions;
+                        updated = updated.map(question => {
+                          let answers = question.answers;
+                          if(answers.length) {
+                            answers.map(answer => {
+                              if(answer._id.toString() === helpfulID) {
+                                ++answer.helpful[selection]
+                                return answer;
+                              } else {
+                                return answer;
+                              }
+                            })
+                          }
+                          return question;
+                        })
+                        Product.updateOne({product_id: itemID}, {$set: {questions: updated}}).exec((err, results) => {
+                          if(err) {
+                            console.log(err);
+                          } else {
+                            console.log('updated')
+                            res.send({ allow: true });
+                          }
+                        })
+                      }
+                    })
+                  }
                 } else if (selection === "report") {
                   const report = new Report({
                     product_id: itemID,
@@ -404,6 +437,9 @@ app.get("/api/stats/:id", (req, res) => {
 app.use("/", express.static(path.join(__dirname, "../public")));
 app.listen(PORT, () => console.log("now listening on port: " + PORT));
 
+
+
+//helper functions
 function newAvg(counts) {
   let total = 0;
   let avg = 0;

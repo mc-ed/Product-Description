@@ -57,12 +57,12 @@ function QuestionItem(props) {
 				{answers.length && answers.length > 1 ? (
 					answers.map(answer => (
 						<div key={uuidv4()}>
-							<AnswerItem answer={answer} />
+							<AnswerItem answer={answer} helpfulClick={props.helpfulClick} />
 							<hr />
 						</div>
 					))
 				) : answers.length === 1 ? (
-					<AnswerItem answer={answers[0]} />
+					<AnswerItem answer={answers[0]} helpfulClick={props.helpfulClick} />
 				) : (
 					<div />
 				)}

@@ -63,12 +63,12 @@ function QuestionsAnswers(props) {
 						{props.questions.length && props.questions.length > 1 ? (
 							props.questions.map(question => (
 								<div key={uuidv4()}>
-									<QuestionItem question={question} />
+									<QuestionItem question={question} helpfulClick={props.helpfulClick} />
 									<hr />
 								</div>
 							))
 						) : props.questions.length === 1 ? (
-							<QuestionItem question={props.questions[0]} />
+							<QuestionItem question={props.questions[0]} helpfulClick={props.helpfulClick} />
 						) : (
 							<></>
 						)}
