@@ -27,7 +27,7 @@ function ReviewModal(props) {
     }
 
     return (
-        <Modal show={props.show} onHide={props.close}>
+        <Modal show={props.show} onHide={() => props.toggle('review')}>
         <Modal.Header closeButton>
           <Modal.Title>Write your Review</Modal.Title>
         </Modal.Header>
@@ -68,10 +68,10 @@ function ReviewModal(props) {
             </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.close}>
+          <Button variant="secondary" onClick={() => props.toggle('review')}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {submit({author, title, description, stars, recommended, purchased}); props.close(); }}>
+          <Button variant="primary" onClick={() => {submit({author, title, description, stars, recommended, purchased}); props.toggle('review'); }}>
             Submit
           </Button>
         </Modal.Footer>

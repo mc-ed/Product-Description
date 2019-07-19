@@ -14,7 +14,7 @@ function QuestionModal(props) {
     }
 
     return (
-        <Modal show={props.show} onHide={props.close}>
+        <Modal show={props.show} onHide={() => props.toggle('question')}>
         <Modal.Header closeButton>
           <Modal.Title>What's your Question?</Modal.Title>
         </Modal.Header>
@@ -31,10 +31,10 @@ function QuestionModal(props) {
             </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.close}>
+          <Button variant="secondary" onClick={() => props.toggle('question')}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {submit({author, question}); props.close(); }}>
+          <Button variant="primary" onClick={() => {submit({author, question}); props.toggle('question'); }}>
             Submit
           </Button>
         </Modal.Footer>

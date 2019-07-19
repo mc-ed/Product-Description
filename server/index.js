@@ -34,7 +34,7 @@ app.use("/*", cookieSetting);
 app.get("/api/helpful/:itemID", (req, res, next) => {
   const { itemID } = req.params;
   const helpfulID = req.query.id;
-  const selection = req.query.selection;
+  const {selection} = req.query;
   const {category} = req.query;
   if (req.validSession) {
     const { id } = req.validSession;
@@ -55,7 +55,7 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
                 console.log(err);
               } else {
                 if (selection === "yes" || selection === "no") {
-                  if(!category) {
+                  if(category === 'reviews') {
                     let input =
                       selection === "yes"
                         ? "reviews.$.helpful.yes"
@@ -73,7 +73,7 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
                         res.send({ allow: true });
                       }
                     });
-                  } else {
+                  } else if(category === 'questions') {
                     Product.findOne({product_id : itemID}, {questions: 1}).exec((err, results) => {
                       if(err) {
                         console.log(err);

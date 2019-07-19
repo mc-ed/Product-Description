@@ -175,7 +175,7 @@ function RatingsReviews(props) {
 								</div>
 							</div>
 							<div className={`col-md-12 col-xl-2 justify-content-center text-center ${main.wrapper}`}>
-								<span onClick={props.newReview} className={`${main.content} ${buttons.button}`}>WRITE A REVIEW</span>
+								<span onClick={() => props.newReview('review')} className={`${main.content} ${buttons.button}`}>WRITE A REVIEW</span>
 							</div>
 						</div>
 					</div>

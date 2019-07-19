@@ -196,9 +196,9 @@ function ReviewItem(props) {
 							<>
 								<p>Was this review helpful?</p>
 								<div className='row'>
-									<div onClick={()=>{props.helpfulClick(_id, 'yes')}} className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>Yes({helpful.yes})</div>
-									<div onClick={()=>{props.helpfulClick(_id, 'no')}} className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>No({helpful.no})</div>
-									<div onClick={()=>{props.helpfulClick(_id, 'report')}} className='col-sm-12 col-12 text-center mt-3'>
+									<div onClick={()=>{props.helpfulClick(_id, 'yes', 'reviews')}} className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>Yes({helpful.yes})</div>
+									<div onClick={()=>{props.helpfulClick(_id, 'no', 'reviews')}} className={`col-md-5 col-4 text-center ${buttons.button} ${buttons.spaceLeft}`}>No({helpful.no})</div>
+									<div onClick={()=>{props.helpfulClick(_id, 'report', 'reviews')}} className='col-sm-12 col-12 text-center mt-3'>
 										<a>
 											<span className={`${signs.flag} ${buttons.spaceLeft}`} />
 											<span> Report</span>
