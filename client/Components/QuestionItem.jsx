@@ -50,7 +50,7 @@ function QuestionItem(props) {
 					<span className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>Answer</span>
 				</div>
 				<div className={`col-12 ${styles.answerButtonContainer} ${styles.fullAnswerText}`}>
-					<span className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>ANSWER THIS QUESTION</span>
+					<span onClick={() => props.newQandA('answer')} className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>ANSWER THIS QUESTION</span>
 				</div>
 			</div>
 			<div className={styles.answersContainer}>

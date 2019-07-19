@@ -47,7 +47,7 @@ function QuestionsAnswers(props) {
 							</div>
 						</div>
 						<div className={`col-lg-2 ${styles.askQuestion}`}>
-							<div onClick={() =>props.newQuestion('question')} className={buttons.button}>ASK A QUESTION</div>
+							<div onClick={() =>props.newQandA('question')} className={buttons.button}>ASK A QUESTION</div>
 						</div>
 					</div>
 					<div className={`${styles.greyBG} ${styles.selectBar}`}>
@@ -63,12 +63,12 @@ function QuestionsAnswers(props) {
 						{props.questions.length && props.questions.length > 1 ? (
 							props.questions.map(question => (
 								<div key={uuidv4()}>
-									<QuestionItem question={question} helpfulClick={props.helpfulClick} />
+									<QuestionItem question={question} helpfulClick={props.helpfulClick} newQandA={props.newQandA} />
 									<hr />
 								</div>
 							))
 						) : props.questions.length === 1 ? (
-							<QuestionItem question={props.questions[0]} helpfulClick={props.helpfulClick} />
+							<QuestionItem question={props.questions[0]} helpfulClick={props.helpfulClick} newQandA={props.newQandA} />
 						) : (
 							<></>
 						)}

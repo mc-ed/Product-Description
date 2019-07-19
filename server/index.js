@@ -187,6 +187,66 @@ app.post("/api/question", (req, res) => {
   }
 });
 
+app.post("/api/answer", (req, res) => {
+  const {
+    product_id,
+    question_id,
+    author,
+    answer
+  } = req.body;
+  if (req.validSession) {
+    Session.findOne({ customerID: req.validSession.id }).exec((err, data) => {
+      if(err) {
+        res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
+      } else if (data.questions.includes(product_id)) {
+        res.status(403).send({err: "Answer already exists", message: "Looks like you have already submitted a answer to this question. Thank you for your continued interest!"});
+      } else {
+        Product.findOne({product_id},{questions: 1}).exec((err, results) => {
+          if(err) {
+            console.log(err)
+          } else {
+            const {questions} = results;
+            let update = questions.find(question => question._id.toString() === question_id);
+            update.answers.unshift(
+              {
+                author,
+                date: moment().format("l"),
+                text : answer,
+                helpful: {
+                  yes: 0,
+                  no: 0
+                }
+              }
+            )
+            Product.updateOne({product_id}, {$set: {questions}}).exec((err, results) => {
+              if(err) {
+                console.log(err);
+                res.status(500).send({err: "Unable to save answer", message: "We are very sorry, we were unable to save your answer at this moment. \n\nPlease try again later."})
+              } else {
+                Session.updateOne(
+                  { customerID: req.validSession.id },
+                  { $push: { questions: product_id } }
+                ).exec((err, data) => {
+                  if (err) {
+                    console.log(err);
+                    res.status(500).send({err: "Unable to save answer", message: "We are very sorry, we were unable to save your answer at this moment. \n\nPlease try again later."})
+                  } else {
+                    res.status(201).send({title: "Answer submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to answer an inquiry about this product. \nWe have added your answer to the page.\n\nGo take a look!"})
+                    setTimeout(() =>{sortDBQuestions(product_id)}, 1000);
+                  }
+                });
+              }
+            })
+          }
+        })
+
+          }
+        });
+  } else {
+    res.status(400).send({err: "User doesn't exist", message: "Not a valid Session"})
+  }
+});
+
 
 app.post("/api/review", (req, res) => {
   const starsArr = [null, "one", "two", "three", "four", "five"];

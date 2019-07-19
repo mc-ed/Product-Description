@@ -10,8 +10,9 @@ import styles from './styles/index.less';
 import ReviewModal from './Components/ReviewModal.jsx';
 import MessageModal from './Components/MessageModal.jsx';
 import QuestionModal from './Components/QuestionModal.jsx';
+import AnswerModal from './Components/AnswerModal.jsx';
 import API from './API/main.js';
-import helpers from './helpers/indexHelpers.js'
+import helpers from './helpers/indexHelpers.js';
 
 
 
@@ -24,6 +25,7 @@ class ProductDesc extends React.Component {
 		this.toggleModal = this.toggleModal.bind(this);
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
 		this.handleSubmitQuestion = this.handleSubmitQuestion.bind(this);
+		this.handleSubmitAnswer = this.handleSubmitAnswer.bind(this);
 		this.handleReviewSort = this.handleReviewSort.bind(this);
 		this.handleQuestionSort = this.handleQuestionSort.bind(this);
 		this.handleQuestionSearch = this.handleQuestionSearch.bind(this);
@@ -31,7 +33,8 @@ class ProductDesc extends React.Component {
       toggleModals: {
         review: false,
         message : false,
-        question: false
+		question: false,
+		answer : false
       },
 			message: {
 				title: '',
@@ -161,6 +164,47 @@ class ProductDesc extends React.Component {
 		})
 	}
 
+	handleSubmitAnswer(answer, question_id) {
+		console.log(answer)
+		// const product_id = this.state;
+		// // let type = this.state.reviewSortType;
+		// axios.post('http://localhost:3050/api/answer', {...answer, product_id, question_id}, {withCredentials: true})
+		// // axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+		// .then(results =>{
+		// 	this.setState({
+		// 		toggleModals: {
+        //   ...this.state.toggleModals,
+        //   message : true
+        // },
+		// 		message: {
+		// 			title: results.data.title,
+		// 			message: results.data.message
+		// 		}
+		// 	})
+
+		// 	axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+		// 	// axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+		// 		if (data.data.reviewStats.reviewCount < 10) {
+		// 			this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
+		// 		} else {
+		// 			this.setState({ ...data.data, reviewCount: 10 });
+		// 		}
+		// 	});
+		// })
+		// .catch(err => {
+		// 	this.setState({
+		// 		toggleModals: {
+        //   ...this.state.toggleModals,
+        //   message : true
+        // },
+		// 		message: {
+		// 			title: "Server error: " + err.response.data.err,
+		// 			message: "Sorry, we encountered the following error:\n\n" + err.response.data.message
+		// 		}
+		// 	})
+		// })
+	}
+
 	handleQuestionSearch(search) {
 		const id = this.state.product_id;
 		axios.get(`http://localhost:3050/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
@@ -174,6 +218,7 @@ class ProductDesc extends React.Component {
 				<MessageModal show={toggleModals.message} toggle={this.toggleModal} message={this.state.message}/>
 				<ReviewModal show={toggleModals.review} toggle={this.toggleModal} submit={this.handleSubmitReview}/>
 				<QuestionModal show={toggleModals.question} toggle={this.toggleModal} submit={this.handleSubmitQuestion}/>
+				<AnswerModal show={toggleModals.answer} toggle={this.toggleModal} submit={this.handleSubmitAnswer}/>
 				<Accordion>
 					<Description toggle={this.handleAccordionToggle} descriptions={descriptions} />
 					<Specifications toggle={this.handleAccordionToggle} specs={specs} />
@@ -187,7 +232,7 @@ class ProductDesc extends React.Component {
 						newReview={this.toggleModal}
 						sort={this.handleReviewSort}
 					/>
-					<QuestionsAnswers helpfulClick={this.handleFeedBackClick} toggle={this.handleAccordionToggle} questions={questions} newQuestion={this.toggleModal} search={this.handleQuestionSearch} sort={this.handleQuestionSort} />
+					<QuestionsAnswers helpfulClick={this.handleFeedBackClick} toggle={this.handleAccordionToggle} questions={questions} newQandA={this.toggleModal} search={this.handleQuestionSearch} sort={this.handleQuestionSort} />
 				</Accordion>
 			</div>
 		);
