@@ -128,8 +128,8 @@ class ProductDesc extends React.Component {
 	handleSubmitQuestion(question) {
 		const id = this.state.product_id;
 		// let type = this.state.reviewSortType;
+		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
 		// axios.post('http://localhost:3050/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
-		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
 		.then(results =>{
 			this.setState({
 				toggleModals: {
