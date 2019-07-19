@@ -198,7 +198,7 @@ function RatingsReviews(props) {
 							onClick={() => {
 								props.moreReviews();
 							}}
-							className={buttons.button}>
+							className={`${buttons.button} ${styles.moreReviews}`}>
 							Read {props.stats.reviewCount - props.count < 10 ? props.stats.reviewCount - props.count : 10} More
 						</div>
 					) : (

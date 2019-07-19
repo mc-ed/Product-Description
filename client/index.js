@@ -47,7 +47,8 @@ class ProductDesc extends React.Component {
 			reviewCount: 10,
 			questions: [],
 			reviewSortType: '',
-			product_id: 1
+			product_id: 1,
+			element_ID: null
 		};
 	}
 
@@ -88,8 +89,8 @@ class ProductDesc extends React.Component {
     .then(res => helpers.renderFeedbackAndModals(res, this, {productID, feedbackID, selection, category}))
 	}
 
-  toggleModal(type) {
-    helpers.setState.toggleModal(type, this);
+  toggleModal(type, element_ID = null) {
+    helpers.setState.toggleModal(type, this, element_ID);
   }
 
 	handleSubmitReview(review) {
@@ -103,10 +104,9 @@ class ProductDesc extends React.Component {
 			window.dispatchEvent(new CustomEvent('stars',{detail: {id}}));
       this.getProducts(id, '', 0)
 		})
-		.catch(err => {
-      const {error, message} = err.response.data;
-      this.toggleModal('message');
-      helpers.setState.setModalMessage("Server error: " + error, "Sorry, we encountered the following error:\n\n" + message, this)
+		.catch(error => {
+	  const {err, message} = error.response.data;
+      helpers.setState.setModalMessage("Server error: " + err, "Sorry, we encountered the following error:\n\n" + message, this)
 		})
 	}
 
@@ -164,45 +164,20 @@ class ProductDesc extends React.Component {
 		})
 	}
 
-	handleSubmitAnswer(answer, question_id) {
-		console.log(answer)
-		// const product_id = this.state;
-		// // let type = this.state.reviewSortType;
-		// axios.post('http://localhost:3050/api/answer', {...answer, product_id, question_id}, {withCredentials: true})
-		// // axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
-		// .then(results =>{
-		// 	this.setState({
-		// 		toggleModals: {
-        //   ...this.state.toggleModals,
-        //   message : true
-        // },
-		// 		message: {
-		// 			title: results.data.title,
-		// 			message: results.data.message
-		// 		}
-		// 	})
-
-		// 	axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
-		// 	// axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
-		// 		if (data.data.reviewStats.reviewCount < 10) {
-		// 			this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
-		// 		} else {
-		// 			this.setState({ ...data.data, reviewCount: 10 });
-		// 		}
-		// 	});
-		// })
-		// .catch(err => {
-		// 	this.setState({
-		// 		toggleModals: {
-        //   ...this.state.toggleModals,
-        //   message : true
-        // },
-		// 		message: {
-		// 			title: "Server error: " + err.response.data.err,
-		// 			message: "Sorry, we encountered the following error:\n\n" + err.response.data.message
-		// 		}
-		// 	})
-		// })
+	handleSubmitAnswer(answer) {
+		const {product_id} = this.state;
+		API.submitAnswer(answer, product_id)
+		.then(res => {
+			const {title, message} = res.data
+			helpers.setState.setModalMessage(title, message, this);
+			this.getProducts(product_id, '', 0);
+		})
+		.catch(error => {
+			let {err, message} = error.response.data;
+			err = "Server error: " + err;
+			message = "Sorry, we encountered the following error:\n\n" + message;
+			helpers.setState.setModalMessage(err, message, this);
+		})
 	}
 
 	handleQuestionSearch(search) {
@@ -212,14 +187,13 @@ class ProductDesc extends React.Component {
 	}
 
 	render() {
-		console.log(process.env)
-		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, toggleModals } = this.state;
+		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, toggleModals, element_ID } = this.state;
 		return (
 			<div className={`container ${styles.font}`}>
 				<MessageModal show={toggleModals.message} toggle={this.toggleModal} message={this.state.message}/>
 				<ReviewModal show={toggleModals.review} toggle={this.toggleModal} submit={this.handleSubmitReview}/>
 				<QuestionModal show={toggleModals.question} toggle={this.toggleModal} submit={this.handleSubmitQuestion}/>
-				<AnswerModal show={toggleModals.answer} toggle={this.toggleModal} submit={this.handleSubmitAnswer}/>
+				<AnswerModal show={toggleModals.answer} toggle={this.toggleModal} submit={this.handleSubmitAnswer} question_id={element_ID} />
 				<Accordion>
 					<Description toggle={this.handleAccordionToggle} descriptions={descriptions} />
 					<Specifications toggle={this.handleAccordionToggle} specs={specs} />

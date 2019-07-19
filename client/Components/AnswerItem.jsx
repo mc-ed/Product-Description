@@ -21,9 +21,9 @@ function AnswerItem(props) {
           >
             No({helpful.no})
               </div>
-          <div>
+          <div className={styles.hover} onClick={()=>{props.helpfulClick(_id, 'report', 'questions')}}>
             <a>
-              <span onClick={()=>{props.helpfulClick(_id, "reported", "questions")}} className={`${signs.flag} ${styles.ml16}`}/>
+              <span className={`${signs.flag} ${styles.ml16}`}/>
               <span> Report</span>
             </a>
           </div>

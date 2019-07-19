@@ -4,18 +4,19 @@ import {Modal, Button, Form} from 'react-bootstrap';
 function AnswerModal(props) {
     const [author, setAuthor] = useState('');
     const [answer, setAnswer] = useState('');
-
+    
     const submit = () => {
         props.submit({
             author,
-            answer
+            answer,
+            question_id : props.question_id
         })
         setAuthor('')
         setAnswer('')
     }
 
     return (
-        <Modal show={props.show} onHide={() => props.toggle('answer')}>
+        <Modal centered show={props.show} onHide={() => props.toggle('answer')}>
         <Modal.Header closeButton>
           <Modal.Title>Thanks for helping out!</Modal.Title>
         </Modal.Header>
@@ -35,7 +36,7 @@ function AnswerModal(props) {
           <Button variant="secondary" onClick={() => props.toggle('answer')}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {submit({author, answer}); props.toggle('answer'); }}>
+          <Button variant="primary" onClick={() => {submit(); props.toggle('answer'); }}>
             Submit
           </Button>
         </Modal.Footer>

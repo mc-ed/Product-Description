@@ -11,7 +11,7 @@ const messages = {
     feedbackSubmitted: "Thank you for your feedback!",
     feedbackDuplicate:
       "Looks like you've already given feedback to this review. Do you not remember?",
-    reportRecieved:
+    reportReceived:
       "Thank you for your feedback! One of our team memebers will look into this review as soon as possible!"
   }
 };
@@ -30,8 +30,8 @@ const helpers = {
       }
 		},
 		
-		toggleModal : (type, context) => {
-			context.setState(state => {return {toggleModals: {...state.toggleModals, [type] : !state.toggleModals[type]}}})
+		toggleModal : (type, context, element_ID) => {
+			context.setState(state => {return {element_ID, toggleModals: {...state.toggleModals, [type] : !state.toggleModals[type]}}})
 		},
 
     updateCategory: (category, updates, context) => {
@@ -60,7 +60,6 @@ const helpers = {
     },
 
     setReviewCounter: (context, cb = () => {}) => {
-			console.log(cb)
       const totalReviews = context.state.reviewStats.reviewCount;
       const visibleReivews = context.state.reviewCount;
       if (totalReviews - visibleReivews < 10) {

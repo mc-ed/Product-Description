@@ -188,6 +188,7 @@ app.post("/api/question", (req, res) => {
 });
 
 app.post("/api/answer", (req, res) => {
+  console.log(req.body)
   const {
     product_id,
     question_id,
@@ -198,7 +199,7 @@ app.post("/api/answer", (req, res) => {
     Session.findOne({ customerID: req.validSession.id }).exec((err, data) => {
       if(err) {
         res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
-      } else if (data.questions.includes(product_id)) {
+      } else if (data.responses.includes(question_id)) {
         res.status(403).send({err: "Answer already exists", message: "Looks like you have already submitted a answer to this question. Thank you for your continued interest!"});
       } else {
         Product.findOne({product_id},{questions: 1}).exec((err, results) => {
@@ -225,7 +226,7 @@ app.post("/api/answer", (req, res) => {
               } else {
                 Session.updateOne(
                   { customerID: req.validSession.id },
-                  { $push: { questions: product_id } }
+                  { $push: { responses: question_id } }
                 ).exec((err, data) => {
                   if (err) {
                     console.log(err);
@@ -250,6 +251,7 @@ app.post("/api/answer", (req, res) => {
 
 app.post("/api/review", (req, res) => {
   const starsArr = [null, "one", "two", "three", "four", "five"];
+  console.log(req.body)
   const {
     product_id,
     author,
@@ -262,6 +264,7 @@ app.post("/api/review", (req, res) => {
   if (req.validSession) {
     Session.findOne({ customerID: req.validSession.id }).exec((err, data) => {
       if(err) {
+        console.log(err)
         res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
       } else if (data.reviews.includes(product_id)) {
         res.status(403).send({err: "Review already exists", message: "Looks like you have already submitted a review for this product. Thank you for your continued interest!"});
@@ -294,6 +297,7 @@ app.post("/api/review", (req, res) => {
           }
         ).exec((err, data) => {
           if (err) {
+            console.log(err)
             res.status(500).send({err: "Unable to save review", message: "We are very sorry, we were unable to save your review at this moment. \n\nPlease try again later."})
           } else {
             Session.updateOne(

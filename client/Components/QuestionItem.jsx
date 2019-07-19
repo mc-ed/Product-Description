@@ -17,7 +17,7 @@ function QuestionItem(props) {
 		}
 	}
 
-	const { question, author, date, answers } = props.question;
+	const { question, author, date, answers, _id } = props.question;
 	return (
 		<div className={styles.questionHide} ref={input => setQuestionRef(input)}>
 			<div
@@ -50,7 +50,7 @@ function QuestionItem(props) {
 					<span className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>Answer</span>
 				</div>
 				<div className={`col-12 ${styles.answerButtonContainer} ${styles.fullAnswerText}`}>
-					<span onClick={() => props.newQandA('answer')} className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>ANSWER THIS QUESTION</span>
+					<span onClick={() => props.newQandA('answer', _id)} className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>ANSWER THIS QUESTION</span>
 				</div>
 			</div>
 			<div className={styles.answersContainer}>

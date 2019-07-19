@@ -4,7 +4,7 @@ import {Modal, Button} from 'react-bootstrap';
 function MessageModal(props) {
 
     return (
-        <Modal show={props.show} onHide={() => {props.toggle('message')}}>
+        <Modal centered show={props.show} onHide={() => {props.toggle('message')}}>
         <Modal.Header closeButton>
           <Modal.Title>{props.message.title}</Modal.Title>
         </Modal.Header>

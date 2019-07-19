@@ -14,7 +14,7 @@ function QuestionModal(props) {
     }
 
     return (
-        <Modal show={props.show} onHide={() => props.toggle('question')}>
+        <Modal centered show={props.show} onHide={() => props.toggle('question')}>
         <Modal.Header closeButton>
           <Modal.Title>What's your Question?</Modal.Title>
         </Modal.Header>

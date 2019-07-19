@@ -22,8 +22,12 @@ const API = {
     );
   },
 
-  submitReview : (review, product_id) => {
+  submitReview : (product_id, review) => {
     return axios.post(`${process.env.HOST}/api/review`, {...review, product_id }, {withCredentials: true})
+  },
+
+  submitAnswer : (answer, product_id) => {
+    return axios.post(`${process.env.HOST}/api/answer`, {...answer, product_id}, {withCredentials: true})
   }
 };
 
