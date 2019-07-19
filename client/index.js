@@ -1,4 +1,3 @@
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
@@ -8,23 +7,35 @@ import Specifications from './Components/Specifications.jsx';
 import RatingsReviews from './Components/RatingsReviews.jsx';
 import QuestionsAnswers from './Components/QuestionsAnswers.jsx';
 import styles from './styles/index.less';
-import signs from './styles/signs.less';
 import ReviewModal from './Components/ReviewModal.jsx';
 import MessageModal from './Components/MessageModal.jsx';
+import QuestionModal from './Components/QuestionModal.jsx';
+import AnswerModal from './Components/AnswerModal.jsx';
+import API from './API/main.js';
+import helpers from './helpers/indexHelpers.js';
+
+
 
 class ProductDesc extends React.Component {
 	constructor(props) {
 		super(props);
-		this.handleClick = this.handleClick.bind(this);
+		this.handleAccordionToggle = this.handleAccordionToggle.bind(this);
 		this.handleMoreReviews = this.handleMoreReviews.bind(this);
-		this.handleHelpfulClick = this.handleHelpfulClick.bind(this);
-		this.toggleReviewModal = this.toggleReviewModal.bind(this);
-		this.toggleMessageModal = this.toggleMessageModal.bind(this);
+		this.handleFeedBackClick = this.handleFeedBackClick.bind(this);
+		this.toggleModal = this.toggleModal.bind(this);
 		this.handleSubmitReview = this.handleSubmitReview.bind(this);
+		this.handleSubmitQuestion = this.handleSubmitQuestion.bind(this);
+		this.handleSubmitAnswer = this.handleSubmitAnswer.bind(this);
 		this.handleReviewSort = this.handleReviewSort.bind(this);
+		this.handleQuestionSort = this.handleQuestionSort.bind(this);
+		this.handleQuestionSearch = this.handleQuestionSearch.bind(this);
 		this.state = {
-			newReviewModal: false,
-			messageModal: false,
+      toggleModals: {
+        review: false,
+        message : false,
+		question: false,
+		answer : false
+      },
 			message: {
 				title: '',
 				message: ''
@@ -36,145 +47,101 @@ class ProductDesc extends React.Component {
 			reviewCount: 10,
 			questions: [],
 			reviewSortType: '',
-			product_id: 1
+			product_id: 1,
+			element_ID: null
 		};
 	}
 
 	componentDidMount() {
-		this.getProducts();
+    const type = this.state.reviewSortType;
+    const id = this.state.product_id;
+		this.getProducts(id, type);
 		window.addEventListener('product', e => {
-			let type = this.state.reviewSortType;
 			const id = e.detail.product_id;
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`, {withCredentials: true}).then(data => {
-				if (data.data.reviewStats.reviewCount < 10) {
-					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
-				} else {
-					this.setState({ ...data.data, reviewCount: 10 });
-				}
-			});
+      this.getProducts(id, type);
 		});
 	}
 
 
-	getProducts() {
-		const type = this.state.reviewSortType;
-		const id = this.state.product_id;
-		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`, {withCredentials: true}).then(data => {
-			if (data.data.reviewStats.reviewCount < 10) {
-				this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
-			} else {
-				this.setState({ ...data.data, reviewCount: 10 });
-			}
+	getProducts(id, type, reviewIndex) {
+    reviewIndex = reviewIndex || 0;
+		API.getAllProductDataByID(id, type, reviewIndex).then(res => {
+      helpers.setState.updateProductData(res, this);
 		});
-	}
+  }
 
-	handleClick(sign) {
-		if (Array.from(sign.classList).includes(signs.plusSign)) {
-			Array.from(document.getElementsByClassName(signs.minusSign)).forEach(el => {
-				el.classList.remove(signs.minusSign);
-				el.classList.add(signs.plusSign);
-			});
-			sign.classList.remove(signs.plusSign);
-			sign.classList.add(signs.minusSign);
-		} else {
-			sign.classList.remove(signs.minusSign);
-			sign.classList.add(signs.plusSign);
-		}
+	handleAccordionToggle(sign) {
+    helpers.toggleAccordion(sign);
 	}
 
 	handleMoreReviews() {
-		let id = this.state.product_id || 1;
-		let type = this.state.reviewSortType;
-		if (this.state.reviewStats.reviewCount - this.state.reviewCount < 10) {
-			this.setState(state => {
-				return { reviewCount: state.reviewStats.reviewCount };
-			});
-		} else {
-			this.setState(
-				state => {
-					return { reviewCount: state.reviewCount + 10 };
-				},
-				() => {
-					axios
-						.get(
-							`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=${
-								this.state.reviewCount
-							}&type=${type}`, {withCredentials: true}
-						)
-						.then(data => {
-							console.log(data)
-							this.setState(state => {
-								return {
-									reviews: [...state.reviews, ...data.data.reviews]
-								};
-							});
-						});
-				}
-			);
-		}
+		const id = this.state.product_id;
+    const type = this.state.reviewSortType;
+    helpers.setState.setReviewCounter(this, () => {
+      API.getAllProductDataByID(id, type, this.state.reviewCount)
+      .then(res => helpers.setState.moreReviews(res, this))
+    })
 	}
 
-	handleHelpfulClick(helpfulID, selection) {
-		axios.get('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/helpful/'+ this.state.product_id +'?id=' + helpfulID + '&selection=' + selection, {withCredentials: true})
-		.then(results => {
-			if(results.data.allow === true) {
-				let reviews = [...this.state.reviews];
-				let objToChange = reviews.find(review => review._id === helpfulID);
-				if(selection === 'yes' || selection === 'no') {
-					++objToChange.helpful[selection];
-					this.setState({
-						messageModal: true,
-						reviews : reviews,
-						message :{
-							title: "Feedback Submitted - Thank you!",
-							message: "Thank you for your feedback!"
-						}
-					})
-				}
-			} else if(results.data.allow === false) {
-				this.setState({
-					messageModal : true,
-					message :{
-						title: "Feedback already given",
-						message: "Looks like you've already given feedback to this review. Do you not remember?"
-					}
-				})
-			}
-			if(results.data.reported) {
-				this.setState({
-					messageModal : true,
-					message :{
-						title: "Report Received",
-						message: "Thank you for your feedback! One of our team memebers will look into this review as soon as possible!"
-					}
-				})
-			}
+	handleFeedBackClick(feedbackID, selection, category) {
+		const productID = this.state.product_id;
+    API.updateFeedbackForReviewsAndQuestions(productID, feedbackID, selection, category)
+    .then(res => helpers.renderFeedbackAndModals(res, this, {productID, feedbackID, selection, category}))
+	}
+
+  toggleModal(type, element_ID = null) {
+    helpers.setState.toggleModal(type, this, element_ID);
+  }
+
+	handleSubmitReview(review) {
+    const id = this.state.product_id;
+    API.submitReview(id, review)
+		.then(res =>{
+      const {title, message} = res.data;
+      helpers.setState.setModalMessage(title, message, this)
+      this.toggleModal('message');
+
+			window.dispatchEvent(new CustomEvent('stars',{detail: {id}}));
+      this.getProducts(id, '', 0)
+		})
+		.catch(error => {
+	  const {err, message} = error.response.data;
+      helpers.setState.setModalMessage("Server error: " + err, "Sorry, we encountered the following error:\n\n" + message, this)
 		})
 	}
 
-	toggleReviewModal() {
-		this.setState(state => { return {newReviewModal : !state.newReviewModal}});
+	handleReviewSort(type) {
+    const id = this.state.product_id;
+    helpers.setState.setReviewSortType(type, this, () => {
+      API.getAllProductDataByID(id, type, 0)
+      .then(res => helpers.setState.resetReviewDataBySortType(res, this))
+    })
 	}
 
-	toggleMessageModal(message) {
-		this.setState(state => { return {messageModal : !state.messageModal, message}});
+	handleQuestionSort(type) {
+		const id = this.state.product_id;
+		// axios.get(`http://localhost:3050/api/questions/${id}?type=${type}`, {withCredentials: true})
+		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/questions/${id}?type=${type}`, {withCredentials: true})
+		.then(data => {this.setState({questions : data.data})})
 	}
 
-	handleSubmitReview(review) {
-		let id = this.state.product_id;
-		let type = this.state.reviewSortType;
-		// axios.post('http://localhost:3050/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+	handleSubmitQuestion(question) {
+		const id = this.state.product_id;
+		// let type = this.state.reviewSortType;
+		// axios.post('http://localhost:3050/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
 		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
 		.then(results =>{
 			this.setState({
-				messageModal : true,
+				toggleModals: {
+          ...this.state.toggleModals,
+          message : true
+        },
 				message: {
 					title: results.data.title,
 					message: results.data.message
 				}
 			})
 
-			window.dispatchEvent(new CustomEvent('stars',{detail: {product_id: this.state.id}}));
 			// axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
@@ -186,7 +153,10 @@ class ProductDesc extends React.Component {
 		})
 		.catch(err => {
 			this.setState({
-				messageModal : true,
+				toggleModals: {
+          ...this.state.toggleModals,
+          message : true
+        },
 				message: {
 					title: "Server error: " + err.response.data.err,
 					message: "Sorry, we encountered the following error:\n\n" + err.response.data.message
@@ -195,34 +165,51 @@ class ProductDesc extends React.Component {
 		})
 	}
 
-	handleReviewSort(type) {
-		let id = this.state.product_id;
-		this.setState({reviewSortType : type}, () => {
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=${type}`, {withCredentials: true})
-			.then(data => {this.setState({reviews : data.data.reviews, reviewCount: 10})})
+	handleSubmitAnswer(answer) {
+		const {product_id} = this.state;
+		API.submitAnswer(answer, product_id)
+		.then(res => {
+			const {title, message} = res.data
+			helpers.setState.setModalMessage(title, message, this);
+			this.getProducts(product_id, '', 0);
+		})
+		.catch(error => {
+			let {err, message} = error.response.data;
+			err = "Server error: " + err;
+			message = "Sorry, we encountered the following error:\n\n" + message;
+			helpers.setState.setModalMessage(err, message, this);
 		})
 	}
 
+	handleQuestionSearch(search) {
+		const id = this.state.product_id;
+		// axios.get(`http://localhost:3050/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
+		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
+		.then(results => this.setState({questions: results.data}));
+	}
+
 	render() {
-		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, newReviewModal, messageModal } = this.state;
+		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, toggleModals, element_ID } = this.state;
 		return (
 			<div className={`container ${styles.font}`}>
-				<ReviewModal show={newReviewModal} close={this.toggleReviewModal} submit={this.handleSubmitReview}/>
-				<MessageModal show={messageModal} toggle={this.toggleMessageModal} message={this.state.message}/>
+				<MessageModal show={toggleModals.message} toggle={this.toggleModal} message={this.state.message}/>
+				<ReviewModal show={toggleModals.review} toggle={this.toggleModal} submit={this.handleSubmitReview}/>
+				<QuestionModal show={toggleModals.question} toggle={this.toggleModal} submit={this.handleSubmitQuestion}/>
+				<AnswerModal show={toggleModals.answer} toggle={this.toggleModal} submit={this.handleSubmitAnswer} question_id={element_ID} />
 				<Accordion>
-					<Description onClick={this.handleClick} descriptions={descriptions} />
-					<Specifications onClick={this.handleClick} specs={specs} />
+					<Description toggle={this.handleAccordionToggle} descriptions={descriptions} />
+					<Specifications toggle={this.handleAccordionToggle} specs={specs} />
 					<RatingsReviews
-						onClick={this.handleClick}
+						toggle={this.handleAccordionToggle}
 						reviews={reviews}
 						count={reviewCount}
 						moreReviews={this.handleMoreReviews}
 						stats={reviewStats}
-						helpfulClick={this.handleHelpfulClick}
-						newReview={this.toggleReviewModal}
+						helpfulClick={this.handleFeedBackClick}
+						newReview={this.toggleModal}
 						sort={this.handleReviewSort}
 					/>
-					<QuestionsAnswers onClick={this.handleClick} questions={questions} />
+					<QuestionsAnswers helpfulClick={this.handleFeedBackClick} toggle={this.handleAccordionToggle} questions={questions} newQandA={this.toggleModal} search={this.handleQuestionSearch} sort={this.handleQuestionSort} />
 				</Accordion>
 			</div>
 		);

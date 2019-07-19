@@ -1,4 +1,6 @@
 const path = require("path");
+const webpack = require('webpack')
+const dotenv = require('dotenv').config({path: __dirname + '/.env'})
 
 module.exports = {
   entry: "./client/index.js",
@@ -6,6 +8,9 @@ module.exports = {
     filename: "bundle.js",
     path: path.join(__dirname, "public")
   },
+  plugins: [new webpack.DefinePlugin({
+    "process.env": JSON.stringify(dotenv.parsed)
+})],
   module: {
     rules: [
       {
@@ -60,8 +65,3 @@ module.exports = {
     ]
   }
 };
-
-// {
-//   test: /\.txt$/i,
-//   use: "raw-loader"
-// }

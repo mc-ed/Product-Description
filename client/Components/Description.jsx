@@ -23,7 +23,7 @@ function Description(props) {
         eventKey="0"
         className={`card-header ${header.header}`}
         onClick={() => {
-          props.onClick(signToggle);
+          props.toggle(signToggle);
         }}
       >
         <span className={header.icon}>{"\u004B "}</span>

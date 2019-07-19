@@ -17,7 +17,7 @@ function QuestionItem(props) {
 		}
 	}
 
-	const { question, author, date, answers } = props.question;
+	const { question, author, date, answers, _id } = props.question;
 	return (
 		<div className={styles.questionHide} ref={input => setQuestionRef(input)}>
 			<div
@@ -36,29 +36,33 @@ function QuestionItem(props) {
 						</small>
 					</div>
 				</div>
-				<div className={`col-1 col-sm-3 col-xl-2 ${styles.answerNum}`}>
 					{answers.length ? (
+						<div className={`col-1 col-sm-3 col-xl-2 ${styles.answerNum}`}>
 						<div className='text-center'>
 							<div className={styles.answerLength}>{answers.length}</div>
 							<div>{answers.length > 1 ? 'Answers' : 'Answer'}</div>
-							<span className={`${buttons.button} ${styles.answerButton}`}>ANSWER THIS QUESTION</span>
+						</div>
 						</div>
 					) : (
-						<span className={`${buttons.button} ${styles.answerButton}`}>ANSWER THIS QUESTION</span>
+						<></>
 						)}
+				<div className={`col-12 ${styles.answerButtonContainer} ${styles.shortAnswerText}`}>
+					<span className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>Answer</span>
 				</div>
-						<span className={`${buttons.button} ${styles.answerButton} ${styles.answerButton2}`}>ANSWER THIS QUESTION</span>
+				<div className={`col-12 ${styles.answerButtonContainer} ${styles.fullAnswerText}`}>
+					<span onClick={() => props.newQandA('answer', _id)} className={`${buttons.button} ${styles.answerButton} ${answers.length ? '' : styles.empty}`}>ANSWER THIS QUESTION</span>
+				</div>
 			</div>
 			<div className={styles.answersContainer}>
 				{answers.length && answers.length > 1 ? (
 					answers.map(answer => (
 						<div key={uuidv4()}>
-							<AnswerItem answer={answer} />
+							<AnswerItem answer={answer} helpfulClick={props.helpfulClick} />
 							<hr />
 						</div>
 					))
 				) : answers.length === 1 ? (
-					<AnswerItem answer={answers[0]} />
+					<AnswerItem answer={answers[0]} helpfulClick={props.helpfulClick} />
 				) : (
 					<div />
 				)}

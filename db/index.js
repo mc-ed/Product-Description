@@ -17,7 +17,8 @@ var SessionSchema = new mongoose.Schema({
       customerID: String,
       timeStamp: { type: Date, default: Date.now },
       responses: [String],
-      reviews : [Number]
+      reviews : [Number],
+      questions: [Number]
 });
 
 var ReportSchema = new mongoose.Schema({
@@ -103,7 +104,7 @@ const Report = mongoose.model("Report", ReportSchema);
 
 // function saveIt(i) {
 //   i = i || 1
-//   if(i > 100) {return;}
+//   if(i > 2) {return;}
 //     let data = require(`../data/product${i}.json`);
 //     let product = new Product({product_id: `${i}` ,...data});
 //     product.save((err, data) => {

@@ -5,7 +5,7 @@ function ReviewModal(props) {
     const [author, setAuthor] = useState('');
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
-    const [stars, setStars] = useState('');
+    const [stars, setStars] = useState('5');
     const [recommended, setRecommended] = useState(true);
     const [purchased, setPurchased] = useState(true);
 
@@ -27,7 +27,7 @@ function ReviewModal(props) {
     }
 
     return (
-        <Modal show={props.show} onHide={props.close}>
+        <Modal centered show={props.show} onHide={() => props.toggle('review')}>
         <Modal.Header closeButton>
           <Modal.Title>Write your Review</Modal.Title>
         </Modal.Header>
@@ -49,7 +49,7 @@ function ReviewModal(props) {
                     <Form.Group as={Col} controlId="formGridState">
                     <Form.Label>Rate</Form.Label>
                     <Form.Control onChange={(e) => setStars(e.target.value)} as="select">
-                        <option value={5}>5 stars</option>
+                        <option value={5} defaultValue={5}>5 stars</option>
                         <option value={4}>4 stars</option>
                         <option value={3}>3 stars</option>
                         <option value={2}>2 stars</option>
@@ -68,10 +68,10 @@ function ReviewModal(props) {
             </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={props.close}>
+          <Button variant="secondary" onClick={() => props.toggle('review')}>
             Close
           </Button>
-          <Button variant="primary" onClick={() => {submit({author, title, description, stars, recommended, purchased}); props.close(); }}>
+          <Button variant="primary" onClick={() => {submit({author, title, description, stars, recommended, purchased}); props.toggle('review'); }}>
             Submit
           </Button>
         </Modal.Footer>

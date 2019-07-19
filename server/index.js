@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 const cookieParser = require("cookie-parser");
 const padStart = require('./poly/padStart.js');
 
-const whitelist = ['http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com','http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com', 'http://ec2-18-188-213-241.us-east-2.compute.amazonaws.com', 'http://fec-proxy.us-east-1.elasticbeanstalk.com', 'http://search-banner.us-east-1.elasticbeanstalk.com', 'http://fec-lowes-carousel.us-east-2.elasticbeanstalk.com']
+const whitelist = ['http://fec-lowes-proxy.us-east-2.elasticbeanstalk.com/','http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com','http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com', 'http://ec2-18-188-213-241.us-east-2.compute.amazonaws.com', 'http://fec-proxy.us-east-1.elasticbeanstalk.com', 'http://search-banner.us-east-1.elasticbeanstalk.com', 'http://fec-lowes-carousel.us-east-2.elasticbeanstalk.com']
 const whitelistRegex = /http:\/\/localhost.*/;
 const corsOptions = {
   credentials: true,
@@ -25,8 +25,6 @@ const corsOptions = {
   }
 }
 
-
-
 app.set("trust proxy", true);
 app.use(express.json());
 app.use(cors(corsOptions));
@@ -36,7 +34,8 @@ app.use("/*", cookieSetting);
 app.get("/api/helpful/:itemID", (req, res, next) => {
   const { itemID } = req.params;
   const helpfulID = req.query.id;
-  const selection = req.query.selection;
+  const {selection} = req.query;
+  const {category} = req.query;
   if (req.validSession) {
     const { id } = req.validSession;
     Session.findOne({ customerID: id, responses: helpfulID }).exec(
@@ -55,25 +54,56 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
               if (err) {
                 console.log(err);
               } else {
-                console.log("successful reponse to user record: ", data);
                 if (selection === "yes" || selection === "no") {
-                  let input =
-                    selection === "yes"
-                      ? "reviews.$.helpful.yes"
-                      : "reviews.$.helpful.no";
-                  Product.update(
-                    {
-                      product_id: itemID,
-                      "reviews._id": helpfulID
-                    },
-                    { $inc: { [input]: 1 } }
-                  ).exec((err, data) => {
-                    if (err) {
-                      console.log(err);
-                    } else {
-                      res.send({ allow: true });
-                    }
-                  });
+                  if(category === 'reviews') {
+                    let input =
+                      selection === "yes"
+                        ? "reviews.$.helpful.yes"
+                        : "reviews.$.helpful.no";
+                    Product.update(
+                      {
+                        product_id: itemID,
+                        "reviews._id": helpfulID
+                      },
+                      { $inc: { [input]: 1 } }
+                    ).exec((err, data) => {
+                      if (err) {
+                        console.log(err);
+                      } else {
+                        res.send({ allow: true });
+                      }
+                    });
+                  } else if(category === 'questions') {
+                    Product.findOne({product_id : itemID}, {questions: 1}).exec((err, results) => {
+                      if(err) {
+                        console.log(err);
+                      } else {
+                        let updated = results.questions;
+                        updated = updated.map(question => {
+                          let answers = question.answers;
+                          if(answers.length) {
+                            answers.map(answer => {
+                              if(answer._id.toString() === helpfulID) {
+                                ++answer.helpful[selection]
+                                return answer;
+                              } else {
+                                return answer;
+                              }
+                            })
+                          }
+                          return question;
+                        })
+                        Product.updateOne({product_id: itemID}, {$set: {questions: updated}}).exec((err, results) => {
+                          if(err) {
+                            console.log(err);
+                          } else {
+                            console.log('updated')
+                            res.send({ allow: true });
+                          }
+                        })
+                      }
+                    })
+                  }
                 } else if (selection === "report") {
                   const report = new Report({
                     product_id: itemID,
@@ -98,10 +128,130 @@ app.get("/api/helpful/:itemID", (req, res, next) => {
   }
 });
 
+app.post("/api/question", (req, res) => {
+  const {
+    product_id,
+    author,
+    question
+  } = req.body;
+  if (req.validSession) {
+    Session.findOne({ customerID: req.validSession.id }).exec((err, data) => {
+      if(err) {
+        res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
+      } else if (data.questions.includes(product_id)) {
+        res.status(403).send({err: "Question already exists", message: "Looks like you have already submitted a question for this product. Thank you for your continued interest!"});
+      } else {
+        Product.updateOne(
+          { product_id },
+          {
+            $push: {
+              questions: {
+                $each: [
+                  {
+                    author,
+                    answers: [],
+                    date: moment().format("l"),
+                    question,
+                    helpful: {
+                      yes: 0,
+                      no: 0
+                    }
+                  }
+                ],
+                $position: 0
+              }
+            }
+          }
+        ).exec((err, data) => {
+          if (err) {
+            res.status(500).send({err: "Unable to save question", message: "We are very sorry, we were unable to save your question at this moment. \n\nPlease try again later."})
+          } else {
+            Session.updateOne(
+              { customerID: req.validSession.id },
+              { $push: { questions: product_id } }
+            ).exec((err, data) => {
+              if (err) {
+                console.log(err);
+                res.status(500).send({err: "Unable to save question", message: "We are very sorry, we were unable to save your question at this moment. \n\nPlease try again later."})
+              } else {
+                res.status(201).send({title: "Question submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to inquire about this product. \nWe have added your question to the page.\n\nGo take a look!"})
+                setTimeout(() =>{sortDBQuestions(product_id)}, 1000);
+              }
+            });
+          }
+        });
+      }
+    });
+  } else {
+    res.status(400).send({err: "User doesn't exist", message: "Not a valid Session"})
+  }
+});
+
+app.post("/api/answer", (req, res) => {
+  console.log(req.body)
+  const {
+    product_id,
+    question_id,
+    author,
+    answer
+  } = req.body;
+  if (req.validSession) {
+    Session.findOne({ customerID: req.validSession.id }).exec((err, data) => {
+      if(err) {
+        res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
+      } else if (data.responses.includes(question_id)) {
+        res.status(403).send({err: "Answer already exists", message: "Looks like you have already submitted a answer to this question. Thank you for your continued interest!"});
+      } else {
+        Product.findOne({product_id},{questions: 1}).exec((err, results) => {
+          if(err) {
+            console.log(err)
+          } else {
+            const {questions} = results;
+            let update = questions.find(question => question._id.toString() === question_id);
+            update.answers.unshift(
+              {
+                author,
+                date: moment().format("l"),
+                text : answer,
+                helpful: {
+                  yes: 0,
+                  no: 0
+                }
+              }
+            )
+            Product.updateOne({product_id}, {$set: {questions}}).exec((err, results) => {
+              if(err) {
+                console.log(err);
+                res.status(500).send({err: "Unable to save answer", message: "We are very sorry, we were unable to save your answer at this moment. \n\nPlease try again later."})
+              } else {
+                Session.updateOne(
+                  { customerID: req.validSession.id },
+                  { $push: { responses: question_id } }
+                ).exec((err, data) => {
+                  if (err) {
+                    console.log(err);
+                    res.status(500).send({err: "Unable to save answer", message: "We are very sorry, we were unable to save your answer at this moment. \n\nPlease try again later."})
+                  } else {
+                    res.status(201).send({title: "Answer submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to answer an inquiry about this product. \nWe have added your answer to the page.\n\nGo take a look!"})
+                    setTimeout(() =>{sortDBQuestions(product_id)}, 1000);
+                  }
+                });
+              }
+            })
+          }
+        })
+
+          }
+        });
+  } else {
+    res.status(400).send({err: "User doesn't exist", message: "Not a valid Session"})
+  }
+});
+
+
 app.post("/api/review", (req, res) => {
   const starsArr = [null, "one", "two", "three", "four", "five"];
-  console.log(req.validSession);
-
+  console.log(req.body)
   const {
     product_id,
     author,
@@ -114,6 +264,7 @@ app.post("/api/review", (req, res) => {
   if (req.validSession) {
     Session.findOne({ customerID: req.validSession.id }).exec((err, data) => {
       if(err) {
+        console.log(err)
         res.status(500).send({err: "Bad Session ID", message: "Please delete your cookies and try again."})
       } else if (data.reviews.includes(product_id)) {
         res.status(403).send({err: "Review already exists", message: "Looks like you have already submitted a review for this product. Thank you for your continued interest!"});
@@ -146,6 +297,7 @@ app.post("/api/review", (req, res) => {
           }
         ).exec((err, data) => {
           if (err) {
+            console.log(err)
             res.status(500).send({err: "Unable to save review", message: "We are very sorry, we were unable to save your review at this moment. \n\nPlease try again later."})
           } else {
             Session.updateOne(
@@ -156,7 +308,7 @@ app.post("/api/review", (req, res) => {
                 console.log(err);
                 res.status(500).send({err: "Unable to save review", message: "We are very sorry, we were unable to save your review at this moment. \n\nPlease try again later."})
               } else {
-                res.status(201).send({title: "Review submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to review this product. \nWe have added your to the page.\n\nGo take a look!"})
+                res.status(201).send({title: "Review submitted - Thank you!", message: "From everyone here at Lowe's, We appreciate you taking the time to review this product. \nWe have added your review to the page.\n\nGo take a look!"})
               }
             });
             Product.findOne(
@@ -200,11 +352,87 @@ app.post("/api/review", (req, res) => {
   }
 });
 
+app.get('/api/search', (req, res) => {
+  const {product_id, type, string} = req.query;
+  const queryArr = string.split(/[\s-]/)
+  Product.findOne({ product_id },{questions: 1}).exec((err, results) => {
+    let filtered = results.questions.filter(question => {
+      let split = question.question.split(/[\s-]/);
+      for(let part of queryArr) {
+        const regEx = new RegExp('^"?'+part+".*")
+        for(let word of split) {
+          if(regEx.test(word.toLowerCase())) {
+            return true;
+          }
+        }
+      }
+      return false;
+    })
+    res.send(filtered);
+  })
+});
+
+app.get('/api/questions/:id', (req, res) => {
+  const {id} = req.params;
+  const {type} = req.query;
+  if(type === 'default') {
+    Product.findOne({ product_id: id }, { questions: 1 }).then(data => res.send(data.questions))
+  } else if(type === "newest" || type === "oldest" || type === 'needed' || type === 'recentlyAnswered') {
+    Product.findOne({ product_id: id }, { questions: 1 }).then(data => {
+      sorted = data.questions.sort((a, b) => {
+        let A = a.date.split("/");
+        let B = b.date.split("/");
+        let strA = `${A[2].padStart(2, "0")}-${A[0].padStart(
+          2,
+          "0"
+        )}-${A[1].padStart(2, "0")}`;
+        let strB = `${B[2].padStart(2, "0")}-${B[0].padStart(
+          2,
+          "0"
+        )}-${B[1].padStart(2, "0")}`;
+
+        if (type === "newest") {
+          return moment(strB).unix() - moment(strA).unix();
+        } else if(type === 'oldest'){
+          return moment(strA).unix() - moment(strB).unix();
+        } else if(type === 'needed') {
+          return a.answers.length - b.answers.length || moment(strB).unix() - moment(strA).unix();;
+        } else if(type === 'recentlyAnswered') {
+          let AA;
+          let BB;
+          if(a.answers.length) {
+            AA = a.answers[0].date.split("/");
+          } else {
+            AA = '05/05/1995';
+            AA = AA.split("/");
+          }
+          if(b.answers.length) {
+            BB = b.answers[0].date.split("/");
+          } else {
+            BB = '05/05/1975';
+            BB = BB.split("/");
+          }
+          let strAA = `${AA[2].padStart(2, "0")}-${AA[0].padStart(
+            2,
+            "0"
+          )}-${AA[1].padStart(2, "0")}`;
+          let strBB = `${BB[2].padStart(2, "0")}-${BB[0].padStart(
+            2,
+            "0"
+          )}-${BB[1].padStart(2, "0")}`;
+          return moment(strBB).unix() - moment(strAA).unix();
+        }
+      });
+      res.send(sorted);
+    });
+  }
+
+})
+
 app.get("/api/product/:id", (req, res) => {
   const { id } = req.params;
   const review = Number(req.query.review) || 0;
 	const type = req.query.type;
-	console.log(review, type)
   if (type || type.length) {
     let sorted;
     if (type === "newest" || type === "oldest" || type === 'highest' || type === 'lowest') {
@@ -273,6 +501,9 @@ app.get("/api/stats/:id", (req, res) => {
 app.use("/", express.static(path.join(__dirname, "../public")));
 app.listen(PORT, () => console.log("now listening on port: " + PORT));
 
+
+
+//helper functions
 function newAvg(counts) {
   let total = 0;
   let avg = 0;
@@ -287,4 +518,24 @@ function newAvg(counts) {
   total += counts.one;
   avg += counts.one * 1;
   return (avg / total).toFixed(1).toString();
+}
+
+
+function sortDBQuestions(id) {
+  Product.findOne({product_id : id}).exec((err, results) => {
+    if(err) {
+      console.log(err);
+    } else {
+      results.questions.sort((questionA, questionB) => {
+        return questionB.answers.length - questionA.answers.length;
+      })
+      Product.updateOne({product_id: id}, results).exec((err, results) => {
+        if(err) {
+          console.log(err)
+        } else {
+          console.log('sorted product questions')
+        }
+      })
+    }
+  })
 }

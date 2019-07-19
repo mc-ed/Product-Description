@@ -53,7 +53,7 @@ function RatingsReviews(props) {
 				eventKey='2'
 				className={`card-header ${header.header}`}
 				onClick={() => {
-					props.onClick(signToggle);
+					props.toggle(signToggle);
 					toggleExpanded();
 				}}>
 				<span className={header.icon}>{'\uECE0 '}</span>
@@ -175,7 +175,7 @@ function RatingsReviews(props) {
 								</div>
 							</div>
 							<div className={`col-md-12 col-xl-2 justify-content-center text-center ${main.wrapper}`}>
-								<span onClick={props.newReview} className={`${main.content} ${buttons.button}`}>WRITE A REVIEW</span>
+								<span onClick={() => props.newReview('review')} className={`${main.content} ${buttons.button}`}>WRITE A REVIEW</span>
 							</div>
 						</div>
 					</div>
@@ -198,7 +198,7 @@ function RatingsReviews(props) {
 							onClick={() => {
 								props.moreReviews();
 							}}
-							className={buttons.button}>
+							className={`${buttons.button} ${styles.moreReviews}`}>
 							Read {props.stats.reviewCount - props.count < 10 ? props.stats.reviewCount - props.count : 10} More
 						</div>
 					) : (
