@@ -212,6 +212,7 @@ class ProductDesc extends React.Component {
 	}
 
 	render() {
+		console.log(process.env)
 		const { descriptions, specs, reviews, questions, reviewCount, reviewStats, toggleModals } = this.state;
 		return (
 			<div className={`container ${styles.font}`}>

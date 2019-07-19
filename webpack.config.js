@@ -1,4 +1,12 @@
 const path = require("path");
+const webpack = require('webpack')
+const dotenv = require('dotenv').config({path: __dirname + '/.env'})
+// const envKeys = Object.keys(env).reduce((prev, next) => {
+//   prev[`process.env.${next}`] = JSON.stringify(env[next]);
+//   return prev;
+// }, {});
+
+console.log(dotenv)
 
 module.exports = {
   entry: "./client/index.js",
@@ -6,6 +14,9 @@ module.exports = {
     filename: "bundle.js",
     path: path.join(__dirname, "public")
   },
+  plugins: [new webpack.DefinePlugin({
+    "process.env": JSON.stringify(dotenv.parsed)
+})],
   module: {
     rules: [
       {
