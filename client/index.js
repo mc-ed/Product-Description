@@ -120,15 +120,16 @@ class ProductDesc extends React.Component {
 
 	handleQuestionSort(type) {
 		const id = this.state.product_id;
-		axios.get(`http://localhost:3050/api/questions/${id}?type=${type}`, {withCredentials: true})
+		// axios.get(`http://localhost:3050/api/questions/${id}?type=${type}`, {withCredentials: true})
+		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/questions/${id}?type=${type}`, {withCredentials: true})
 		.then(data => {this.setState({questions : data.data})})
 	}
 
 	handleSubmitQuestion(question) {
 		const id = this.state.product_id;
 		// let type = this.state.reviewSortType;
-		axios.post('http://localhost:3050/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
-		// axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
+		// axios.post('http://localhost:3050/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
+		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/review', {...review, product_id: this.state.product_id}, {withCredentials: true})
 		.then(results =>{
 			this.setState({
 				toggleModals: {
@@ -141,8 +142,8 @@ class ProductDesc extends React.Component {
 				}
 			})
 
-			axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
-			// axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+			// axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
+			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
 				if (data.data.reviewStats.reviewCount < 10) {
 					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
 				} else {
@@ -182,7 +183,8 @@ class ProductDesc extends React.Component {
 
 	handleQuestionSearch(search) {
 		const id = this.state.product_id;
-		axios.get(`http://localhost:3050/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
+		// axios.get(`http://localhost:3050/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
+		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
 		.then(results => this.setState({questions: results.data}));
 	}
 
