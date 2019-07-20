@@ -55,10 +55,10 @@ class ProductDesc extends React.Component {
 	componentDidMount() {
     const type = this.state.reviewSortType;
     const id = this.state.product_id;
-		this.getProducts(id, type);
+		// this.getProducts(id, type);
 		window.addEventListener('product', e => {
 			const id = e.detail.product_id;
-      this.getProducts(id, type);
+      		this.getProducts(id, type);
 		});
 	}
 
