@@ -490,7 +490,7 @@ app.get("/api/product/:id", (req, res) => {
 app.get("/api/stats/:id", (req, res) => {
   const { id } = req.params;
   if (id === "all") {
-    Product.find({}, { reviewStats: 1 }).exec((err, data) => res.send(data));
+    Product.find({}, { reviewStats: 1, product_id: 1 }).exec((err, data) => res.send(data.sort((a,b) => a.product_id - b.product_id)));
   } else {
     Product.findOne({ product_id: id }, { reviewStats: 1 }).exec((err, data) =>
       res.send(data)
