@@ -11,7 +11,7 @@ module.exports = {
         ref: 'origin/master',
         repo: 'git@github.com:mc-ed/Product-Description.git',
         path: '~/description',
-        'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
+        'post-deploy': 'npm install && npm run build && pm2 startOrRestart ecosystem.config.js'
       }
     }
   }
