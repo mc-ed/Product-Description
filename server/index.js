@@ -436,33 +436,37 @@ app.get("/api/product/:id", (req, res) => {
   if (type || type.length) {
     let sorted;
     if (type === "newest" || type === "oldest" || type === 'highest' || type === 'lowest') {
-      Product.findOne({ product_id: id }, { reviews: 1 }).then(data => {
-        sorted = data.reviews.sort((a, b) => {
-          let A = a.date.split("/");
-          let B = b.date.split("/");
-          let strA = `${A[2].padStart(2, "0")}-${A[0].padStart(
-            2,
-            "0"
-          )}-${A[1].padStart(2, "0")}`;
-          let strB = `${B[2].padStart(2, "0")}-${B[0].padStart(
-            2,
-            "0"
-          )}-${B[1].padStart(2, "0")}`;
-          if (type === "newest") {
-            return moment(strB).unix() - moment(strA).unix();
-          } else if(type === 'oldest'){
-            return moment(strA).unix() - moment(strB).unix();
-          } else if(type === 'highest') {
-						return b.rating - a.rating;
-					} else if(type === 'lowest') {
-						return a.rating - b.rating;
-					}
-				});
-				if(!review || review === 0) {
-					res.send({reviews: sorted.slice(0, 20)});
-				} else {
-					res.send({reviews:sorted.slice(review, review + 10)});
-				}
+      Product.findOne({ product_id: id }, { reviews: 1 }).exec((err, data) => {
+        if(err) {
+          console.log(err)
+        } else {
+          sorted = data.reviews.sort((a, b) => {
+            let A = a.date.split("/");
+            let B = b.date.split("/");
+            let strA = `${A[2].padStart(2, "0")}-${A[0].padStart(
+              2,
+              "0"
+            )}-${A[1].padStart(2, "0")}`;
+            let strB = `${B[2].padStart(2, "0")}-${B[0].padStart(
+              2,
+              "0"
+            )}-${B[1].padStart(2, "0")}`;
+            if (type === "newest") {
+              return moment(strB).unix() - moment(strA).unix();
+            } else if(type === 'oldest'){
+              return moment(strA).unix() - moment(strB).unix();
+            } else if(type === 'highest') {
+              return b.rating - a.rating;
+            } else if(type === 'lowest') {
+              return a.rating - b.rating;
+            }
+          });
+          if(!review || review === 0) {
+            res.send({reviews: sorted.slice(0, 20)});
+          } else {
+            res.send({reviews:sorted.slice(review, review + 10)});
+          }
+        }
 			});
 			return
 		}
@@ -471,8 +475,13 @@ app.get("/api/product/:id", (req, res) => {
     Product.findOne(
       { product_id: id },
       { reviews: { $slice: [review, 20] } }
-		).then(data => res.send(data))
-			.catch(err => console.log(err))
+    ).exec((err, data) => {
+      if(err) {
+        console.log(err)
+      } else {
+        res.send(data)
+      }
+    })
   } else {
     Product.findOne(
       { product_id: id },

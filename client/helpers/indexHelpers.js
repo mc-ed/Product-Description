@@ -77,8 +77,9 @@ const helpers = {
 			context.setState({reviewSortType : type}, cb())
 		},
 
-		resetReviewDataBySortType : (response, context, reviewCount = 10) => {
+		resetReviewDataBySortType : (response, context, reviewCount) => {
 			const {reviews} = response.data;
+      reviewCount = reviewCount || reviews.length;
 			context.setState({reviews, reviewCount})
 		}
   },
