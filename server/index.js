@@ -1,3 +1,4 @@
+
 const dotenv = require("dotenv").config();
 const express = require("express");
 const path = require("path");
@@ -11,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 const cookieParser = require("cookie-parser");
 const padStart = require('./poly/padStart.js');
 
-const whitelist = ['http://lowesproductoverview-env.mk2qecy2ne.us-east-2.elasticbeanstalk.com', 'http://fec-lowes-proxy.us-east-2.elasticbeanstalk.com/','http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com','http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com', 'http://ec2-18-188-213-241.us-east-2.compute.amazonaws.com', 'http://fec-proxy.us-east-1.elasticbeanstalk.com', 'http://search-banner.us-east-1.elasticbeanstalk.com', 'http://fec-lowes-carousel.us-east-2.elasticbeanstalk.com']
+const whitelist = ['http://lowesproductoverview-env.mk2qecy2ne.us-east-2.elasticbeanstalk.com','http://ec2-13-59-164-4.us-east-2.compute.amazonaws.com/', 'http://fec-lowes-proxy.us-east-2.elasticbeanstalk.com/','http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com','http://lowesproxy-env.6tim4uzsty.us-east-2.elasticbeanstalk.com', 'http://ec2-18-188-213-241.us-east-2.compute.amazonaws.com', 'http://fec-proxy.us-east-1.elasticbeanstalk.com', 'http://search-banner.us-east-1.elasticbeanstalk.com', 'http://fec-lowes-carousel.us-east-2.elasticbeanstalk.com']
 const whitelistRegex = /http:\/\/localhost.*/;
 const corsOptions = {
   credentials: true,
