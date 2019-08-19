@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import axios from 'axios';
 import { Accordion } from 'react-bootstrap';
 import Description from './Components/Description.jsx';
 import Specifications from './Components/Specifications.jsx';
@@ -100,7 +99,6 @@ class ProductDesc extends React.Component {
       const {title, message} = res.data;
       helpers.setState.setModalMessage(title, message, this)
       this.toggleModal('message');
-
 			window.dispatchEvent(new CustomEvent('stars',{detail: {id}}));
       this.getProducts(id, '', 0)
 		})
@@ -120,48 +118,25 @@ class ProductDesc extends React.Component {
 
 	handleQuestionSort(type) {
 		const id = this.state.product_id;
-		// axios.get(`http://localhost:3050/api/questions/${id}?type=${type}`, {withCredentials: true})
-		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/questions/${id}?type=${type}`, {withCredentials: true})
-		.then(data => {this.setState({questions : data.data})})
+		API.getSortedQuestions(id, type)
+		.then(res => helpers.setState.setQuestions(res, this))
 	}
 
 	handleSubmitQuestion(question) {
 		const id = this.state.product_id;
-		// let type = this.state.reviewSortType;
-		axios.post('http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
-		// axios.post('http://localhost:3050/api/question', {...question, product_id: this.state.product_id}, {withCredentials: true})
-		.then(results =>{
-			this.setState({
-				toggleModals: {
-          ...this.state.toggleModals,
-          message : true
-        },
-				message: {
-					title: results.data.title,
-					message: results.data.message
-				}
-			})
+		API.submitQuestion(question, id)
+		.then(res =>{
+			const {title, message} = res.data;
+			helpers.setState.setModalMessage(title, message, this)
 
-			// axios.get(`http://localhost:3050/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
-			axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/product/${id}?review=0&type=`, {withCredentials: true}).then(data => {
-				if (data.data.reviewStats.reviewCount < 10) {
-					this.setState({ ...data.data, reviewCount: data.data.reviewStats.reviewCount });
-				} else {
-					this.setState({ ...data.data, reviewCount: 10 });
-				}
+			API.getAllProductDataByID(id, '', 0)
+			.then(res => {
+				helpers.setState.updateProductData(res, this);
 			});
 		})
-		.catch(err => {
-			this.setState({
-				toggleModals: {
-          ...this.state.toggleModals,
-          message : true
-        },
-				message: {
-					title: "Server error: " + err.response.data.err,
-					message: "Sorry, we encountered the following error:\n\n" + err.response.data.message
-				}
-			})
+		.catch(error => {
+			const {err, message} = error.response.data
+			helpers.setState.setModalMessage(err, message,this)
 		})
 	}
 
@@ -181,11 +156,10 @@ class ProductDesc extends React.Component {
 		})
 	}
 
-	handleQuestionSearch(search) {
+	handleQuestionSearch(query) {
 		const id = this.state.product_id;
-		// axios.get(`http://localhost:3050/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
-		axios.get(`http://ec2-18-225-6-113.us-east-2.compute.amazonaws.com/api/search?product_id=${id}&type=questions&string=${encodeURI(search)}`)
-		.then(results => this.setState({questions: results.data}));
+		API.getQuestionSearch(id, query)
+		.then(res => helpers.setState.setQuestions(res, this));
 	}
 
 	render() {

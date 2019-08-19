@@ -84,6 +84,10 @@ const helpers = {
 		}
   },
 
+    setQuestions : (response, context) => {
+      context.setState({questions : response.data})
+    },
+
   toggleAccordion: sign => {
     if (Array.from(sign.classList).includes(signs.plusSign)) {
       Array.from(document.getElementsByClassName(signs.minusSign)).forEach(
